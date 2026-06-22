@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About – StopwatchPro</title>
+  <meta name="description" content="Learn about StopwatchPro, a free online stopwatch and lap timer built for everyone." />
+  <link rel="canonical" href="https://burrell001-max.github.io/stopwatchpro/about.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0b0f1a; --surface: #131929; --border: #1e2d47;
+      --accent: #00d4ff; --text: #e8f0fe; --muted: #6b8199;
+      --radius: 12px; --sans: 'Inter', sans-serif; --mono: 'Share Tech Mono', monospace;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: var(--sans); min-height: 100vh; display: grid; grid-template-rows: auto 1fr auto; }
+    header { display: flex; align-items: center; justify-content: space-between; padding: 18px 32px; border-bottom: 1px solid var(--border); }
+    .logo { font-family: var(--mono); font-size: 1.25rem; color: var(--accent); letter-spacing: 0.06em; text-decoration: none; }
+    nav a { color: var(--muted); text-decoration: none; font-size: 0.85rem; margin-left: 24px; transition: color 0.2s; }
+    nav a:hover { color: var(--text); }
+    main { max-width: 720px; margin: 0 auto; padding: 56px 24px; }
+    .page-tag { font-family: var(--mono); font-size: 0.75rem; color: var(--accent); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 12px; }
+    h1 { font-size: 2rem; font-weight: 600; margin-bottom: 32px; line-height: 1.2; }
+    .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px; margin-bottom: 20px; }
+    .card h2 { font-size: 1rem; font-weight: 600; color: var(--accent); margin-bottom: 12px; letter-spacing: 0.05em; }
+    .card p { font-size: 0.9rem; color: var(--muted); line-height: 1.8; }
+    .card ul { list-style: none; font-size: 0.9rem; color: var(--muted); line-height: 2; }
+    .card ul li::before { content: "→ "; color: var(--accent); }
+    footer { border-top: 1px solid var(--border); text-align: center; padding: 20px; font-size: 0.78rem; color: var(--muted); }
+    footer a { color: var(--muted); text-decoration: none; margin: 0 12px; }
+    footer a:hover { color: var(--text); }
+    @media (max-width: 600px) { header { padding: 14px 16px; } main { padding: 32px 16px; } h1 { font-size: 1.5rem; } }
+  </style>
+</head>
+<body>
+<header>
+  <a href="index.html" class="logo">⏱ StopwatchPro</a>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="privacy.html">Privacy</a>
+  </nav>
+</header>
+
+<main>
+  <div class="page-tag">About</div>
+  <h1>Built for anyone who needs to time anything.</h1>
+
+  <div class="card">
+    <h2>What is StopwatchPro?</h2>
+    <p>StopwatchPro is a free, browser-based stopwatch and lap timer. There's nothing to download, no account to create, and no fees. Just open the page and start timing — whether you're on a phone, tablet, or desktop computer.</p>
+  </div>
+
+  <div class="card">
+    <h2>Why we built it</h2>
+    <p>Most online stopwatches are cluttered, slow to load, or riddled with pop-ups. We built StopwatchPro to be the opposite: fast, clean, and reliable. It works the moment you open it, even on a slow connection.</p>
+  </div>
+
+  <div class="card">
+    <h2>Who uses StopwatchPro?</h2>
+    <ul>
+      <li>Athletes and coaches tracking workout splits</li>
+      <li>Students using the Pomodoro technique</li>
+      <li>Cooks timing recipes to the second</li>
+      <li>Teachers managing classroom activities</li>
+      <li>Scientists and researchers recording experiments</li>
+      <li>Anyone who needs a quick, accurate timer</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>Features</h2>
+    <ul>
+      <li>Millisecond-accurate timing</li>
+      <li>Unlimited lap recording with best/worst split highlights</li>
+      <li>Keyboard shortcuts (Space, L, R)</li>
+      <li>Works on all devices and browsers</li>
+      <li>No ads that interrupt timing</li>
+      <li>100% free, forever</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>Contact</h2>
+    <p>Have a suggestion or found a bug? We'd love to hear from you. Reach us at <a href="mailto:hello@yourdomain.com" style="color: var(--accent);">hello@yourdomain.com</a></p>
+  </div>
+</main>
+
+<footer>
+  <p>© 2025 StopwatchPro &nbsp;|&nbsp;
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="privacy.html">Privacy Policy</a>
+  </p>
+</footer>
+</body>
+</html>
