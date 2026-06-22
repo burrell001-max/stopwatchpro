@@ -5,8 +5,45 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>StopwatchPro – Free Online Stopwatch & Lap Timer</title>
   <meta name="description" content="Free online stopwatch with lap timer. No download needed. Precise timing for workouts, cooking, studying, and more." />
-  <meta name="keywords" content="online stopwatch, free stopwatch, lap timer, timer online, countdown" />
-  <link rel="canonical" href="https://yourdomain.com/" />
+  <meta name="keywords" content="online stopwatch, free stopwatch, lap timer, timer online, countdown, stopwatch online, online timer" />
+  <link rel="canonical" href="https://burrell001-max.github.io/stopwatchpro/" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="StopwatchPro" />
+
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://burrell001-max.github.io/stopwatchpro/" />
+  <meta property="og:title" content="StopwatchPro – Free Online Stopwatch & Lap Timer" />
+  <meta property="og:description" content="Free online stopwatch with millisecond accuracy and lap timer. No download needed. Works on any device instantly." />
+  <meta property="og:site_name" content="StopwatchPro" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="StopwatchPro – Free Online Stopwatch & Lap Timer" />
+  <meta name="twitter:description" content="Free online stopwatch with millisecond accuracy and lap timer. No download needed." />
+
+  <!-- Schema Markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "StopwatchPro",
+    "url": "https://burrell001-max.github.io/stopwatchpro/",
+    "description": "Free online stopwatch with millisecond accuracy and lap timer. Works on any device, no download needed.",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "StopwatchPro",
+      "email": "williamsconsultingsolutions68@gmail.com"
+    }
+  }
+  </script>
 
   <!-- Google AdSense placeholder – replace with your publisher ID -->
   <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script> -->
@@ -292,12 +329,52 @@
     footer {
       border-top: 1px solid var(--border);
       text-align: center;
-      padding: 20px;
+      padding: 24px 20px 20px;
       font-size: 0.78rem;
       color: var(--muted);
     }
     footer a { color: var(--muted); text-decoration: none; margin: 0 12px; }
     footer a:hover { color: var(--text); }
+
+    /* Visitor counter / odometer */
+    .visitor-wrap {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 16px;
+    }
+    .visitor-label {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      color: var(--muted);
+    }
+    .odometer {
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 8px 14px;
+    }
+    .od-digit {
+      font-family: var(--mono);
+      font-size: 1.4rem;
+      color: var(--accent);
+      width: 1ch;
+      text-align: center;
+      display: inline-block;
+      transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+      text-shadow: 0 0 10px rgba(0,212,255,0.5);
+    }
+    .od-sep {
+      font-family: var(--mono);
+      font-size: 1.4rem;
+      color: var(--border);
+      margin: 0 1px;
+    }
 
     /* ── Responsive ───────────────────────────────────────────────── */
     @media (max-width: 768px) {
@@ -337,6 +414,7 @@
 <!-- ── Main content ───────────────────────────────────────────────── -->
 <main>
   <section class="stopwatch-card" aria-label="Stopwatch">
+    <h1 style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;">Free Online Stopwatch with Lap Timer</h1>
     <!-- Ring display -->
     <div class="ring-wrap" role="timer" aria-live="off">
       <svg viewBox="0 0 260 260" aria-hidden="true">
@@ -411,10 +489,22 @@
 
 <!-- ── Footer ─────────────────────────────────────────────────────── -->
 <footer>
+  <div class="visitor-wrap">
+    <span class="visitor-label">TOTAL VISITORS</span>
+    <div class="odometer" id="odometer">
+      <span class="od-digit" id="d6">0</span>
+      <span class="od-digit" id="d5">0</span>
+      <span class="od-digit" id="d4">0</span>
+      <span class="od-sep">,</span>
+      <span class="od-digit" id="d3">0</span>
+      <span class="od-digit" id="d2">0</span>
+      <span class="od-digit" id="d1">0</span>
+    </div>
+  </div>
   <p>© 2025 StopwatchPro &nbsp;|&nbsp;
     <a href="about.html">About</a>
     <a href="privacy.html">Privacy Policy</a>
-    <a href="mailto:hello@yourdomain.com">Contact</a>
+    <a href="contact.html">Contact</a>
   </p>
 </footer>
 
@@ -538,6 +628,45 @@
     if (e.key  === 'l' || e.key === 'L') { if (!btnLap.disabled) btnLap.click(); }
     if (e.key  === 'r' || e.key === 'R') btnReset.click();
   });
+</script>
+
+<!-- ── Visitor Counter ─────────────────────────────────────────────── -->
+<script>
+  function animateOdometer(count) {
+    const str = String(count).padStart(6, '0');
+    const ids = ['d6','d5','d4','d3','d2','d1'];
+    ids.forEach((id, i) => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const newVal = str[i];
+      if (el.textContent !== newVal) {
+        el.style.transform = 'translateY(-8px)';
+        el.style.opacity = '0';
+        setTimeout(() => {
+          el.textContent = newVal;
+          el.style.transform = 'translateY(0)';
+          el.style.opacity = '1';
+        }, 150 + i * 60);
+      }
+    });
+  }
+
+  // Using countapi.dev — free, no signup needed
+  async function updateVisitorCount() {
+    try {
+      const res = await fetch('https://api.countapi.xyz/hit/burrell001-max.github.io-stopwatchpro/visits');
+      const data = await res.json();
+      if (data && data.value) {
+        animateOdometer(data.value);
+      }
+    } catch (e) {
+      // Fallback: show a static display if API is unavailable
+      animateOdometer(1);
+    }
+  }
+
+  // Slight delay so animation is visible on load
+  setTimeout(updateVisitorCount, 600);
 </script>
 
 </body>
