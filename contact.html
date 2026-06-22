@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact – StopwatchPro</title>
+  <meta name="description" content="Get in touch with the StopwatchPro team. We'd love to hear your feedback, suggestions, or bug reports." />
+  <link rel="canonical" href="https://burrell001-max.github.io/stopwatchpro/contact.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0b0f1a; --surface: #131929; --border: #1e2d47;
+      --accent: #00d4ff; --accent2: #0088cc; --text: #e8f0fe; --muted: #6b8199;
+      --danger: #ff4d6d; --radius: 12px;
+      --sans: 'Inter', sans-serif; --mono: 'Share Tech Mono', monospace;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: var(--sans); min-height: 100vh; display: grid; grid-template-rows: auto 1fr auto; }
+
+    header { display: flex; align-items: center; justify-content: space-between; padding: 18px 32px; border-bottom: 1px solid var(--border); }
+    .logo { font-family: var(--mono); font-size: 1.25rem; color: var(--accent); letter-spacing: 0.06em; text-decoration: none; }
+    nav a { color: var(--muted); text-decoration: none; font-size: 0.85rem; margin-left: 24px; transition: color 0.2s; }
+    nav a:hover { color: var(--text); }
+
+    main { max-width: 680px; margin: 0 auto; padding: 56px 24px; width: 100%; }
+    .page-tag { font-family: var(--mono); font-size: 0.75rem; color: var(--accent); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 12px; }
+    h1 { font-size: 2rem; font-weight: 600; margin-bottom: 10px; }
+    .subtitle { color: var(--muted); font-size: 0.95rem; margin-bottom: 40px; line-height: 1.6; }
+
+    /* Direct email card */
+    .email-card {
+      background: var(--surface);
+      border: 1px solid var(--accent);
+      border-radius: var(--radius);
+      padding: 28px;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .email-icon {
+      width: 48px; height: 48px; flex-shrink: 0;
+      background: rgba(0,212,255,0.1);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem;
+    }
+    .email-card h2 { font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
+    .email-card a { color: var(--accent); font-size: 1rem; font-weight: 600; text-decoration: none; word-break: break-all; }
+    .email-card a:hover { text-decoration: underline; }
+
+    /* Form */
+    .form-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px;
+      margin-bottom: 24px;
+    }
+    .form-card h2 { font-size: 1rem; font-weight: 600; color: var(--text); margin-bottom: 24px; }
+    .field { margin-bottom: 18px; }
+    label { display: block; font-size: 0.8rem; color: var(--muted); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 6px; }
+    input, textarea, select {
+      width: 100%;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 0.9rem;
+      padding: 12px 14px;
+      transition: border-color 0.2s;
+      outline: none;
+    }
+    input:focus, textarea:focus, select:focus { border-color: var(--accent); }
+    textarea { resize: vertical; min-height: 130px; }
+    select option { background: var(--surface); }
+
+    .btn-submit {
+      width: 100%;
+      background: var(--accent);
+      color: #000;
+      font-family: var(--sans);
+      font-size: 0.95rem;
+      font-weight: 700;
+      border: none;
+      border-radius: 8px;
+      padding: 14px;
+      cursor: pointer;
+      margin-top: 6px;
+      transition: opacity 0.2s, transform 0.1s;
+      letter-spacing: 0.03em;
+    }
+    .btn-submit:hover { opacity: 0.88; }
+    .btn-submit:active { transform: scale(0.98); }
+
+    /* Success / error states */
+    .toast {
+      display: none;
+      padding: 14px 18px;
+      border-radius: 8px;
+      font-size: 0.88rem;
+      margin-top: 14px;
+      font-weight: 500;
+    }
+    .toast.success { background: rgba(74,222,128,0.12); border: 1px solid #4ade80; color: #4ade80; }
+    .toast.error   { background: rgba(255,77,109,0.12); border: 1px solid var(--danger); color: var(--danger); }
+
+    /* Info cards */
+    .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px; }
+    .info-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+    }
+    .info-item .icon { font-size: 1.3rem; margin-bottom: 8px; }
+    .info-item h3 { font-size: 0.82rem; color: var(--accent); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 4px; }
+    .info-item p { font-size: 0.82rem; color: var(--muted); line-height: 1.6; }
+
+    footer { border-top: 1px solid var(--border); text-align: center; padding: 20px; font-size: 0.78rem; color: var(--muted); }
+    footer a { color: var(--muted); text-decoration: none; margin: 0 12px; }
+    footer a:hover { color: var(--text); }
+
+    @media (max-width: 600px) {
+      header { padding: 14px 16px; }
+      main { padding: 32px 16px; }
+      h1 { font-size: 1.5rem; }
+      .info-grid { grid-template-columns: 1fr; }
+      .email-card { flex-direction: column; align-items: flex-start; gap: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="logo">⏱ StopwatchPro</a>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="privacy.html">Privacy</a>
+  </nav>
+</header>
+
+<main>
+  <div class="page-tag">Contact</div>
+  <h1>Get in touch</h1>
+  <p class="subtitle">Have a suggestion, found a bug, or just want to say hello? We read every message and typically reply within 24–48 hours.</p>
+
+  <!-- Direct email -->
+  <div class="email-card">
+    <div class="email-icon">✉️</div>
+    <div>
+      <h2>Email us directly</h2>
+      <a href="mailto:williamsconsultingsolutions68@gmail.com">williamsconsultingsolutions68@gmail.com</a>
+    </div>
+  </div>
+
+  <!-- Info grid -->
+  <div class="info-grid">
+    <div class="info-item">
+      <div class="icon">🐛</div>
+      <h3>Bug Reports</h3>
+      <p>Found something broken? Let us know and we'll fix it fast.</p>
+    </div>
+    <div class="info-item">
+      <div class="icon">💡</div>
+      <h3>Feature Ideas</h3>
+      <p>Want a countdown timer or new feature? We're listening.</p>
+    </div>
+    <div class="info-item">
+      <div class="icon">🤝</div>
+      <h3>Partnerships</h3>
+      <p>Interested in working together? Reach out anytime.</p>
+    </div>
+    <div class="info-item">
+      <div class="icon">⚡</div>
+      <h3>Response Time</h3>
+      <p>We aim to reply within 24–48 hours on business days.</p>
+    </div>
+  </div>
+
+  <!-- Contact form (mailto-based, no backend needed) -->
+  <div class="form-card">
+    <h2>Send a message</h2>
+
+    <div class="field">
+      <label for="name">Your name</label>
+      <input type="text" id="name" placeholder="Jane Smith" />
+    </div>
+
+    <div class="field">
+      <label for="email">Your email</label>
+      <input type="email" id="email" placeholder="jane@example.com" />
+    </div>
+
+    <div class="field">
+      <label for="subject">Subject</label>
+      <select id="subject">
+        <option value="">Select a topic…</option>
+        <option value="Bug report">Bug report</option>
+        <option value="Feature request">Feature request</option>
+        <option value="General feedback">General feedback</option>
+        <option value="Partnership inquiry">Partnership inquiry</option>
+        <option value="Other">Other</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label for="message">Message</label>
+      <textarea id="message" placeholder="Tell us what's on your mind…"></textarea>
+    </div>
+
+    <button class="btn-submit" onclick="sendEmail()">Send Message</button>
+    <div class="toast" id="toast"></div>
+  </div>
+</main>
+
+<footer>
+  <p>© 2025 StopwatchPro &nbsp;|&nbsp;
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="contact.html">Contact</a>
+  </p>
+</footer>
+
+<script>
+  function sendEmail() {
+    const name    = document.getElementById('name').value.trim();
+    const email   = document.getElementById('email').value.trim();
+    const subject = document.getElementById('subject').value;
+    const message = document.getElementById('message').value.trim();
+    const toast   = document.getElementById('toast');
+
+    if (!name || !email || !subject || !message) {
+      toast.textContent = 'Please fill in all fields before sending.';
+      toast.className = 'toast error';
+      toast.style.display = 'block';
+      return;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      toast.textContent = 'Please enter a valid email address.';
+      toast.className = 'toast error';
+      toast.style.display = 'block';
+      return;
+    }
+
+    const body = `Name: ${name}%0AEmail: ${email}%0A%0A${encodeURIComponent(message)}`;
+    const mailto = `mailto:williamsconsultingsolutions68@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+    window.location.href = mailto;
+
+    toast.textContent = '✓ Your email client is opening — thanks for reaching out!';
+    toast.className = 'toast success';
+    toast.style.display = 'block';
+  }
+</script>
+
+</body>
+</html>
