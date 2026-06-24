@@ -45,7 +45,55 @@
   }
   </script>
 
-  <!-- Google AdSense -->
+  <!-- FAQ Schema Markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is StopwatchPro really free to use?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. StopwatchPro is completely free with no sign-up, no download, and no hidden fees. It runs directly in your browser."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How accurate is the online stopwatch?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "StopwatchPro measures time to the millisecond using your browser's high-resolution timing functions, making it accurate enough for workouts, cooking, races, and lab timing."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does StopwatchPro work on mobile devices?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. The stopwatch is fully responsive and works on phones, tablets, and desktop browsers without needing an app."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I use StopwatchPro without an internet connection?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "After the page has loaded once, the stopwatch itself continues to function offline since all timing logic runs locally in your browser."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does StopwatchPro store my lap times?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Lap times exist only in your current browser session and are cleared when you reset the stopwatch or close the tab."
+        }
+      }
+    ]
+  }
+  </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -324,6 +372,61 @@
       line-height: 1.7;
     }
 
+    /* ── How-to / Guide section ──────────────────────────────────── */
+    .guide-section {
+      max-width: 800px;
+      margin: 0 auto 48px;
+      padding: 0 24px;
+    }
+    .guide-section h2 {
+      font-size: 1.3rem;
+      margin-bottom: 16px;
+      color: var(--text);
+    }
+    .guide-section p {
+      font-size: 0.92rem;
+      color: var(--muted);
+      line-height: 1.8;
+      margin-bottom: 14px;
+    }
+    .guide-section ol, .guide-section ul {
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.9;
+      margin: 0 0 14px 20px;
+    }
+    .guide-section strong { color: var(--text); }
+
+    /* ── FAQ section ─────────────────────────────────────────────── */
+    .faq-section {
+      max-width: 800px;
+      margin: 0 auto 56px;
+      padding: 0 24px;
+    }
+    .faq-section h2 {
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+      color: var(--text);
+    }
+    .faq-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px 22px;
+      margin-bottom: 12px;
+    }
+    .faq-item h3 {
+      font-size: 0.95rem;
+      color: var(--accent);
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+    .faq-item p {
+      font-size: 0.86rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
     /* ── Footer ───────────────────────────────────────────────────── */
     footer {
       border-top: 1px solid var(--border);
@@ -334,46 +437,6 @@
     }
     footer a { color: var(--muted); text-decoration: none; margin: 0 12px; }
     footer a:hover { color: var(--text); }
-
-    /* Visitor counter / odometer */
-    .visitor-wrap {
-      display: inline-flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 6px;
-      margin-bottom: 16px;
-    }
-    .visitor-label {
-      font-family: var(--mono);
-      font-size: 0.65rem;
-      letter-spacing: 0.2em;
-      color: var(--muted);
-    }
-    .odometer {
-      display: inline-flex;
-      align-items: center;
-      gap: 3px;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 8px 14px;
-    }
-    .od-digit {
-      font-family: var(--mono);
-      font-size: 1.4rem;
-      color: var(--accent);
-      width: 1ch;
-      text-align: center;
-      display: inline-block;
-      transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-      text-shadow: 0 0 10px rgba(0,212,255,0.5);
-    }
-    .od-sep {
-      font-family: var(--mono);
-      font-size: 1.4rem;
-      color: var(--border);
-      margin: 0 1px;
-    }
 
     /* ── Responsive ───────────────────────────────────────────────── */
     @media (max-width: 768px) {
@@ -401,6 +464,7 @@
   <nav>
     <a href="about.html">About</a>
     <a href="privacy.html">Privacy</a>
+    <a href="contact.html">Contact</a>
   </nav>
 </header>
 
@@ -486,20 +550,58 @@
   </div>
 </section>
 
+<!-- ── How-to guide (added content depth) ─────────────────────────── -->
+<section class="guide-section">
+  <h2>How to Use StopwatchPro</h2>
+  <p>StopwatchPro is designed to be simple enough that you never need instructions — but here's exactly how each feature works if you want to get the most out of it.</p>
+  <ol>
+    <li><strong>Start timing:</strong> Click the Start button or press the Space bar to begin counting. The display updates in real time down to the millisecond.</li>
+    <li><strong>Record a lap:</strong> While the stopwatch is running, click Lap or press "L" to log a split. Each lap shows both its individual time and the running total.</li>
+    <li><strong>Pause and resume:</strong> Click Stop to pause, then Resume to continue from where you left off without losing your recorded laps.</li>
+    <li><strong>Reset everything:</strong> Press Reset or "R" to clear the timer and all lap data and start fresh.</li>
+  </ol>
+  <p>Because the stopwatch logic runs locally in your browser using high-resolution timing APIs, there's no lag and no dependency on your internet connection once the page has loaded.</p>
+
+  <h2>Tips for Getting Accurate Splits</h2>
+  <ul>
+    <li>Use the keyboard shortcuts (Space, L, R) instead of clicking — it shaves reaction time off your lap recording.</li>
+    <li>For interval workouts, glance at the green-highlighted lap to see your fastest split and the red one for your slowest.</li>
+    <li>Keep the tab active and the screen awake during long sessions, since some mobile browsers can throttle background tabs.</li>
+  </ul>
+</section>
+
+<!-- ── FAQ section (added content depth) ───────────────────────────── -->
+<section class="faq-section">
+  <h2>Frequently Asked Questions</h2>
+
+  <div class="faq-item">
+    <h3>Is StopwatchPro really free to use?</h3>
+    <p>Yes. StopwatchPro is completely free with no sign-up, no download, and no hidden fees. It runs directly in your browser.</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>How accurate is the online stopwatch?</h3>
+    <p>StopwatchPro measures time to the millisecond using your browser's high-resolution timing functions, making it accurate enough for workouts, cooking, races, and lab timing.</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>Does StopwatchPro work on mobile devices?</h3>
+    <p>Yes. The stopwatch is fully responsive and works on phones, tablets, and desktop browsers without needing an app.</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>Can I use StopwatchPro without an internet connection?</h3>
+    <p>After the page has loaded once, the stopwatch itself continues to function offline since all timing logic runs locally in your browser.</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>Does StopwatchPro store my lap times?</h3>
+    <p>No. Lap times exist only in your current browser session and are cleared when you reset the stopwatch or close the tab.</p>
+  </div>
+</section>
+
 <!-- ── Footer ─────────────────────────────────────────────────────── -->
 <footer>
-  <div class="visitor-wrap">
-    <span class="visitor-label">TOTAL VISITORS</span>
-    <div class="odometer" id="odometer">
-      <span class="od-digit" id="d6">0</span>
-      <span class="od-digit" id="d5">0</span>
-      <span class="od-digit" id="d4">0</span>
-      <span class="od-sep">,</span>
-      <span class="od-digit" id="d3">0</span>
-      <span class="od-digit" id="d2">0</span>
-      <span class="od-digit" id="d1">0</span>
-    </div>
-  </div>
   <p>© 2025 StopwatchPro &nbsp;|&nbsp;
     <a href="about.html">About</a>
     <a href="privacy.html">Privacy Policy</a>
@@ -595,8 +697,6 @@
 
   btnLap.addEventListener('click', () => {
     if (!running) return;
-    const now   = Date.now();
-    const total = now - (startTime - elapsed + elapsed); // = elapsed now
     const currentElapsed = Date.now() - startTime;
     const prevTotal = laps.length ? laps[laps.length - 1].total : 0;
     laps.push({ total: currentElapsed, split: currentElapsed - prevTotal });
@@ -627,45 +727,6 @@
     if (e.key  === 'l' || e.key === 'L') { if (!btnLap.disabled) btnLap.click(); }
     if (e.key  === 'r' || e.key === 'R') btnReset.click();
   });
-</script>
-
-<!-- ── Visitor Counter ─────────────────────────────────────────────── -->
-<script>
-  function animateOdometer(count) {
-    const str = String(count).padStart(6, '0');
-    const ids = ['d6','d5','d4','d3','d2','d1'];
-    ids.forEach((id, i) => {
-      const el = document.getElementById(id);
-      if (!el) return;
-      const newVal = str[i];
-      if (el.textContent !== newVal) {
-        el.style.transform = 'translateY(-8px)';
-        el.style.opacity = '0';
-        setTimeout(() => {
-          el.textContent = newVal;
-          el.style.transform = 'translateY(0)';
-          el.style.opacity = '1';
-        }, 150 + i * 60);
-      }
-    });
-  }
-
-  // Using countapi.dev — free, no signup needed
-  async function updateVisitorCount() {
-    try {
-      const res = await fetch('https://api.countapi.xyz/hit/burrell001-max.github.io-stopwatchpro/visits');
-      const data = await res.json();
-      if (data && data.value) {
-        animateOdometer(data.value);
-      }
-    } catch (e) {
-      // Fallback: show a static display if API is unavailable
-      animateOdometer(1);
-    }
-  }
-
-  // Slight delay so animation is visible on load
-  setTimeout(updateVisitorCount, 600);
 </script>
 
 </body>
