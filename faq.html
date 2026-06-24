@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Frequently Asked Questions — StopwatchPro</title>
+  <meta name="description" content="Find answers to common questions about StopwatchPro accuracy, background tab performance, keyboard shortcuts, and offline use." />
+  <link rel="canonical" href="https://stopwatchpro.xyz/faq.html" />
+  <meta name="robots" content="index, follow" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://stopwatchpro.xyz/faq.html" />
+  <meta property="og:title" content="Frequently Asked Questions — StopwatchPro" />
+  <meta property="og:description" content="Find answers to common questions about StopwatchPro accuracy, background tab performance, keyboard shortcuts, and offline use." />
+  <meta property="og:site_name" content="StopwatchPro" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is StopwatchPro really free to use?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. StopwatchPro is completely free with no sign-up, no download, and no hidden fees. It runs directly in your browser."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How accurate is the online stopwatch?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "StopwatchPro measures time to the millisecond using your browser's high-resolution timing functions, making it accurate enough for workouts, cooking, races, and lab timing."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does StopwatchPro work on mobile devices?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. The stopwatch is fully responsive and works on phones, tablets, and desktop browsers without needing an app."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I use StopwatchPro without an internet connection?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "After the page has loaded once, the stopwatch itself continues to function offline since all timing logic runs locally in your browser."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does StopwatchPro store my lap times?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Lap times exist only in your current browser session and are cleared when you reset the stopwatch or close the tab."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── Design tokens ────────────────────────────────────────────── */
+    :root {
+      --bg:        #0b0f1a;
+      --surface:   #131929;
+      --border:    #1e2d47;
+      --accent:    #00d4ff;
+      --text:      #e8f0fe;
+      --muted:     #6b8199;
+      --mono:      'Share Tech Mono', monospace;
+      --sans:      'Inter', sans-serif;
+      --radius:    12px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      min-height: 100vh;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      grid-template-columns: 1fr;
+    }
+
+    /* ── Header ───────────────────────────────────────────────────── */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 32px;
+      border-bottom: 1px solid var(--border);
+    }
+    .logo, .logo a {
+      font-family: var(--mono);
+      font-size: 1.25rem;
+      color: var(--accent);
+      letter-spacing: 0.06em;
+      text-decoration: none;
+    }
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      margin-left: 24px;
+      transition: color 0.2s;
+    }
+    nav a:hover, nav a.active { color: var(--text); }
+
+    /* ── Main content structural wrapper ─────────────────────────── */
+    main {
+      max-width: 800px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 50px 24px;
+    }
+
+    .page-title {
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+
+    .page-subtitle {
+      font-size: 0.95rem;
+      color: var(--muted);
+      margin-bottom: 40px;
+      line-height: 1.6;
+    }
+
+    /* ── FAQ items ────────────────────────────────────────────────── */
+    .faq-container {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .faq-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+    }
+
+    .faq-card h2 {
+      font-size: 1.1rem;
+      color: var(--accent);
+      margin-bottom: 12px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    .faq-card p {
+      font-size: 0.92rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .faq-card ul {
+      margin-top: 10px;
+      margin-left: 20px;
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.7;
+    }
+
+    /* ── Footer ───────────────────────────────────────────────────── */
+    footer {
+      border-top: 1px solid var(--border);
+      text-align: center;
+      padding: 24px 20px 20px;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+    footer a { color: var(--muted); text-decoration: none; margin: 0 12px; }
+    footer a:hover { color: var(--text); }
+
+    @media (max-width: 768px) {
+      header { padding: 14px 16px; }
+      main { padding: 32px 16px; }
+      .page-title { font-size: 1.6rem; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <span class="logo"><a href="/">⏱ StopwatchPro</a></span>
+  <nav>
+    <a href="faq.html" class="active">FAQ</a>
+    <a href="about.html">About</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<main>
+  <h1 class="page-title">Frequently Asked Questions</h1>
+  <p class="page-subtitle">Everything you need to know about technical precision, cross-device support, and performance optimizations on StopwatchPro.</p>
+
+  <div class="faq-container">
+    <div class="faq-card">
+      <h2>Is StopwatchPro really free to use?</h2>
+      <p>Yes. StopwatchPro is completely free with no user registration requirements, no installation requirements, and no tracking premiums. It executes directly inside any modern web environment.</p>
+    </div>
+
+    <div class="faq-card">
+      <h2>How accurate is the online stopwatch?</h2>
+      <p>Our infrastructure tracks elapsed duration down to the millisecond utilizing your browser system's high-resolution performance timeline interface (`performance.now()`). This ensures millisecond precision disconnected from network ping fluctuations, ideal for metrics-driven data tracking, labs, or cooking tracking profiles.</p>
+    </div>
+
+    <div class="faq-card">
+      <h2>Does StopwatchPro function properly when the browser tab is minimized or in the background?</h2>
+      <p>Yes. Because timing tracks systemic delta metrics based on structural CPU timestamps, the absolute running calculation remains true even if tab processing cycles get throttled by system background layers. However, visual state ticks (`requestAnimationFrame`) pause when out of view to optimize memory footprint usage until you switch back.</p>
+    </div>
+
+    <div class="faq-card">
+      <h2>Can I use StopwatchPro without an internet connection?</h2>
+      <p>After the application shell parses successfully on your target framework the first time, all computing logic handles local state runtimes natively. You can remain completely offline while retaining access to control elements, hotkeys, and lap splits.</p>
+    </div>
+
+    <div class="faq-card">
+      <h2>Does StopwatchPro store or track my lap times?</h2>
+      <p>No. Your recorded laps reside inside memory scopes mapped localized to your running browser tab context. Closing out structural view frames or performing page renewals purges the active stack instantly. Your analytics remain private to your local system.</p>
+    </div>
+
+    <div class="faq-card">
+      <h2>What keyboard shortcuts are supported?</h2>
+      <p>For high-efficiency operations, you can control the tracking mechanisms via the following mapping triggers directly:</p>
+      <ul>
+        <li><strong>Spacebar:</strong> Toggle runtime states between Start and Paused values.</li>
+        <li><strong>L Key:</strong> Execute lap recording profiles on active counters.</li>
+        <li><strong>R Key:</strong> Clear current data structures and reset tracking frames.</li>
+      </ul>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <p>© <span id="copyright-year">2026</span> StopwatchPro &nbsp;|&nbsp;
+    <a href="faq.html">FAQ</a>
+    <a href="about.html">About</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="contact.html">Contact</a>
+  </p>
+</footer>
+
+<script>
+  document.getElementById('copyright-year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
