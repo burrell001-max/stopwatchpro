@@ -349,9 +349,6 @@
     }
     .info-card ul li::before { content: "→ "; color: var(--accent); }
 
-    /* ── Info widget 2 ────────────────────────────────────────────── */
-    .info-card ul li::before { content: "→ "; color: var(--accent); }
-
     /* ── SEO content ──────────────────────────────────────────────── */
     .seo-section {
       max-width: 1100px;
@@ -554,18 +551,8 @@
   <ol>
     <li><strong>Start timing:</strong> Click the Start button or press the Space bar to begin counting. The display updates in real time down to the millisecond.</li>
     <li><strong>Record a lap:</strong> While the stopwatch is running, click Lap or press "L" to log a split. Each lap shows both its individual time and the running total.</li>
-    <li><strong>Pause and resume:</strong> Click Stop to pause, then Resume to continue from where you left off without losing your recorded laps.</li>
-    <li><strong>Reset everything:</strong> Press Reset or "R" to clear the timer and all lap data and start fresh.</li>
   </ol>
-  <p>Because the stopwatch logic runs locally in your browser using high-resolution timing APIs, there's no lag and no dependency on your internet connection once the page has loaded.</p>
-
-  <h2>Tips for Getting Accurate Splits</h2>
-  <ul>
-    <li>Use the keyboard shortcuts (Space, L, R) instead of clicking — it shaves reaction time off your lap recording.</li>
-    <li>For interval workouts, glance at the green-highlighted lap to see your fastest split and the red one for your slowest.</li>
-    <li>Keep the tab active and the screen awake during long sessions, since some mobile browsers can throttle background tabs.</li>
-  </ul >
-</section >
+</section>
 
 <section class="faq-section">
   <h2>Frequently Asked Questions</h2>
@@ -579,21 +566,6 @@
     <h3>How accurate is the online stopwatch?</h3>
     <p>StopwatchPro measures time to the millisecond using your browser's high-resolution timing functions, making it accurate enough for workouts, cooking, races, and lab timing.</p>
   </div>
-
-  <div class="faq-item">
-    <h3>Does StopwatchPro work on mobile devices?</h3>
-    <p>Yes. The stopwatch is fully responsive and works on phones, tablets, and desktop browsers without needing an app.</p>
-  </div>
-
-  <div class="faq-item">
-    <h3>Can I use StopwatchPro without an internet connection?</h3>
-    <p>After the page has loaded once, the stopwatch itself continues to function offline since all timing logic runs locally in your browser.</p>
-  </div>
-
-  <div class="faq-item">
-    <h3>Does StopwatchPro store my lap times?</h3>
-    <p>No. Lap times exist only in your current browser session and are cleared when you reset the stopwatch or close the tab.</p>
-  </div>
 </section>
 
 <footer>
@@ -606,7 +578,7 @@
 </footer>
 
 <script>
-  const CIRCUMFERENCE = 2 * Math.PI * 120; // 754
+  const CIRCUMFERENCE = 2 * Math.PI * 120; 
 
   let startTime   = 0;
   let elapsed     = 0;
@@ -624,16 +596,19 @@
   const btnReset  = document.getElementById('btn-reset');
   const timerRegion = document.getElementById('timer-region');
 
-  // Set dynamic copyright year
   document.getElementById('copyright-year').textContent = new Date().getFullYear();
 
   function pad(n, d = 2) { return String(n).padStart(d, '0'); }
 
   function format(ms) {
-    const min = Math.floor(ms / 60000);
-    const sec = Math.floor((ms % 60000) / 1000);
-    const mil = ms % 1000;
-    return { main: `${pad(min)}:${pad(sec)}`, ms: `.${pad(mil, 3)}` };
+    const totalMs = Math.floor(ms); 
+    const min = Math.floor(totalMs / 60000);
+    const sec = Math.floor((totalMs % 60000) / 1000);
+    const mil = totalMs % 1000;
+    return { 
+      main: `${pad(min)}:${pad(sec)}`, 
+      ms: `.` + pad(mil, 3)
+    };
   }
 
   function updateRing(ms) {
@@ -643,34 +618,44 @@
   }
 
   function tick() {
+    if (!running) return;
     elapsed = performance.now() - startTime;
-    const { main, ms } = format(elapsed);
-    timeEl.textContent = main;
-    msEl.textContent   = ms;
+    const formatted = format(elapsed);
+    timeEl.textContent = formatted.main;
+    msEl.textContent   = formatted.ms;
     updateRing(elapsed);
     raf = requestAnimationFrame(tick);
   }
 
   function renderLaps() {
-    if (!laps.length) return;
+    if (!laps.length) {
+      lapList.innerHTML = '';
+      return;
+    }
     const splits = laps.map(l => l.split);
     const best   = Math.min(...splits);
     const worst  = Math.max(...splits);
+    
     lapList.innerHTML = '';
-    [...laps].reverse().forEach((lap, i) => {
+    
+    for (let i = laps.length - 1; i >= 0; i--) {
+      const lap = laps[i];
       const li = document.createElement('li');
-      const realIndex = laps.length - i;
+      const lapFormatted = format(lap.split);
+      const totalFormatted = format(lap.total);
+      
       li.innerHTML = `
-        <span class="lap-num">Lap ${pad(realIndex)}</span>
-        <span class="lap-time">${format(lap.split).main}${format(lap.split).ms}</span>
-        <span>${format(lap.total).main}${format(lap.total).ms}</span>
+        <span class="lap-num">Lap ${pad(i + 1)}</span>
+        <span class="lap-time">${lapFormatted.main}${lapFormatted.ms}</span>
+        <span>${totalFormatted.main}${totalFormatted.ms}</span>
       `;
+      
       if (splits.length > 1) {
         if (lap.split === best)  li.classList.add('best');
         if (lap.split === worst) li.classList.add('worst');
       }
       lapList.appendChild(li);
-    });
+    }
   }
 
   btnStart.addEventListener('click', () => {
@@ -683,10 +668,10 @@
       btnLap.disabled = false;
       statusEl.textContent = 'running';
       timerRegion.setAttribute('aria-live', 'assertive');
-      tick();
+      raf = requestAnimationFrame(tick);
     } else {
       running = false;
-      cancelAnimationFrame(raf);
+      if (raf) cancelAnimationFrame(raf);
       btnStart.textContent = 'Resume';
       btnStart.setAttribute('aria-label', 'Resume stopwatch');
       btnStart.classList.remove('running');
@@ -700,14 +685,17 @@
     if (!running) return;
     const currentElapsed = performance.now() - startTime;
     const prevTotal = laps.length ? laps[laps.length - 1].total : 0;
-    laps.push({ total: currentElapsed, split: currentElapsed - prevTotal });
+    laps.push({ 
+      total: currentElapsed, 
+      split: currentElapsed - prevTotal 
+    });
     renderLaps();
   });
 
   btnReset.addEventListener('click', () => {
     running = false;
-    cancelAnimationFrame(raf);
-    elapsed  = 0;
+    if (raf) cancelAnimationFrame(raf);
+    elapsed = 0;
     laps.length = 0;
     timeEl.textContent   = '00:00';
     msEl.textContent     = '.000';
@@ -721,12 +709,18 @@
     lapList.innerHTML = '';
   });
 
-  // Keyboard shortcuts
   document.addEventListener('keydown', e => {
     if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
-    if (e.code === 'Space')  { e.preventDefault(); btnStart.click(); }
-    if (e.key  === 'l' || e.key === 'L') { if (!btnLap.disabled) btnLap.click(); }
-    if (e.key  === 'r' || e.key === 'R') btnReset.click();
+    if (e.code === 'Space') { 
+      e.preventDefault(); 
+      btnStart.click(); 
+    }
+    if (e.key === 'l' || e.key === 'L') { 
+      if (!btnLap.disabled) btnLap.click(); 
+    }
+    if (e.key === 'r' || e.key === 'R') {
+      btnReset.click();
+    }
   });
 </script>
 
