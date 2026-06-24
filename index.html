@@ -176,12 +176,12 @@
       padding: 32px 32px 32px;
       text-align: center;
     }
+
     .stopwatch-card h1 {
-      font-size: 1.1rem;
+      font-size: 1.25rem;
       font-weight: 500;
-      color: var(--muted);
       margin-bottom: 24px;
-      letter-spacing: 0.02em;
+      color: var(--text);
     }
 
     /* Glowing ring display */
@@ -475,10 +475,9 @@
 </div>
 
 <main>
-  <section class="stopwatch-card" aria-label="Stopwatch Application">
-    <h1>Free Online Stopwatch & Lap Timer</h1>
-    
-    <div class="ring-wrap" role="timer" aria-live="off">
+  <section class="stopwatch-card" aria-labelledby="main-heading">
+    <h1 id="main-heading">Free Online Stopwatch & Lap Timer</h1>
+    <div class="ring-wrap" role="timer" aria-live="off" id="timer-region">
       <svg viewBox="0 0 260 260" aria-hidden="true">
         <circle class="ring-track" cx="130" cy="130" r="120"/>
         <circle class="ring-progress" id="ring" cx="130" cy="130" r="120"/>
@@ -490,7 +489,7 @@
       </div>
     </div>
 
-    <div class="controls">
+  <div class="controls">
       <button id="btn-start" aria-label="Start stopwatch">Start</button>
       <button id="btn-lap" disabled aria-label="Record lap">Lap</button>
       <button id="btn-reset" aria-label="Reset stopwatch">Reset</button>
@@ -593,7 +592,7 @@
 </section>
 
 <footer>
-  <p>© <span id="copyright-year"></span> StopwatchPro &nbsp;|&nbsp;
+  <p>© <span id="copyright-year">2026</span> StopwatchPro &nbsp;|&nbsp;
     <a href="about.html">About</a>
     <a href="privacy.html">Privacy Policy</a>
     <a href="contact.html">Contact</a>
@@ -605,7 +604,6 @@
 
   let startTime   = 0;
   let elapsed     = 0;
-  let lapStart    = 0;
   let running     = false;
   let raf         = null;
   const laps      = [];
@@ -618,8 +616,9 @@
   const btnStart  = document.getElementById('btn-start');
   const btnLap    = document.getElementById('btn-lap');
   const btnReset  = document.getElementById('btn-reset');
+  const timerRegion = document.getElementById('timer-region');
 
-  // Dynamic Year Engine
+  // Set dynamic copyright year
   document.getElementById('copyright-year').textContent = new Date().getFullYear();
 
   function pad(n, d = 2) { return String(n).padStart(d, '0'); }
@@ -638,7 +637,7 @@
   }
 
   function tick() {
-    elapsed = Date.now() - startTime;
+    elapsed = performance.now() - startTime;
     const { main, ms } = format(elapsed);
     timeEl.textContent = main;
     msEl.textContent   = ms;
@@ -669,17 +668,15 @@
   }
 
   btnStart.addEventListener('click', () => {
-    const timerParent = document.querySelector('.ring-wrap');
     if (!running) {
-      startTime = Date.now() - elapsed;
-      if (!lapStart) lapStart = startTime;
+      startTime = performance.now() - elapsed;
       running = true;
       btnStart.textContent = 'Stop';
       btnStart.setAttribute('aria-label', 'Stop stopwatch');
       btnStart.classList.add('running');
       btnLap.disabled = false;
       statusEl.textContent = 'running';
-      if (timerParent) timerParent.setAttribute('aria-live', 'assertive');
+      timerRegion.setAttribute('aria-live', 'assertive');
       tick();
     } else {
       running = false;
@@ -689,16 +686,15 @@
       btnStart.classList.remove('running');
       btnLap.disabled = true;
       statusEl.textContent = 'paused';
-      if (timerParent) timerParent.setAttribute('aria-live', 'off');
+      timerRegion.setAttribute('aria-live', 'off');
     }
   });
 
   btnLap.addEventListener('click', () => {
     if (!running) return;
-    const currentElapsed = Date.now() - startTime;
+    const currentElapsed = performance.now() - startTime;
     const prevTotal = laps.length ? laps[laps.length - 1].total : 0;
     laps.push({ total: currentElapsed, split: currentElapsed - prevTotal });
-    lapStart = Date.now();
     renderLaps();
   });
 
@@ -706,19 +702,17 @@
     running = false;
     cancelAnimationFrame(raf);
     elapsed  = 0;
-    lapStart = 0;
     laps.length = 0;
     timeEl.textContent   = '00:00';
     msEl.textContent     = '.000';
     statusEl.textContent = 'ready';
+    timerRegion.setAttribute('aria-live', 'off');
     ring.style.strokeDashoffset = CIRCUMFERENCE;
     btnStart.textContent = 'Start';
     btnStart.setAttribute('aria-label', 'Start stopwatch');
     btnStart.classList.remove('running');
     btnLap.disabled = true;
     lapList.innerHTML = '';
-    const timerParent = document.querySelector('.ring-wrap');
-    if (timerParent) timerParent.setAttribute('aria-live', 'off');
   });
 
   // Keyboard shortcuts
