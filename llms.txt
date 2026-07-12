@@ -1,0 +1,26 @@
+# StopwatchPro
+
+> StopwatchPro is a free, browser-based online stopwatch and lap timer with millisecond accuracy. No download or sign-up required.
+
+StopwatchPro runs entirely in the browser and works on desktop, tablet, and mobile. It supports unlimited lap recording with automatic best/worst split highlighting, and continues working offline after the first page load.
+
+## Key Features
+- Millisecond-accurate stopwatch timing
+- Unlimited lap recording with best/worst split highlighting
+- Keyboard shortcuts: Space (Start/Stop), L (Lap), R (Reset)
+- No installation, account, or sign-up needed
+- Works offline after first load
+
+## Common Use Cases
+- Workout and run tracking
+- Cooking timers
+- Study sessions (Pomodoro technique)
+- Science experiments
+- Sports coaching and interval training
+
+## Pages
+- [Home](https://stopwatchpro.xyz/): The stopwatch and lap timer tool itself
+- [FAQ](https://stopwatchpro.xyz/faq.html): Frequently asked questions about the tool
+- [About](https://stopwatchpro.xyz/about.html): About StopwatchPro
+- [Privacy](https://stopwatchpro.xyz/privacy.html): Privacy policy
+- [Contact](https://stopwatchpro.xyz/contact.html): Contact information
