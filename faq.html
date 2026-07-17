@@ -1,103 +1,179 @@
-# StopwatchPro Content Package
-Draft content to address the AdSense "Low value content" flag. Copy/adapt into your actual pages — edit in your own voice, don't paste verbatim across many sites.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FAQ – StopwatchPro</title>
+<meta name="description" content="Frequently asked questions about StopwatchPro's free online stopwatch, lap timer, and related tools.">
+<link rel="canonical" href="https://stopwatchpro.xyz/faq.html">
 
----
+<meta property="og:title" content="FAQ – StopwatchPro">
+<meta property="og:description" content="Frequently asked questions about StopwatchPro's free online stopwatch and lap timer.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://stopwatchpro.xyz/faq.html">
+<meta property="og:site_name" content="StopwatchPro">
 
-## 1. Expanded content for index.html (add below existing sections)
+<style>
+  :root{
+    --bg:#ffffff;
+    --text:#1a1a1a;
+    --muted:#5a5a5a;
+    --accent:#2563eb;
+    --border:#e5e5e5;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--text);
+    background:var(--bg);
+    line-height:1.6;
+  }
+  header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:16px 24px;
+    border-bottom:1px solid var(--border);
+    flex-wrap:wrap;
+    gap:12px;
+  }
+  header a.logo{
+    font-size:1.25rem;
+    font-weight:700;
+    text-decoration:none;
+    color:var(--text);
+  }
+  nav a{
+    margin-left:18px;
+    text-decoration:none;
+    color:var(--muted);
+    font-size:0.95rem;
+  }
+  nav a:hover{color:var(--accent);}
+  main{
+    max-width:760px;
+    margin:0 auto;
+    padding:24px;
+  }
+  .ad-slot{
+    text-align:center;
+    color:#999;
+    font-size:0.8rem;
+    border:1px dashed var(--border);
+    padding:10px;
+    margin:20px 0;
+    border-radius:6px;
+  }
+  h1{
+    font-size:1.8rem;
+    margin-bottom:4px;
+  }
+  .subtitle{
+    color:var(--muted);
+    margin-top:0;
+    margin-bottom:28px;
+  }
+  .faq-item{
+    border-bottom:1px solid var(--border);
+    padding:18px 0;
+  }
+  .faq-item:last-child{
+    border-bottom:none;
+  }
+  .faq-item h2{
+    font-size:1.05rem;
+    margin:0 0 6px 0;
+  }
+  .faq-item p{
+    margin:0;
+    color:var(--text);
+  }
+  footer{
+    text-align:center;
+    padding:24px;
+    color:var(--muted);
+    font-size:0.85rem;
+    border-top:1px solid var(--border);
+    margin-top:40px;
+  }
+  footer a{color:var(--muted);margin:0 8px;}
+</style>
+</head>
+<body>
 
-### Timing for Interval Training (HIIT)
+<header>
+  <a class="logo" href="https://stopwatchpro.xyz/">⏱ StopwatchPro</a>
+  <nav>
+    <a href="https://stopwatchpro.xyz/index.html">Stopwatch</a>
+    <a href="https://stopwatchpro.xyz/countdown.html">Countdown</a>
+    <a href="https://stopwatchpro.xyz/faq.html">FAQ</a>
+    <a href="https://stopwatchpro.xyz/about.html">About</a>
+    <a href="https://stopwatchpro.xyz/contact.html">Contact</a>
+  </nav>
+</header>
 
-Interval training relies on precise, repeatable work-to-rest ratios — 30 seconds on, 15 seconds off, for example. A stopwatch with lap tracking lets you log each round without breaking focus, so you can review your splits afterward instead of watching the clock mid-set.
+<main>
+  <div class="ad-slot">Advertisement</div>
 
-To use StopwatchPro for intervals:
+  <h1>Frequently Asked Questions</h1>
+  <p class="subtitle">Common questions about StopwatchPro's stopwatch, lap timer, and countdown tools.</p>
 
-1. Decide your work and rest durations before you start (e.g., 40s work / 20s rest).
-2. Press Lap at the end of each work segment and again at the end of each rest segment — this gives you two lap entries per round.
-3. After your session, scan the lap list: work segments that run long usually mean fatigue is setting in, which is useful feedback for pacing future workouts.
+  <div class="faq-item">
+    <h2>Is StopwatchPro really free to use?</h2>
+    <p>Yes. StopwatchPro is completely free with no sign-up, no download, and no hidden fees. It runs directly in your browser.</p>
+  </div>
 
-If you train the same interval structure often, a dedicated interval timer with audio cues (see our Interval Timer tool) can be faster than manually lapping — but the stopwatch is ideal when your intervals vary round to round, like fartlek runs or coached circuits.
+  <div class="faq-item">
+    <h2>How accurate is the online stopwatch?</h2>
+    <p>StopwatchPro measures time to the millisecond using your browser's high-resolution timing functions, making it accurate enough for workouts, cooking, races, and lab timing.</p>
+  </div>
 
-### Timing Study Sessions (Pomodoro Method)
+  <div class="faq-item">
+    <h2>Does StopwatchPro work without an internet connection?</h2>
+    <p>Yes, once the page has loaded once, the stopwatch continues to function offline since all timing happens locally in your browser.</p>
+  </div>
 
-The Pomodoro Technique breaks work into focused 25-minute blocks separated by 5-minute breaks, with a longer break after four blocks. A stopwatch works for this if you're comfortable manually starting/stopping at each transition, but most people find a countdown-style Pomodoro timer easier since it alerts you automatically (see our Pomodoro Timer tool below).
+  <div class="faq-item">
+    <h2>Can I use StopwatchPro on my phone?</h2>
+    <p>Yes. The layout is responsive and the Start/Lap/Reset controls are large enough for touch use. Keyboard shortcuts apply only on devices with a physical or connected keyboard.</p>
+  </div>
 
-Where the stopwatch does help even in Pomodoro-style work: logging how long you actually spent in flow before your mind wandered. Runners and writers alike sometimes lap every time they lose and regain focus, then review afterward.
+  <div class="faq-item">
+    <h2>Is there a limit to how many laps I can record?</h2>
+    <p>No — you can record laps for as long as the browser tab stays open and active.</p>
+  </div>
 
-### Timing Science Experiments
+  <div class="faq-item">
+    <h2>Does StopwatchPro collect or store my timing data?</h2>
+    <p>No. All timing happens client-side in your browser; nothing is sent to a server or saved after you close or refresh the tab. See our <a href="https://stopwatchpro.xyz/privacy.html">Privacy Policy</a> for details.</p>
+  </div>
 
-Lab timing often needs millisecond precision and a clear, unambiguous record of splits — reaction rates, titration intervals, or repeated-trial consistency checks. StopwatchPro's high-resolution timer (accurate to the millisecond via your browser's performance timing API) and lap log make it straightforward to record multiple trials in one continuous session, then export or transcribe the split list afterward.
+  <div class="faq-item">
+    <h2>Can I run multiple stopwatches at once in different tabs?</h2>
+    <p>Yes, each browser tab runs its own independent instance.</p>
+  </div>
 
-### Coaching and Race Timing
+  <div class="faq-item">
+    <h2>Why does the millisecond display sometimes skip numbers?</h2>
+    <p>Browsers update the display roughly 60 times per second, so at very fast refresh rates you may see the millisecond counter skip by more than 1 between renders — the underlying elapsed-time measurement itself remains accurate.</p>
+  </div>
 
-Coaches timing multiple athletes on a single watch can use laps to separate individual splits, then read the "Total" column to reconstruct each athlete's finishing time. This works well for informal meets and practice sessions; sanctioned races generally require certified timing equipment.
+  <div class="faq-item">
+    <h2>Do you also have a countdown timer?</h2>
+    <p>Yes — see our <a href="https://stopwatchpro.xyz/countdown.html">Countdown Timer</a> for setting a fixed duration or counting down to a specific time.</p>
+  </div>
 
-### A Short History of the Stopwatch
+  <div class="ad-slot">Advertisement</div>
+</main>
 
-Mechanical stopwatches date back to the mid-1800s, originally developed for horse racing and later adopted by factories for time-and-motion studies. Digital stopwatches arrived in the 1970s with quartz movements, pushing accuracy from roughly a fifth of a second down to hundredths. Browser-based stopwatches like this one use your device's high-resolution performance clock, which is generally accurate to within a few milliseconds — precise enough for virtually any everyday timing need.
+<footer>
+  © 2026 StopwatchPro |
+  <a href="https://stopwatchpro.xyz/faq.html">FAQ</a>
+  <a href="https://stopwatchpro.xyz/about.html">About</a>
+  <a href="https://stopwatchpro.xyz/privacy.html">Privacy Policy</a>
+  <a href="https://stopwatchpro.xyz/contact.html">Contact</a>
+</footer>
 
-### Troubleshooting
-
-**The timer seems to drift or lag on my device.** This is almost always caused by the browser tab being backgrounded or the device entering a low-power state; keep the tab active and the screen on for the most accurate readings.
-
-**My laps disappeared after I refreshed the page.** Lap data is stored in memory for the current session only and clears on refresh. If you need a persistent log, note your splits down before reloading.
-
-**Keyboard shortcuts aren't responding.** Make sure the page (not the address bar or another element) has focus — click anywhere on the stopwatch area first.
-
----
-
-## 2. Expanded FAQ (faq.html)
-
-**Does StopwatchPro work without an internet connection?**
-Yes, once the page has loaded once, the stopwatch continues to function offline since all timing happens locally in your browser.
-
-**Can I use StopwatchPro on my phone?**
-Yes. The layout is responsive and the Start/Lap/Reset controls are large enough for touch use. Keyboard shortcuts apply only on devices with a physical or connected keyboard.
-
-**Is there a limit to how many laps I can record?**
-No — you can record laps for as long as the browser tab stays open and active.
-
-**Does StopwatchPro collect or store my timing data?**
-No. All timing happens client-side in your browser; nothing is sent to a server or saved after you close or refresh the tab. See our Privacy Policy for details.
-
-**Can I run multiple stopwatches at once in different tabs?**
-Yes, each browser tab runs its own independent instance.
-
-**Why does the millisecond display sometimes skip numbers?**
-Browsers update the display roughly 60 times per second, so at very fast refresh rates you may see the millisecond counter skip by more than 1 between renders — the underlying elapsed-time measurement itself remains accurate.
-
----
-
-## 3. Companion tool pages (adds real breadth to the site)
-
-Each of these should be a real, separate page/tool — not just a redirect to the stopwatch — with its own working timer and ~400-600 words of unique content, similar in structure to the stopwatch page.
-
-### A) Countdown Timer (countdown.html)
-**Unique function:** user sets a target duration (or target time-of-day) and the timer counts down to zero with an audible/visual alert.
-**Content angles to write:**
-- Countdown vs. stopwatch — when each is the right tool
-- Using a countdown for cooking (with common preset suggestions: 3 min soft egg, 20 min roast vegetables, etc. — genuinely useful reference content)
-- Using a countdown for presentations and public speaking timing
-- Setting a countdown to a specific clock time (e.g., "count down to 5:00 PM")
-
-### B) Pomodoro Timer (pomodoro.html)
-**Unique function:** preset or customizable work/break cycles (25/5 default) with automatic transitions and a session counter.
-**Content angles to write:**
-- Explaining the Pomodoro Technique's origin and core principle (single-tasking in fixed sprints)
-- How to adapt the 25/5 ratio for deep work (e.g., 50/10) vs. quick tasks
-- Common mistakes: skipping breaks, multitasking during a "Pomodoro," not tracking completed sessions
-- How the long break (after 4 sessions) prevents burnout across a workday
-
-### C) Interval Timer (interval-timer.html)
-**Unique function:** repeatable work/rest rounds with configurable count, audio cues per transition — the tool referenced above for HIIT.
-**Content angles to write:**
-- Popular interval protocols with actual structure (e.g., Tabata: 20s work / 10s rest × 8 rounds; EMOM: 1 min per round)
-- How interval structure differs for strength vs. cardio vs. mobility work
-- Why audio cues matter more here than in a plain stopwatch (you're not looking at the screen mid-set)
-
----
-
-## 4. Notes on approach
-
-- **Write it in your own words** — the above is a starting draft, not final copy. Google (and readers) can tell when text is generic filler; the more specific and genuinely useful you make it, the better both for AdSense review and for organic search traffic.
-- **Add real internal linking** once the new pages exist — link "Interval Timer" from the HIIT section, "Pomodoro Timer" from the study section, etc. This also helps AdSense/Google see the site as an interconnected resource rather than isolated pages.
-- **Give it time after publishing** before requesting review — a fresh recrawl and a little organic traffic history both help.
+</body>
+</html>
