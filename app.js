@@ -373,8 +373,16 @@ function insertToolAdSlot(){
 /* nav bar build */
 function buildNav(){
   const nav = document.getElementById('primaryNav');
-  nav.innerHTML = `<a href="#/">${'⌂'} <span data-i18n="nav_home">Home</span></a>` +
-    TOOLS.map(tl=>`<a href="#/${tl.id}"><span data-i18n="nav_${tl.id}">${toolLabel(tl.id)}</span></a>`).join('');
+  if (nav) {
+    nav.innerHTML = `
+      <a href="index.html">Stopwatch</a>
+      <a href="countdown.html">Countdown</a>
+      <a href="faq.html">FAQ</a>
+      <a href="about.html">About</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="contact.html">Contact</a>
+    `;
+  }
 }
 
 /* ---------------------------------------------------------
