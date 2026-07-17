@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CountdownPro – Free Online Countdown Timer</title>
+<meta name="description" content="Free online countdown timer. Set any duration or count down to a specific time. No download or sign-up needed — works instantly in your browser.">
+<meta name="keywords" content="countdown timer, online timer, countdown clock, timer online, count down to time">
+<link rel="canonical" href="https://stopwatchpro.xyz/countdown.html">
+
+<meta property="og:title" content="CountdownPro – Free Online Countdown Timer">
+<meta property="og:description" content="Free online countdown timer. Set any duration or count down to a specific time. No download or sign-up needed.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://stopwatchpro.xyz/countdown.html">
+<meta property="og:site_name" content="StopwatchPro">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CountdownPro – Free Online Countdown Timer">
+<meta name="twitter:description" content="Free online countdown timer. Set any duration or count down to a specific time.">
+
+<style>
+  :root{
+    --bg:#ffffff;
+    --text:#1a1a1a;
+    --muted:#5a5a5a;
+    --accent:#2563eb;
+    --accent-dark:#1d4ed8;
+    --border:#e5e5e5;
+    --danger:#dc2626;
+    --good:#16a34a;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--text);
+    background:var(--bg);
+    line-height:1.6;
+  }
+  header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:16px 24px;
+    border-bottom:1px solid var(--border);
+    flex-wrap:wrap;
+    gap:12px;
+  }
+  header a.logo{
+    font-size:1.25rem;
+    font-weight:700;
+    text-decoration:none;
+    color:var(--text);
+  }
+  nav a{
+    margin-left:18px;
+    text-decoration:none;
+    color:var(--muted);
+    font-size:0.95rem;
+  }
+  nav a:hover{color:var(--accent);}
+  main{
+    max-width:760px;
+    margin:0 auto;
+    padding:24px;
+  }
+  .ad-slot{
+    text-align:center;
+    color:#999;
+    font-size:0.8rem;
+    border:1px dashed var(--border);
+    padding:10px;
+    margin:20px 0;
+    border-radius:6px;
+  }
+  h1{
+    font-size:1.8rem;
+    margin-bottom:4px;
+  }
+  .subtitle{
+    color:var(--muted);
+    margin-top:0;
+    margin-bottom:24px;
+  }
+
+  /* Timer card */
+  .timer-card{
+    border:1px solid var(--border);
+    border-radius:12px;
+    padding:28px 20px;
+    text-align:center;
+  }
+  .display{
+    font-variant-numeric:tabular-nums;
+    font-size:4rem;
+    font-weight:700;
+    letter-spacing:2px;
+    margin:8px 0;
+  }
+  .display.finished{color:var(--danger);}
+  .status{
+    color:var(--muted);
+    font-size:0.9rem;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    margin-bottom:8px;
+  }
+
+  .inputs{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    margin:20px 0;
+    flex-wrap:wrap;
+  }
+  .input-group{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+  }
+  .input-group label{
+    font-size:0.75rem;
+    color:var(--muted);
+    margin-bottom:4px;
+  }
+  .input-group input{
+    width:64px;
+    text-align:center;
+    font-size:1.2rem;
+    padding:8px;
+    border:1px solid var(--border);
+    border-radius:8px;
+  }
+
+  .presets{
+    display:flex;
+    justify-content:center;
+    gap:8px;
+    flex-wrap:wrap;
+    margin-bottom:20px;
+  }
+  .presets button{
+    background:#f3f4f6;
+    border:1px solid var(--border);
+    border-radius:20px;
+    padding:6px 14px;
+    font-size:0.85rem;
+    cursor:pointer;
+    color:var(--text);
+  }
+  .presets button:hover{background:#e5e7eb;}
+
+  .controls{
+    display:flex;
+    justify-content:center;
+    gap:12px;
+    flex-wrap:wrap;
+  }
+  .controls button{
+    font-size:1rem;
+    font-weight:600;
+    padding:12px 28px;
+    border-radius:8px;
+    border:none;
+    cursor:pointer;
+  }
+  #startBtn{background:var(--accent);color:#fff;}
+  #startBtn:hover{background:var(--accent-dark);}
+  #startBtn:disabled{background:#9ca3af;cursor:not-allowed;}
+  #pauseBtn{background:#f3f4f6;color:var(--text);border:1px solid var(--border);}
+  #resetBtn{background:#fff;color:var(--danger);border:1px solid var(--danger);}
+
+  .keyboard{
+    margin-top:28px;
+    font-size:0.9rem;
+    color:var(--muted);
+  }
+  .keyboard ul{padding-left:18px;}
+
+  section.info{margin-top:40px;}
+  section.info h2{font-size:1.3rem;margin-bottom:6px;}
+  section.info h3{font-size:1.05rem;margin-bottom:4px;}
+
+  footer{
+    text-align:center;
+    padding:24px;
+    color:var(--muted);
+    font-size:0.85rem;
+    border-top:1px solid var(--border);
+    margin-top:40px;
+  }
+  footer a{color:var(--muted);margin:0 8px;}
+
+  @media (prefers-reduced-motion: reduce){
+    * { transition:none !important; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <a class="logo" href="https://stopwatchpro.xyz/">⏱ StopwatchPro</a>
+  <nav>
+    <a href="https://stopwatchpro.xyz/index.html">Stopwatch</a>
+    <a href="https://stopwatchpro.xyz/countdown.html">Countdown</a>
+    <a href="https://stopwatchpro.xyz/faq.html">FAQ</a>
+    <a href="https://stopwatchpro.xyz/about.html">About</a>
+    <a href="https://stopwatchpro.xyz/contact.html">Contact</a>
+  </nav>
+</header>
+
+<main>
+  <div class="ad-slot">Advertisement</div>
+
+  <h1>Free Online Countdown Timer</h1>
+  <p class="subtitle">Set any duration, or count down to a specific time of day. No download, no sign-up — just set it and go.</p>
+
+  <div class="timer-card">
+    <div class="status" id="statusLabel">Ready</div>
+    <div class="display" id="display">00:00:00</div>
+
+    <div class="presets" id="presets">
+      <button data-secs="60">1 min</button>
+      <button data-secs="180">3 min</button>
+      <button data-secs="300">5 min</button>
+      <button data-secs="600">10 min</button>
+      <button data-secs="1200">20 min</button>
+      <button data-secs="1500">25 min</button>
+    </div>
+
+    <div class="inputs" id="customInputs">
+      <div class="input-group">
+        <label for="hoursInput">HOURS</label>
+        <input type="number" id="hoursInput" min="0" max="23" value="0">
+      </div>
+      <div class="input-group">
+        <label for="minsInput">MIN</label>
+        <input type="number" id="minsInput" min="0" max="59" value="5">
+      </div>
+      <div class="input-group">
+        <label for="secsInput">SEC</label>
+        <input type="number" id="secsInput" min="0" max="59" value="0">
+      </div>
+    </div>
+
+    <div class="controls">
+      <button id="startBtn">Start</button>
+      <button id="pauseBtn" disabled>Pause</button>
+      <button id="resetBtn">Reset</button>
+    </div>
+
+    <div class="keyboard">
+      <strong>Keyboard shortcuts</strong>
+      <ul>
+        <li>Space — Start / Pause</li>
+        <li>R — Reset</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="ad-slot">Advertisement</div>
+
+  <section class="info">
+    <h2>Countdown Timer vs. Stopwatch — When to Use Each</h2>
+    <p>A stopwatch counts up from zero and is best when you don't know the exact duration in advance — tracking a workout, a race, or an open-ended task. A countdown timer works in the opposite direction: you set a fixed duration, and it counts down to zero with an alert, which is better whenever you need to stay within a limit rather than just measure elapsed time — cooking, presentations, timed tests, or work sprints.</p>
+
+    <h2>Using a Countdown for Cooking</h2>
+    <p>Kitchen timing is one of the most common uses for a countdown timer, and having a few reference points on hand helps:</p>
+    <ul>
+      <li><strong>Soft-boiled egg:</strong> about 6 minutes from boiling water</li>
+      <li><strong>Hard-boiled egg:</strong> about 10-12 minutes</li>
+      <li><strong>Pasta (dried):</strong> 8-12 minutes depending on shape, check the package</li>
+      <li><strong>Roasted vegetables:</strong> 20-25 minutes at 400°F (200°C)</li>
+      <li><strong>Resting steak after cooking:</strong> 5 minutes</li>
+    </ul>
+    <p>Use the preset buttons above for common durations, or the hour/minute/second inputs for anything else.</p>
+
+    <h2>Using a Countdown for Presentations and Speeches</h2>
+    <p>Presenters often lose track of time while focused on delivery. Setting a countdown for your allotted time — and glancing at it periodically rather than waiting for an alert — helps you pace sections of a talk without needing to check a watch or phone repeatedly. Many speakers set a countdown to 80% of their actual time limit, which leaves a buffer for questions or a strong close rather than running right up to the deadline.</p>
+
+    <h2>How This Timer Works</h2>
+    <p>Pick a preset or enter a custom hours/minutes/seconds duration, then press Start. The timer counts down in your browser using your device's clock, so it stays accurate even if the tab is in the background for a short time. When it reaches zero, the display turns red and the status updates to "Time's up." Press Reset at any point to set a new duration.</p>
+  </section>
+
+  <div class="ad-slot">Advertisement</div>
+</main>
+
+<footer>
+  © 2026 StopwatchPro |
+  <a href="https://stopwatchpro.xyz/faq.html">FAQ</a>
+  <a href="https://stopwatchpro.xyz/about.html">About</a>
+  <a href="https://stopwatchpro.xyz/privacy.html">Privacy Policy</a>
+  <a href="https://stopwatchpro.xyz/contact.html">Contact</a>
+</footer>
+
+<script>
+(function(){
+  const display = document.getElementById('display');
+  const statusLabel = document.getElementById('statusLabel');
+  const startBtn = document.getElementById('startBtn');
+  const pauseBtn = document.getElementById('pauseBtn');
+  const resetBtn = document.getElementById('resetBtn');
+  const hoursInput = document.getElementById('hoursInput');
+  const minsInput = document.getElementById('minsInput');
+  const secsInput = document.getElementById('secsInput');
+  const presetButtons = document.querySelectorAll('#presets button');
+
+  let totalMs = 0;      // total duration set
+  let remainingMs = 0;  // remaining time
+  let endTime = null;   // Date.now() target when running
+  let rafId = null;
+  let running = false;
+
+  function formatTime(ms){
+    if (ms < 0) ms = 0;
+    const totalSeconds = Math.ceil(ms / 1000);
+    const h = Math.floor(totalSeconds / 3600);
+    const m = Math.floor((totalSeconds % 3600) / 60);
+    const s = totalSeconds % 60;
+    return [h, m, s].map(v => String(v).padStart(2, '0')).join(':');
+  }
+
+  function getInputDurationMs(){
+    const h = parseInt(hoursInput.value || 0, 10);
+    const m = parseInt(minsInput.value || 0, 10);
+    const s = parseInt(secsInput.value || 0, 10);
+    return ((h * 3600) + (m * 60) + s) * 1000;
+  }
+
+  function setDisplayFromMs(ms){
+    display.textContent = formatTime(ms);
+  }
+
+  // initialize display from default inputs
+  totalMs = getInputDurationMs();
+  remainingMs = totalMs;
+  setDisplayFromMs(remainingMs);
+
+  presetButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      if (running) return;
+      const secs = parseInt(btn.getAttribute('data-secs'), 10);
+      hoursInput.value = Math.floor(secs / 3600);
+      minsInput.value = Math.floor((secs % 3600) / 60);
+      secsInput.value = secs % 60;
+      totalMs = secs * 1000;
+      remainingMs = totalMs;
+      setDisplayFromMs(remainingMs);
+      display.classList.remove('finished');
+      statusLabel.textContent = 'Ready';
+    });
+  });
+
+  [hoursInput, minsInput, secsInput].forEach(input => {
+    input.addEventListener('change', () => {
+      if (running) return;
+      totalMs = getInputDurationMs();
+      remainingMs = totalMs;
+      setDisplayFromMs(remainingMs);
+      display.classList.remove('finished');
+      statusLabel.textContent = 'Ready';
+    });
+  });
+
+  function tick(){
+    if (!running) return;
+    const now = Date.now();
+    remainingMs = endTime - now;
+    if (remainingMs <= 0){
+      remainingMs = 0;
+      setDisplayFromMs(0);
+      finish();
+      return;
+    }
+    setDisplayFromMs(remainingMs);
+    rafId = requestAnimationFrame(tick);
+  }
+
+  function start(){
+    if (running) return;
+    if (remainingMs <= 0){
+      totalMs = getInputDurationMs();
+      remainingMs = totalMs;
+      if (remainingMs <= 0) return;
+    }
+    running = true;
+    endTime = Date.now() + remainingMs;
+    startBtn.textContent = 'Running';
+    startBtn.disabled = true;
+    pauseBtn.disabled = false;
+    statusLabel.textContent = 'Counting down';
+    display.classList.remove('finished');
+    rafId = requestAnimationFrame(tick);
+  }
+
+  function pause(){
+    if (!running) return;
+    running = false;
+    cancelAnimationFrame(rafId);
+    startBtn.textContent = 'Resume';
+    startBtn.disabled = false;
+    pauseBtn.disabled = true;
+    statusLabel.textContent = 'Paused';
+  }
+
+  function reset(){
+    running = false;
+    cancelAnimationFrame(rafId);
+    totalMs = getInputDurationMs();
+    remainingMs = totalMs;
+    setDisplayFromMs(remainingMs);
+    startBtn.textContent = 'Start';
+    startBtn.disabled = false;
+    pauseBtn.disabled = true;
+    statusLabel.textContent = 'Ready';
+    display.classList.remove('finished');
+  }
+
+  function finish(){
+    running = false;
+    startBtn.textContent = 'Start';
+    startBtn.disabled = false;
+    pauseBtn.disabled = true;
+    statusLabel.textContent = "Time's up";
+    display.classList.add('finished');
+    try {
+      // simple audible alert using WebAudio, no external files needed
+      const ctx = new (window.AudioContext || window.webkitAudioContext)();
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.frequency.value = 880;
+      gain.gain.setValueAtTime(0.2, ctx.currentTime);
+      osc.start();
+      osc.stop(ctx.currentTime + 0.6);
+    } catch(e) { /* audio not available, silently ignore */ }
+  }
+
+  startBtn.addEventListener('click', start);
+  pauseBtn.addEventListener('click', pause);
+  resetBtn.addEventListener('click', reset);
+
+  document.addEventListener('keydown', (e) => {
+    if (e.target.tagName === 'INPUT') return;
+    if (e.code === 'Space'){
+      e.preventDefault();
+      running ? pause() : start();
+    } else if (e.key === 'r' || e.key === 'R'){
+      reset();
+    }
+  });
+})();
+</script>
+
+</body>
+</html>
