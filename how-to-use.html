@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4QM7BFWC5G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-4QM7BFWC5G');
+</script>
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>How to Use StopwatchPro – Quick Guide</title>
+<meta name="description" content="Learn how to use StopwatchPro's online stopwatch, countdown timer, intervals, alarms, and other timing tools." />
+<link rel="canonical" href="https://stopwatchpro.xyz/how-to-use.html" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+<style>
+/* ══════════════════════════════════════════════════════════════
+   REUSING YOUR DESIGN TOKENS
+   ══════════════════════════════════════════════════════════════ */
+:root{
+  --bg:#fafbfc;
+  --surface:#ffffff;
+  --surface-alt:#f1f4f8;
+  --border:#e2e8f0;
+  --text:#14181f;
+  --muted:#5b6779;
+  --accent:#2952e3;
+  --display:'Space Grotesk', sans-serif;
+  --sans:'Inter', sans-serif;
+  --mono:'JetBrains Mono', monospace;
+  --radius:14px;
+  --radius-sm:8px;
+  --shadow: 0 1px 2px rgba(20,24,31,0.04), 0 8px 24px rgba(20,24,31,0.05);
+}
+
+[data-theme="dark"]{
+  --bg:#0c0f14;
+  --surface:#151a22;
+  --surface-alt:#1b212b;
+  --border:#262e3a;
+  --text:#eef1f5;
+  --muted:#8896aa;
+  --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px rgba(0,0,0,0.35);
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:var(--sans);
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  transition:background .2s ease, color .2s ease;
+}
+a{color:inherit;}
+
+/* ── Header ─────────────────────────────────────────────── */
+.site-header{
+  position:sticky; top:0; z-index:40;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:14px 24px;
+  background:color-mix(in srgb, var(--surface) 92%, transparent);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--border);
+}
+.logo{
+  font-family:var(--display); font-weight:700; font-size:1.15rem;
+  text-decoration:none; color:var(--text); display:flex; align-items:center; gap:6px;
+}
+.logo .dot{color:#2952e3;}
+.icon-btn{
+  width:36px; height:36px; border-radius:999px; border:1px solid var(--border);
+  background:var(--surface); color:var(--text); cursor:pointer;
+  display:flex; align-items:center; justify-content:center; transition:.15s;
+}
+.icon-btn:hover{background:var(--surface-alt);}
+
+/* ── Content Layout ─────────────────────────────────────── */
+main{flex:1; width:100%;}
+.guide-container {
+  max-width:900px; margin: 48px auto; padding: 0 24px;
+}
+.guide-header {
+  margin-bottom: 40px; text-align: center;
+}
+.guide-header h1 {
+  font-family: var(--display); font-size: 2.4rem; font-weight: 700; margin-bottom: 12px;
+}
+.guide-header p { color: var(--muted); font-size: 1.1rem; max-width: 600px; margin: 0 auto; }
+
+.tool-section {
+  background: var(--surface); border: 1px solid var(--border); 
+  border-radius: var(--radius); padding: 32px; box-shadow: var(--shadow);
+  margin-bottom: 24px;
+}
+.tool-section h2 {
+  font-family: var(--display); font-size: 1.4rem; margin-bottom: 16px; color: var(--text);
+  display: flex; align-items: center; gap: 8px;
+}
+.tool-section ul {
+  list-style: none; padding-left: 0; display: flex; flex-direction: column; gap: 12px;
+}
+.tool-section li {
+  font-size: 0.95rem; line-height: 1.6; color: var(--muted);
+  position: relative; padding-left: 24px;
+}
+.tool-section li::before {
+  content: "→"; position: absolute; left: 0; color: var(--accent); font-weight: bold;
+}
+.tool-section strong { color: var(--text); }
+
+kbd {
+  background: var(--surface-alt); border: 1px solid var(--border); 
+  border-radius: 4px; padding: 2px 6px; font-family: var(--mono); font-size: .8rem; color: var(--text);
+}
+
+/* ── Footer ─────────────────────────────────────────────── */
+footer{border-top:1px solid var(--border); text-align:center; padding:28px 20px 22px; font-size:.78rem; color:var(--muted); margin-top:40px;}
+footer a{color:var(--muted); text-decoration:none; margin:0 10px;}
+footer a:hover{color:var(--text);}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <a href="index.html" class="logo"><span class="dot">⏱</span> StopwatchPro</a>
+  <div class="header-actions">
+    <button class="icon-btn" id="themeToggleBtn" title="Toggle dark mode">🌙</button>
+  </div>
+</header>
+
+<main>
+  <div class="guide-container">
+    <div class="guide-header">
+      <h1>How to Use StopwatchPro</h1>
+      <p>Quick starter manual to help you master our online timer utilities.</p>
+    </div>
+
+    <div class="tool-section">
+      <h2>⏱ Online Stopwatch</h2>
+      <ul>
+        <li><strong>Start / Stop:</strong> Click the main primary action button or press the <kbd>Spacebar</kbd> on your keyboard.</li>
+        <li><strong>Lap / Split Times:</strong> While the stopwatch is running, click "Lap" or press <kbd>L</kbd> to record split intervals. The list tracking your fastest and slowest laps appears right below the main clock interface.</li>
+        <li><strong>Resetting:</strong> Stop the clock and click "Reset" to wipe the session back to zero.</li>
+      </ul>
+    </div>
+
+    <div class="tool-section">
+      <h2>⏳ Countdown Timer</h2>
+      <ul>
+        <li><strong>Setting a Duration:</strong> Input your target hours, minutes, and seconds directly into the configuration rows, or use pre-configured rapid-presets.</li>
+        <li><strong>Custom Alarms:</strong> Use the drop-down selectors to sample and choose alternative ring tones.</li>
+        <li><strong>Presets Library:</strong> Frequently repeated routines can be saved locally to your profile for rapid setup on future site visits.</li>
+      </ul>
+    </div>
+
+    <div class="tool-section">
+      <h2>🔄 Interval Timer</h2>
+      <ul>
+        <li><strong>Build a Routine:</strong> Establish your activity block duration, short cooldown rest phases, and designated loop cycles.</li>
+        <li><strong>Audio Cues:</strong> Distinct alert sounds notify you the exact second a sequence segment concludes.</li>
+      </ul>
+    </div>
+
+    <div class="tool-section">
+      <h2>♟ Chess Clock</h2>
+      <ul>
+        <li><strong>Set Time Controls:</strong> Assign baseline clock limits for both match participants.</li>
+        <li><strong>Turn Alternations:</strong> Tap or click your side of the screen to lock your countdown progress and simultaneously initiate your opponent's match clock.</li>
+      </ul>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <p>© 2026 StopwatchPro &nbsp;|&nbsp;
+    <a href="index.html">Home</a>
+    <a href="faq.html">FAQ</a>
+    <a href="how-to-use.html">How to Use</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="contact.html">Contact</a>
+  </p>
+</footer>
+
+<script>
+  // Sync core site theme settings
+  const btn = document.getElementById('themeToggleBtn');
+  const currentTheme = localStorage.getItem('theme') || 'light';
+  
+  if (currentTheme === 'dark') {
+    document.documentElement.setAttribute('data-theme', 'dark');
+    btn.textContent = '☀️';
+  }
+
+  btn.addEventListener('click', () => {
+    let theme = document.documentElement.getAttribute('data-theme');
+    if (theme === 'dark') {
+      document.documentElement.removeAttribute('data-theme');
+      localStorage.setItem('theme', 'light');
+      btn.textContent = '🌙';
+    } else {
+      document.documentElement.setAttribute('data-theme', 'dark');
+      localStorage.setItem('theme', 'dark');
+      btn.textContent = '☀️';
+    }
+  });
+</script>
+</body>
+</html>
