@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4QM7BFWC5G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-4QM7BFWC5G');
+</script>
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Interval Timer – Free HIIT & Tabata Timer Online | StopwatchPro</title>
+<meta name="description" content="Free online interval timer for HIIT, Tabata, and circuit training. Build custom work/rest sequences with multiple rounds — no app download needed." />
+<meta name="keywords" content="interval timer, HIIT timer, tabata timer, workout interval timer" />
+<link rel="canonical" href="https://stopwatchpro.xyz/interval-timer.html" />
+<meta name="robots" content="index, follow" />
+<meta name="author" content="StopwatchPro" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://stopwatchpro.xyz/interval-timer.html" />
+<meta property="og:title" content="Interval Timer – Free HIIT & Tabata Timer Online | StopwatchPro" />
+<meta property="og:description" content="Free online interval timer for HIIT, Tabata, and circuit training. Build custom work/rest sequences with multiple rounds — no app download needed." />
+<meta property="og:site_name" content="StopwatchPro" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Interval Timer – Free HIIT & Tabata Timer Online | StopwatchPro" />
+<meta name="twitter:description" content="Free online interval timer for HIIT, Tabata, and circuit training. Build custom work/rest sequences with multiple rounds — no app download needed." />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I set up a custom interval sequence?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use the step builder to add each phase (name and duration) in order &mdash; e.g. \"Work &ndash; 40s\", \"Rest &ndash; 20s\" &mdash; then set how many rounds to repeat the whole sequence."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I give each step a different name or duration?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, every step in the sequence can have its own label and duration, so a single timer can handle uneven patterns like warm-up, multiple work phases, and a longer final rest."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does it alert me when moving between steps, not just at the very end?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes &mdash; StopwatchPro signals each transition between steps, not only the end of the full sequence, so you know when work turns to rest without watching the screen."
+      }
+    }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+<style>
+/* ══════════════════════════════════════════════════════════════
+   DESIGN TOKENS
+   ══════════════════════════════════════════════════════════════ */
+:root{
+  --bg:#fafbfc;
+  --surface:#ffffff;
+  --surface-alt:#f1f4f8;
+  --border:#e2e8f0;
+  --text:#14181f;
+  --muted:#5b6779;
+  --danger:#e0304a;
+  --success:#1f9d63;
+
+  --accent-stopwatch:#2952e3;
+  --accent-countdown:#ff6b4a;
+  --accent-splits:#2952e3;
+  --accent-interval:#16a398;
+  --accent-clock:#5b6779;
+  --accent-alarm:#f2a93b;
+  --accent-metronome:#8b5cf6;
+  --accent-chess:#14181f;
+  --accent-tally:#16a398;
+
+  --accent:#2952e3;
+
+  --display:'Space Grotesk', sans-serif;
+  --mono:'JetBrains Mono', monospace;
+  --sans:'Inter', sans-serif;
+  --radius:14px;
+  --radius-sm:8px;
+  --shadow: 0 1px 2px rgba(20,24,31,0.04), 0 8px 24px rgba(20,24,31,0.05);
+}
+
+[data-theme="dark"]{
+  --bg:#0c0f14;
+  --surface:#151a22;
+  --surface-alt:#1b212b;
+  --border:#262e3a;
+  --text:#eef1f5;
+  --muted:#8896aa;
+  --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px rgba(0,0,0,0.35);
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth; overflow-x:hidden; width:100%;}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:var(--sans);
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  transition:background .2s ease, color .2s ease;
+  overflow-x:hidden;
+  width:100%;
+  max-width:100vw;
+}
+a{color:inherit;}
+button{font-family:inherit;}
+img,svg{display:block; max-width:100%;}
+select,input,textarea{max-width:100%;}
+::selection{background:var(--accent);color:#fff;}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
+
+/* ── Header ─────────────────────────────────────────────── */
+.site-header{
+  position:sticky; top:0; z-index:40;
+  display:flex; align-items:center; gap:16px; flex-wrap:wrap; row-gap:8px;
+  padding:14px 24px;
+  background:color-mix(in srgb, var(--surface) 92%, transparent);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--border);
+}
+.logo{
+  font-family:var(--display); font-weight:700; font-size:1.15rem;
+  text-decoration:none; color:var(--text); white-space:nowrap;
+  display:flex; align-items:center; gap:6px;
+}
+.logo .dot{color:var(--accent-stopwatch);}
+.primary-nav{
+  display:flex; gap:4px; flex:1; overflow-x:auto; scrollbar-width:none;
+}
+.primary-nav::-webkit-scrollbar{display:none;}
+.primary-nav a{
+  font-size:0.82rem; font-weight:600; color:var(--muted);
+  text-decoration:none; padding:8px 12px; border-radius:999px;
+  white-space:nowrap; transition:.15s;
+}
+.primary-nav a:hover{color:var(--text); background:var(--surface-alt);}
+.primary-nav a.active{color:#fff; background:var(--tool-color, var(--accent));}
+.header-actions{display:flex; align-items:center; gap:8px;}
+.icon-btn{
+  width:36px; height:36px; border-radius:999px; border:1px solid var(--border);
+  background:var(--surface); color:var(--text); cursor:pointer;
+  display:flex; align-items:center; justify-content:center; font-size:1rem;
+  transition:.15s;
+}
+.icon-btn:hover{background:var(--surface-alt);}
+select#langSelect{
+  border:1px solid var(--border); background:var(--surface); color:var(--text);
+  border-radius:999px; padding:8px 10px; font-size:0.78rem; font-weight:600; cursor:pointer;
+}
+
+/* ── Ad slots (Cleaned up style to prevent UX flags prior to approval) ── */
+.ad-slot{
+  max-width:1100px; width:100%; margin:18px auto 0; padding:14px;
+  border-radius:var(--radius-sm);
+  text-align:center; font-size:0.72rem; letter-spacing:.06em; text-transform:uppercase;
+  color:var(--muted);
+  display: none; /* Hide during review so Google doesn't flag "empty ad slots" */
+}
+.ad-slot.leaderboard{min-height:90px;}
+.ad-slot.rectangle{min-height:250px; max-width:300px;}
+
+main{flex:1; width:100%;}
+.wrap{max-width:1100px; margin:0 auto; padding:0 24px;}
+
+/* ── Home hero ──────────────────────────────────────────── */
+.hero{
+  padding:56px 24px 8px; 
+  max-width:1100px; 
+  margin:0 auto;
+}
+.hero-eyebrow{
+  font-size:0.75rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase;
+  color:var(--accent-stopwatch); margin-bottom:10px;
+}
+.hero h1{
+  font-family:var(--display); font-size:clamp(1.8rem, 4vw, 2.7rem); font-weight:700;
+  line-height:1.15; max-width:680px; margin-bottom:12px;
+}
+.hero p{color:var(--muted); font-size:1rem; max-width:560px; line-height:1.6; margin-bottom:32px;}
+
+.primary-tools{
+  display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-bottom:40px;
+}
+.primary-card{
+  position:relative; overflow:hidden;
+  background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);
+  padding:28px; box-shadow:var(--shadow); text-decoration:none; color:var(--text);
+  display:flex; flex-direction:column; gap:14px; transition:.18s transform, .18s box-shadow;
+  border-top:4px solid var(--card-color, var(--accent-stopwatch));
+}
+.primary-card:hover{transform:translateY(-3px); box-shadow:0 12px 30px rgba(20,24,31,0.1);}
+.primary-card .tool-icon{font-size:1.8rem;}
+.primary-card h2{font-family:var(--display); font-size:1.3rem; font-weight:700;}
+.primary-card p{color:var(--muted); font-size:0.88rem; line-height:1.55;}
+.primary-card .preview{
+  font-family:var(--mono); font-size:2.2rem; font-weight:500; color:var(--card-color, var(--accent-stopwatch));
+  letter-spacing:.02em;
+}
+.primary-card .go{
+  margin-top:auto; font-size:0.82rem; font-weight:700; color:var(--card-color, var(--accent-stopwatch));
+  display:flex; align-items:center; gap:6px;
+}
+
+.quick-access-label{
+  font-size:0.75rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase;
+  color:var(--muted); margin-bottom:14px;
+}
+.quick-grid{
+  display:grid; grid-template-columns:repeat(auto-fill, minmax(150px,1fr)); gap:12px; margin-bottom:48px;
+}
+.quick-tile{
+  background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-sm);
+  padding:16px 14px; text-decoration:none; color:var(--text);
+  display:flex; flex-direction:column; gap:8px; transition:.15s;
+  border-left:3px solid var(--tile-color, var(--accent-stopwatch));
+  overflow: hidden; /* Fixes corner visual clipping on Tally Counter / Chess tiles */
+}
+.quick-tile:hover{background:var(--surface-alt); transform:translateY(-2px);}
+.quick-tile .qi{font-size:1.3rem;}
+.quick-tile .qt{font-size:0.85rem; font-weight:600;}
+.quick-tile .qd{font-size:0.74rem; color:var(--muted); line-height:1.4;}
+
+/* ── SEO content blocks (home) ──────────────────────────── */
+.seo-grid{
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:18px;
+  max-width:1100px; margin:0 auto 56px; padding:0 24px;
+}
+.seo-card{background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:20px;}
+.seo-card h3{font-family:var(--display); font-size:1rem; margin-bottom:8px;}
+.seo-card p{font-size:0.85rem; color:var(--muted); line-height:1.7;}
+
+/* ── Tool page shell ────────────────────────────────────── */
+.tool-shell{max-width:900px; margin:0 auto; padding:32px 24px 56px;}
+.tool-header{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:22px; flex-wrap:wrap;}
+.tool-title{display:flex; align-items:center; gap:10px;}
+.tool-title .ti{font-size:1.6rem;}
+.tool-title h1{font-family:var(--display); font-size:1.4rem; font-weight:700;}
+.tool-actions{display:flex; gap:8px;}
+.tool-actions button{
+  border:1px solid var(--border); background:var(--surface); color:var(--text);
+  border-radius:var(--radius-sm); padding:8px 12px; font-size:0.8rem; font-weight:600; cursor:pointer;
+  display:flex; align-items:center; gap:6px;
+}
+.tool-actions button:hover{background:var(--surface-alt);}
+
+.tool-card{
+  background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);
+  padding:36px 28px; text-align:center; box-shadow:var(--shadow); position:relative;
+}
+
+.big-display{
+  font-family:var(--mono); font-weight:500; font-variant-numeric:tabular-nums;
+  font-size:clamp(2.8rem, 9vw, 5rem); color:var(--display-color, var(--text)); line-height:1;
+  letter-spacing:.01em;
+}
+.big-display small{font-size:.42em; color:var(--accent); margin-left:6px;}
+.status-label{
+  font-size:0.72rem; letter-spacing:.15em; text-transform:uppercase; color:var(--muted); margin-top:10px;
+}
+
+.controls-row{display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:26px;}
+.btn{
+  font-family:var(--sans); font-weight:700; font-size:0.9rem; border:none; border-radius:var(--radius-sm);
+  padding:13px 26px; cursor:pointer; transition:transform .1s, opacity .2s, background .15s; min-width:104px;
+}
+.btn:active{transform:scale(0.96);}
+.btn:disabled{opacity:.35; cursor:not-allowed;}
+.btn-primary{background:var(--accent); color:#fff;}
+.btn-danger{background:var(--danger); color:#fff;}
+.btn-ghost{background:var(--surface-alt); color:var(--text); border:1px solid var(--border);}
+
+.shortcuts-hint{margin-top:18px; font-size:0.72rem; color:var(--muted);}
+.shortcuts-hint kbd{
+  background:var(--surface-alt); border:1px solid var(--border); border-radius:4px; padding:1px 6px;
+  font-family:var(--mono); font-size:.72rem;
+}
+
+/* ── Laps / splits table ────────────────────────────────── */
+.lap-panel{margin-top:26px; text-align:left;}
+.lap-head{
+  display:flex; justify-content:space-between; font-size:0.7rem; letter-spacing:.1em; text-transform:uppercase;
+  color:var(--muted); padding:0 4px 8px; border-bottom:1px solid var(--border);
+}
+.lap-list{list-style:none; max-height:280px; overflow-y:auto;}
+.lap-list li{display:flex; justify-content:space-between; padding:10px 4px; font-family:var(--mono); font-size:.86rem; border-bottom:1px solid var(--border);}
+.lap-list li:nth-child(even){background:var(--surface-alt);}
+.lap-list li.best .lap-t{color:var(--success);}
+.lap-list li.worst .lap-t{color:var(--danger);}
+.lap-num{color:var(--muted); font-size:.78rem;}
+.lap-tools{display:flex; gap:8px; margin-top:14px;}
+
+/* ── Forms / inputs ─────────────────────────────────────── */
+.field-row{display:flex; gap:10px; flex-wrap:wrap; justify-content:center; margin-top:22px;}
+.field{display:flex; flex-direction:column; gap:6px; min-width:78px;}
+.field label{font-size:.68rem; text-transform:uppercase; letter-spacing:.08em; color:var(--muted); font-weight:700;}
+.field input, .field select{
+  border:1px solid var(--border); background:var(--surface-alt); color:var(--text);
+  border-radius:var(--radius-sm); padding:9px 8px; font-family:var(--mono); font-size:1rem; text-align:center; width:100%;
+}
+.text-input{
+  border:1px solid var(--border); background:var(--surface-alt); color:var(--text);
+  border-radius:var(--radius-sm); padding:10px 12px; font-family:var(--sans); font-size:.9rem; width:100%;
+}
+
+.dropdown-row{display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:20px;}
+.dropdown-row select{
+  border:1px solid var(--border); background:var(--surface-alt); color:var(--text);
+  border-radius:var(--radius-sm); padding:10px 14px; font-size:.85rem; font-weight:600; cursor:pointer;
+}
+
+/* saved items list (countdowns / routines / alarms) */
+.saved-list{margin-top:28px; text-align:left; display:flex; flex-direction:column; gap:10px;}
+.saved-item{
+  display:flex; align-items:center; justify-content:space-between; gap:10px;
+  background:var(--surface-alt); border:1px solid var(--border); border-radius:var(--radius-sm); padding:12px 14px;
+}
+.saved-item .si-main{display:flex; flex-direction:column; gap:2px;}
+.saved-item .si-name{font-weight:700; font-size:.88rem;}
+.saved-item .si-sub{font-size:.74rem; color:var(--muted); font-family:var(--mono);}
+.saved-item .si-actions{display:flex; gap:6px;}
+.si-actions button{
+  border:none; background:transparent; color:var(--muted); cursor:pointer; font-size:.95rem; padding:4px 6px; border-radius:6px;
+}
+.si-actions button:hover{background:var(--border); color:var(--text);}
+.empty-note{color:var(--muted); font-size:.85rem; padding:18px 0; text-align:center;}
+
+/* interval step builder */
+.step-row{display:flex; gap:8px; align-items:center; background:var(--surface-alt); border:1px solid var(--border); border-radius:var(--radius-sm); padding:10px; margin-bottom:8px;}
+.step-row input[type=text]{flex:1;}
+.step-row input{border:1px solid var(--border); background:var(--surface); color:var(--text); border-radius:6px; padding:8px; font-family:var(--sans); font-size:.82rem;}
+.step-row .step-dur{width:70px; text-align:center; font-family:var(--mono);}
+.step-row button{background:transparent; border:none; color:var(--danger); cursor:pointer; font-size:1rem;}
+
+/* alarms */
+.alarm-item{border-left:3px solid var(--accent-alarm);}
+.sound-preview-row{display:flex; gap:8px; align-items:center;}
+
+/* chess clock */
+.chess-wrap{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
+.chess-side{
+  background:var(--surface-alt); border:2px solid var(--border); border-radius:var(--radius); padding:30px 16px;
+  cursor:pointer; text-align:center; transition:.15s; user-select:none;
+}
+.chess-side.active{border-color:var(--accent-chess); background:color-mix(in srgb, var(--accent-chess) 8%, var(--surface-alt));}
+.chess-side.low{border-color:var(--danger);}
+.chess-side .cs-time{font-family:var(--mono); font-size:2.4rem; font-variant-numeric:tabular-nums;}
+.chess-side .cs-label{font-size:.75rem; color:var(--muted); text-transform:uppercase; letter-spacing:.08em; margin-top:8px;}
+
+/* metronome */
+.metro-visual{width:90px; height:90px; border-radius:50%; border:4px solid var(--accent-metronome); margin:20px auto 0;
+  display:flex; align-items:center; justify-content:center; transition:transform .08s ease;}
+.metro-bpm{font-family:var(--mono); font-size:3rem; margin-top:14px;}
+.metro-slider{width:100%; margin-top:18px; accent-color:var(--accent-metronome);}
+
+/* tally */
+.tally-count{font-family:var(--mono); font-size:5rem; font-weight:600;}
+.tally-btns{display:flex; gap:16px; justify-content:center; margin-top:26px;}
+.tally-btns button{width:76px; height:76px; border-radius:50%; font-size:1.8rem; font-weight:700; border:none; cursor:pointer;}
+.tally-inc{background:var(--accent-tally); color:#fff;}
+.tally-dec{background:var(--surface-alt); color:var(--text); border:1px solid var(--border) !important;}
+
+/* ── Fullscreen mode ────────────────────────────────────── */
+.fs-mode{
+  position:fixed; inset:0; z-index:200; background:var(--fs-bg, var(--bg)); color:var(--fs-text, var(--text));
+  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:24px;
+}
+.fs-mode .big-display{font-size:clamp(4rem, 16vw, 13rem); color:var(--fs-text, var(--display-color, var(--text)));}
+.fs-mode .controls-row{transform:scale(1.15);}
+.fs-exit{position:absolute; top:22px; right:26px; background:rgba(120,120,120,.15); border:none; color:inherit;
+  width:42px; height:42px; border-radius:50%; font-size:1.2rem; cursor:pointer;}
+.fs-mode .chess-wrap{width:min(90vw,1000px);}
+.fs-mode .chess-side .cs-time{font-size:clamp(3rem,9vw,7rem);}
+
+/* ── Modals ─────────────────────────────────────────────── */
+.modal-overlay{position:fixed; inset:0; background:rgba(10,12,16,.5); z-index:300; display:flex; align-items:center; justify-content:center; padding:20px;}
+.modal-overlay.hidden{display:none;}
+.modal{background:var(--surface); border-radius:var(--radius); padding:26px; max-width:420px; width:100%; box-shadow:var(--shadow); max-height:88vh; overflow-y:auto;}
+.modal h2{font-family:var(--display); font-size:1.15rem; margin-bottom:16px;}
+.modal-close{float:right; background:none; border:none; font-size:1.1rem; cursor:pointer; color:var(--muted);}
+.swatch-row{display:flex; gap:10px; flex-wrap:wrap; margin:10px 0 18px;}
+.swatch-row label{display:flex; flex-direction:column; gap:6px; font-size:.72rem; color:var(--muted); text-transform:uppercase; letter-spacing:.06em;}
+.swatch-row input[type=color]{width:44px; height:36px; border:1px solid var(--border); border-radius:8px; cursor:pointer; background:none;}
+.theme-presets{display:flex; gap:8px; margin-bottom:16px; flex-wrap:wrap;}
+.theme-preset{width:32px; height:32px; border-radius:50%; border:2px solid var(--border); cursor:pointer;}
+
+/* ── SEO/how-to/faq sections shared on tool pages ─────────── */
+.info-block{background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:22px; margin-top:22px; text-align:left;}
+.info-block h2{font-family:var(--display); font-size:1.05rem; margin-bottom:10px;}
+.info-block p{color:var(--muted); font-size:.86rem; line-height:1.7; margin-bottom:8px;}
+
+/* ── Footer ─────────────────────────────────────────────── */
+footer{border-top:1px solid var(--border); text-align:center; padding:28px 20px 22px; font-size:.78rem; color:var(--muted); margin-top:24px;}
+footer a{color:var(--muted); text-decoration:none; margin:0 10px;}
+footer a:hover{color:var(--text);}
+
+/* ── Responsive ─────────────────────────────────────────── */
+@media (max-width:860px){
+  .primary-tools{grid-template-columns:1fr;}
+  .chess-wrap{grid-template-columns:1fr;}
+}
+@media (max-width:520px){
+  .site-header{padding:12px 14px;}
+  .hero{padding:36px 16px 8px;}
+  .tool-shell{padding:22px 14px 40px;}
+  .tool-card{padding:24px 16px;}
+}
+@media (prefers-reduced-motion:reduce){ *{transition:none !important; animation:none !important;} }
+
+/* Accessibility: large text mode + high contrast */
+[data-largetext="1"] body{font-size:112%;}
+[data-contrast="1"]{--border:#000; --muted:#333;}
+[data-contrast="1"][data-theme="dark"]{--border:#fff; --muted:#ddd;}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <a href="index.html" class="logo"><span class="dot">&#9201;</span> StopwatchPro</a>
+  <nav class="primary-nav" id="primaryNav"></nav>
+  <div class="header-actions">
+    <select id="langSelect" aria-label="Language">
+      <option value="en">EN</option>
+      <option value="es">ES</option>
+      <option value="fr">FR</option>
+      <option value="de">DE</option>
+      <option value="nl">NL</option>
+    </select>
+    <button class="icon-btn" id="themeToggleBtn" title="Dark mode" aria-label="Toggle dark mode">&#127769;</button>
+    <button class="icon-btn" id="settingsBtn" title="Colors & accessibility" aria-label="Settings">&#127912;</button>
+  </div>
+</header>
+
+<main id="app">
+  <div class="tool-shell">
+
+    <!--
+      TOOL WIDGET MOUNT POINT
+      app.js should detect this page (e.g. via data-tool attribute or the
+      page's URL/slug) and render the interval-timer tool UI into this container,
+      the same way it currently renders it for the "#/interval-timer" hash route.
+    -->
+    <div id="interval-app" data-tool="interval-timer"></div>
+
+    <section class="info-block">
+      <h1>Free Online Interval Timer</h1>
+    <p>An interval timer cycles automatically through a sequence of work and rest periods you define in advance &mdash; for example, 40 seconds of work followed by 20 seconds of rest, repeated 8 times &mdash; without requiring you to start and stop each phase manually. It's the tool behind most structured workout formats like HIIT, Tabata, and circuit training, where the timing pattern itself is part of the exercise.</p>
+
+      <h2>Common Uses for an Interval Timer</h2>
+      <ul>
+      <li><strong>HIIT and Tabata workouts</strong> &mdash; alternating fixed work and rest intervals across multiple rounds</li>
+      <li><strong>Circuit training</strong> &mdash; timing each station in a rotation with a consistent transition period</li>
+      <li><strong>Cooking with multiple steps</strong> &mdash; sequencing steps like "saut&eacute; 5 min, simmer 10 min, rest 3 min" as one chained timer</li>
+      <li><strong>Study/break cycles</strong> &mdash; automating repeated focus-and-break sessions back to back</li>
+      <li><strong>Yoga and stretching routines</strong> &mdash; holding each pose for a set duration before moving to the next</li>
+      </ul>
+
+      <h2>Frequently Asked Questions</h2>
+    <h3>How do I set up a custom interval sequence?</h3>
+    <p>Use the step builder to add each phase (name and duration) in order &mdash; e.g. "Work &ndash; 40s", "Rest &ndash; 20s" &mdash; then set how many rounds to repeat the whole sequence.</p>
+
+    <h3>Can I give each step a different name or duration?</h3>
+    <p>Yes, every step in the sequence can have its own label and duration, so a single timer can handle uneven patterns like warm-up, multiple work phases, and a longer final rest.</p>
+
+    <h3>Does it alert me when moving between steps, not just at the very end?</h3>
+    <p>Yes &mdash; StopwatchPro signals each transition between steps, not only the end of the full sequence, so you know when work turns to rest without watching the screen.</p>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  <p>&copy; <span id="year">2026</span> StopwatchPro &nbsp;|&nbsp;
+    <a href="faq.html">FAQ</a>
+    <a href="how-to-use.html">How to Use</a>
+    <a href="about.html">About</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="contact.html">Contact</a>
+  </p>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
