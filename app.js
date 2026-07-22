@@ -168,6 +168,18 @@ const TOOLS = [
   {id:'tally',     icon:'🔢', color:'--accent-tally'},
 ];
 
+/* Standalone page slugs — maps each internal tool id to its real, crawlable
+   page filename (e.g. 'countdown' -> countdown-timer.html). Used to build
+   real links in the nav/home page, and to detect which tool a static page
+   is for via the <body data-tool="..."> attribute set in that page's HTML. */
+const PAGE_SLUGS = {
+  stopwatch:'stopwatch', countdown:'countdown-timer', splits:'splits',
+  interval:'interval-timer', clock:'clock', alarm:'alarm',
+  metronome:'metronome', chess:'chess-clock', tally:'tally-counter',
+};
+const SLUG_TO_ID = Object.fromEntries(Object.entries(PAGE_SLUGS).map(([id,slug])=>[slug,id]));
+function toolHref(id){ return (PAGE_SLUGS[id]||id) + '.html'; }
+
 function toolLabel(id){ return t('nav_'+id); }
 function toolColor(id){
   const tool = TOOLS.find(x=>x.id===id);
@@ -319,7 +331,7 @@ let currentToolApi = {}; // exposes start/stop/reset/lap/fullscreen for keyboard
 
 function setActiveNav(route){
   document.querySelectorAll('.primary-nav a').forEach(a=>{
-    a.classList.toggle('active', a.getAttribute('href') === '#/'+route);
+    a.classList.toggle('active', a.dataset.route === route);
     if(a.classList.contains('active')){
       const tool = TOOLS.find(x=>x.id===route);
       a.style.setProperty('--tool-color', tool ? `var(${tool.color})` : '');
@@ -338,13 +350,26 @@ function setToolAccent(id){
 function render(){
   if(typeof currentTeardown === 'function'){ currentTeardown(); currentTeardown=null; }
   const hash = location.hash.replace('#/','') || '';
-  const route = hash.split('/')[0];
+  let route = hash.split('/')[0];
+
+  // Standalone tool pages (stopwatch.html, countdown-timer.html, etc.) declare
+  // their tool via <body data-tool="...">. A hash still takes priority if present
+  // (keeps old links working), but with no hash we use the page's own tool
+  // instead of falling through to the homepage.
+  if(!route){
+    const pageSlug = document.body.getAttribute('data-tool');
+    if(pageSlug && SLUG_TO_ID[pageSlug]) route = SLUG_TO_ID[pageSlug];
+  }
+
   currentToolApi = {};
-  setActiveNav(route);
 
   if(!route){ setToolAccent('stopwatch'); renderHome(); }
   else if(TOOLS.find(x=>x.id===route)){ setToolAccent(route); VIEWS[route](); insertToolAdSlot(); }
   else { renderHome(); }
+
+  // runs after the view above (each view rebuilds the nav via buildNav()),
+  // otherwise the active-state class gets wiped out immediately.
+  setActiveNav(route);
 
   applyStaticI18n();
   window.scrollTo(0,0);
@@ -369,8 +394,8 @@ function insertToolAdSlot(){
 /* nav bar build */
 function buildNav(){
   const nav = document.getElementById('primaryNav');
-  nav.innerHTML = `<a href="#/">${'⌂'} <span data-i18n="nav_home">Home</span></a>` +
-    TOOLS.map(tl=>`<a href="#/${tl.id}"><span data-i18n="nav_${tl.id}">${toolLabel(tl.id)}</span></a>`).join('');
+  nav.innerHTML = `<a href="index.html" data-route=""><span>⌂</span> <span data-i18n="nav_home">Home</span></a>` +
+    TOOLS.map(tl=>`<a href="${toolHref(tl.id)}" data-route="${tl.id}"><span data-i18n="nav_${tl.id}">${toolLabel(tl.id)}</span></a>`).join('');
 }
 
 /* ---------------------------------------------------------
@@ -387,7 +412,7 @@ function renderHome(){
 
     <div class="primary-tools">
       ${primary.map(tl=>`
-        <a href="#/${tl.id}" class="primary-card" style="--card-color:var(${tl.color})">
+        <a href="${toolHref(tl.id)}" class="primary-card" style="--card-color:var(${tl.color})">
           <span class="tool-icon">${tl.icon}</span>
           <h2 data-i18n="nav_${tl.id}">${toolLabel(tl.id)}</h2>
           <div class="preview">${tl.id==='stopwatch' ? '00:00.000' : '01:00:00'}</div>
@@ -399,7 +424,7 @@ function renderHome(){
     <div class="quick-access-label" data-i18n="quick_access">Quick access</div>
     <div class="quick-grid">
       ${rest.map(tl=>`
-        <a href="#/${tl.id}" class="quick-tile" style="--tile-color:var(${tl.color})">
+        <a href="${toolHref(tl.id)}" class="quick-tile" style="--tile-color:var(${tl.color})">
           <span class="qi">${tl.icon}</span>
           <span class="qt" data-i18n="nav_${tl.id}">${toolLabel(tl.id)}</span>
         </a>`).join('')}

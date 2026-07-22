@@ -431,8 +431,7 @@ footer a:hover{color:var(--text);}
 [data-contrast="1"][data-theme="dark"]{--border:#fff; --muted:#ddd;}
 </style>
 </head>
-<body>
-
+<body data-tool="metronome">
 <header class="site-header">
   <a href="index.html" class="logo"><span class="dot">&#9201;</span> StopwatchPro</a>
   <nav class="primary-nav" id="primaryNav"></nav>
@@ -449,18 +448,9 @@ footer a:hover{color:var(--text);}
   </div>
 </header>
 
-<main id="app">
-  <div class="tool-shell">
+<main id="app"></main>
 
-    <!--
-      TOOL WIDGET MOUNT POINT
-      app.js should detect this page (e.g. via data-tool attribute or the
-      page's URL/slug) and render the metronome tool UI into this container,
-      the same way it currently renders it for the "#/metronome" hash route.
-    -->
-    <div id="metronome-app" data-tool="metronome"></div>
-
-    <section class="info-block">
+<section class="info-block">
       <h1>Free Online Metronome</h1>
     <p>A metronome produces a steady, evenly spaced audible click at a set tempo (measured in beats per minute, or BPM), used by musicians to practice keeping accurate time. StopwatchPro's metronome lets you set any BPM and provides a visual pulse alongside the audio click, which is useful in quiet environments like shared practice rooms or late-night sessions.</p>
 
@@ -483,9 +473,6 @@ footer a:hover{color:var(--text);}
     <p>Yes, the audio can be muted while the visual beat indicator continues, letting you practice silently.</p>
     </section>
 
-  </div>
-</main>
-
 <footer>
   <p>&copy; <span id="year">2026</span> StopwatchPro &nbsp;|&nbsp;
     <a href="faq.html">FAQ</a>
@@ -496,6 +483,25 @@ footer a:hover{color:var(--text);}
   </p>
 </footer>
 
+<div class="modal-overlay hidden" id="settingsOverlay">
+  <div class="modal">
+    <button class="modal-close" id="settingsClose" aria-label="Close">&#10005;</button>
+    <h2 data-i18n="settings_title">Appearance &amp; Accessibility</h2>
+    <div class="theme-presets" id="themePresets"></div>
+    <div class="swatch-row">
+      <label data-i18n="lbl_bg">Background<input type="color" id="colorBg" value="#fafbfc"></label>
+      <label data-i18n="lbl_text">Timer Text<input type="color" id="colorText" value="#14181f"></label>
+      <label data-i18n="lbl_accent">Accent<input type="color" id="colorAccent" value="#2952e3"></label>
+    </div>
+    <label style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+      <input type="checkbox" id="largeTextToggle"> <span data-i18n="lbl_largetext">Large text mode</span>
+    </label>
+    <label style="display:flex;align-items:center;gap:8px;margin-bottom:16px;">
+      <input type="checkbox" id="contrastToggle"> <span data-i18n="lbl_contrast">High contrast mode</span>
+    </label>
+    <button class="btn" id="settingsSave" data-i18n="btn_save">Save</button>
+  </div>
+</div>
 <script src="app.js"></script>
 </body>
 </html>

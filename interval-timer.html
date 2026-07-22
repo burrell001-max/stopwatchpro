@@ -431,8 +431,7 @@ footer a:hover{color:var(--text);}
 [data-contrast="1"][data-theme="dark"]{--border:#fff; --muted:#ddd;}
 </style>
 </head>
-<body>
-
+<body data-tool="interval-timer">
 <header class="site-header">
   <a href="index.html" class="logo"><span class="dot">&#9201;</span> StopwatchPro</a>
   <nav class="primary-nav" id="primaryNav"></nav>
@@ -449,18 +448,9 @@ footer a:hover{color:var(--text);}
   </div>
 </header>
 
-<main id="app">
-  <div class="tool-shell">
+<main id="app"></main>
 
-    <!--
-      TOOL WIDGET MOUNT POINT
-      app.js should detect this page (e.g. via data-tool attribute or the
-      page's URL/slug) and render the interval-timer tool UI into this container,
-      the same way it currently renders it for the "#/interval-timer" hash route.
-    -->
-    <div id="interval-app" data-tool="interval-timer"></div>
-
-    <section class="info-block">
+<section class="info-block">
       <h1>Free Online Interval Timer</h1>
     <p>An interval timer cycles automatically through a sequence of work and rest periods you define in advance &mdash; for example, 40 seconds of work followed by 20 seconds of rest, repeated 8 times &mdash; without requiring you to start and stop each phase manually. It's the tool behind most structured workout formats like HIIT, Tabata, and circuit training, where the timing pattern itself is part of the exercise.</p>
 
@@ -484,9 +474,6 @@ footer a:hover{color:var(--text);}
     <p>Yes &mdash; StopwatchPro signals each transition between steps, not only the end of the full sequence, so you know when work turns to rest without watching the screen.</p>
     </section>
 
-  </div>
-</main>
-
 <footer>
   <p>&copy; <span id="year">2026</span> StopwatchPro &nbsp;|&nbsp;
     <a href="faq.html">FAQ</a>
@@ -497,6 +484,25 @@ footer a:hover{color:var(--text);}
   </p>
 </footer>
 
+<div class="modal-overlay hidden" id="settingsOverlay">
+  <div class="modal">
+    <button class="modal-close" id="settingsClose" aria-label="Close">&#10005;</button>
+    <h2 data-i18n="settings_title">Appearance &amp; Accessibility</h2>
+    <div class="theme-presets" id="themePresets"></div>
+    <div class="swatch-row">
+      <label data-i18n="lbl_bg">Background<input type="color" id="colorBg" value="#fafbfc"></label>
+      <label data-i18n="lbl_text">Timer Text<input type="color" id="colorText" value="#14181f"></label>
+      <label data-i18n="lbl_accent">Accent<input type="color" id="colorAccent" value="#2952e3"></label>
+    </div>
+    <label style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+      <input type="checkbox" id="largeTextToggle"> <span data-i18n="lbl_largetext">Large text mode</span>
+    </label>
+    <label style="display:flex;align-items:center;gap:8px;margin-bottom:16px;">
+      <input type="checkbox" id="contrastToggle"> <span data-i18n="lbl_contrast">High contrast mode</span>
+    </label>
+    <button class="btn" id="settingsSave" data-i18n="btn_save">Save</button>
+  </div>
+</div>
 <script src="app.js"></script>
 </body>
 </html>

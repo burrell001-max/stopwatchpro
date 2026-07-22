@@ -431,8 +431,7 @@ footer a:hover{color:var(--text);}
 [data-contrast="1"][data-theme="dark"]{--border:#fff; --muted:#ddd;}
 </style>
 </head>
-<body>
-
+<body data-tool="alarm">
 <header class="site-header">
   <a href="index.html" class="logo"><span class="dot">&#9201;</span> StopwatchPro</a>
   <nav class="primary-nav" id="primaryNav"></nav>
@@ -449,18 +448,9 @@ footer a:hover{color:var(--text);}
   </div>
 </header>
 
-<main id="app">
-  <div class="tool-shell">
+<main id="app"></main>
 
-    <!--
-      TOOL WIDGET MOUNT POINT
-      app.js should detect this page (e.g. via data-tool attribute or the
-      page's URL/slug) and render the alarm tool UI into this container,
-      the same way it currently renders it for the "#/alarm" hash route.
-    -->
-    <div id="alarm-app" data-tool="alarm"></div>
-
-    <section class="info-block">
+<section class="info-block">
       <h1>Free Online Alarm Clock</h1>
     <p>StopwatchPro's alarm clock lets you set one or more specific times of day at which your browser will sound an alert &mdash; functioning like a traditional alarm clock but accessible from any device with a browser, and without needing to install an app. You can save multiple named alarms and choose from different alert sounds.</p>
 
@@ -483,9 +473,6 @@ footer a:hover{color:var(--text);}
     <p>Yes, StopwatchPro offers a selection of alert sounds you can preview and assign per alarm.</p>
     </section>
 
-  </div>
-</main>
-
 <footer>
   <p>&copy; <span id="year">2026</span> StopwatchPro &nbsp;|&nbsp;
     <a href="faq.html">FAQ</a>
@@ -496,6 +483,25 @@ footer a:hover{color:var(--text);}
   </p>
 </footer>
 
+<div class="modal-overlay hidden" id="settingsOverlay">
+  <div class="modal">
+    <button class="modal-close" id="settingsClose" aria-label="Close">&#10005;</button>
+    <h2 data-i18n="settings_title">Appearance &amp; Accessibility</h2>
+    <div class="theme-presets" id="themePresets"></div>
+    <div class="swatch-row">
+      <label data-i18n="lbl_bg">Background<input type="color" id="colorBg" value="#fafbfc"></label>
+      <label data-i18n="lbl_text">Timer Text<input type="color" id="colorText" value="#14181f"></label>
+      <label data-i18n="lbl_accent">Accent<input type="color" id="colorAccent" value="#2952e3"></label>
+    </div>
+    <label style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+      <input type="checkbox" id="largeTextToggle"> <span data-i18n="lbl_largetext">Large text mode</span>
+    </label>
+    <label style="display:flex;align-items:center;gap:8px;margin-bottom:16px;">
+      <input type="checkbox" id="contrastToggle"> <span data-i18n="lbl_contrast">High contrast mode</span>
+    </label>
+    <button class="btn" id="settingsSave" data-i18n="btn_save">Save</button>
+  </div>
+</div>
 <script src="app.js"></script>
 </body>
 </html>
