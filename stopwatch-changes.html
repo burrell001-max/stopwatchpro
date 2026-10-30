@@ -1,0 +1,71 @@
+<!-- ============================================================
+ 1) REPLACE the whole <section class="info-block"> ... </section> after <main id="app"></main>
+    (the tool renders its own <h1>, so this section uses <h2>)
+============================================================ -->
+<section class="wrap info-block" style="margin-top:40px; line-height:1.7;">
+  <h2>What Is an Online Stopwatch?</h2>
+  <p>A stopwatch measures elapsed time from the moment you press start until you press stop. There is no target time and no countdown, just an accurate running clock. StopwatchPro's stopwatch uses your browser's high-resolution timing API, so the numbers you see are accurate to the millisecond rather than rounded to the nearest second like a basic clock app. It works in any modern browser on a phone, tablet or computer, with no download and no account.</p>
+
+  <h2>How to Use the Stopwatch</h2>
+  <ol>
+    <li><strong>Start.</strong> Press the start button to begin counting up from zero.</li>
+    <li><strong>Record laps.</strong> Press the lap button each time you reach a checkpoint, such as the end of a lap, a rep or a step in a process. Each lap is added to the list below the display.</li>
+    <li><strong>Pause and resume.</strong> Pause freezes the elapsed time exactly where it is. Resume carries on from that point instead of restarting.</li>
+    <li><strong>Stop and reset.</strong> Reset clears the time and the lap list so you can start a new run.</li>
+    <li><strong>Go fullscreen.</strong> Use the fullscreen button for large digits that are readable from across a track, gym or classroom.</li>
+  </ol>
+
+  <h2>Laps and Splits Explained</h2>
+  <p>A <strong>lap time</strong> is how long a single segment took, measured from the previous lap press. A <strong>split time</strong> is the total elapsed time at the moment you press, measured from the start. They describe the same run in two ways.</p>
+  <p>For example, imagine a four-lap run where you press the lap button at 1:10, 2:25, 3:35 and 4:40 on the clock. Your split times are 1:10, 2:25, 3:35 and 4:40. Your lap times are 1:10, 1:15, 1:10 and 1:05. Reading the laps shows you got faster at the end; reading the splits shows your total progress. Comparing your fastest and slowest laps is a simple way to see whether you are pacing evenly.</p>
+
+  <h2>Common Uses for an Online Stopwatch</h2>
+  <ul>
+    <li><strong>Sports and fitness:</strong> time sprints, running laps, swim lengths, plank holds and rest periods between sets.</li>
+    <li><strong>Cooking and baking:</strong> track total prep or cook time without a kitchen timer.</li>
+    <li><strong>Studying and work:</strong> measure how long a task really takes so you can plan better next time. Timing practice questions is a good way to build exam pace.</li>
+    <li><strong>Public speaking:</strong> check that a talk, speech or rehearsal fits its time slot, and note how long each section runs.</li>
+    <li><strong>Science and classroom experiments:</strong> record reaction times, pendulum swings or the time for a reaction to complete.</li>
+    <li><strong>Games and challenges:</strong> time puzzle solves, speedruns or any "beat your best" challenge.</li>
+  </ul>
+
+  <h2>Tips for Accurate Timing</h2>
+  <p>The display can show milliseconds, but your own reaction time when pressing start and stop is usually 0.1 to 0.3 seconds, so treat the last digit as a guide rather than a guarantee. For a fair comparison between runs, start and stop at the same point each time. Browsers and phones may refresh background tabs less often to save battery, so keep the tab visible while you time something important. If you need a fixed limit rather than a measurement, use the <a href="countdown-timer.html">countdown timer</a>. For turn-based games, try the <a href="chess-clock.html">chess clock</a>.</p>
+
+  <h2>Frequently Asked Questions</h2>
+  <h3>What's the difference between a stopwatch and a timer?</h3>
+  <p>A stopwatch counts up from zero to measure how much time has passed. A timer counts down from a set duration to zero and alerts you when time is up. Use the stopwatch when you don't know in advance how long something will take.</p>
+  <h3>Can I pause and resume the stopwatch without losing my time?</h3>
+  <p>Yes. Pressing pause freezes the elapsed time exactly where it is; pressing resume continues counting from that point rather than restarting.</p>
+  <h3>Does closing the tab reset the stopwatch?</h3>
+  <p>Yes &mdash; the stopwatch runs in your browser's memory for the current session, so closing or reloading the tab will reset it to zero.</p>
+  <h3>Is the online stopwatch free?</h3>
+  <p>Yes. It is free to use, needs no sign-up or download, and works on phones, tablets and computers.</p>
+  <h3>What is the difference between a lap time and a split time?</h3>
+  <p>A lap time is the duration of one segment, measured from the previous lap press. A split time is the total elapsed time from the start at the moment you press the lap button.</p>
+  <h3>How accurate is the stopwatch?</h3>
+  <p>It measures time using your browser's high-resolution timer and shows milliseconds. In practice, your own reaction time when pressing the buttons is the biggest source of error.</p>
+</section>
+
+<!-- ============================================================
+ 2) REPLACE the existing FAQPage JSON-LD in <head> (now matches all six visible questions)
+============================================================ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"What's the difference between a stopwatch and a timer?","acceptedAnswer":{"@type":"Answer","text":"A stopwatch counts up from zero to measure how much time has passed. A timer counts down from a set duration to zero and alerts you when time is up. Use the stopwatch when you don't know in advance how long something will take."}},
+    {"@type":"Question","name":"Can I pause and resume the stopwatch without losing my time?","acceptedAnswer":{"@type":"Answer","text":"Yes. Pressing pause freezes the elapsed time exactly where it is; pressing resume continues counting from that point rather than restarting."}},
+    {"@type":"Question","name":"Does closing the tab reset the stopwatch?","acceptedAnswer":{"@type":"Answer","text":"Yes — the stopwatch runs in your browser's memory for the current session, so closing or reloading the tab will reset it to zero."}},
+    {"@type":"Question","name":"Is the online stopwatch free?","acceptedAnswer":{"@type":"Answer","text":"Yes. It is free to use, needs no sign-up or download, and works on phones, tablets and computers."}},
+    {"@type":"Question","name":"What is the difference between a lap time and a split time?","acceptedAnswer":{"@type":"Answer","text":"A lap time is the duration of one segment, measured from the previous lap press. A split time is the total elapsed time from the start at the moment you press the lap button."}},
+    {"@type":"Question","name":"How accurate is the stopwatch?","acceptedAnswer":{"@type":"Answer","text":"It measures time using your browser's high-resolution timer and shows milliseconds. In practice, your own reaction time when pressing the buttons is the biggest source of error."}}
+  ]
+}
+</script>
+
+<!-- ============================================================
+ 3) Replace the gtag block in <head> with the consent-default version from index-head-changes.html,
+    and delete the obsolete <meta name="keywords"> line.
+============================================================ -->
