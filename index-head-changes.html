@@ -1,0 +1,18 @@
+<!-- 1) In <head>, REPLACE the existing gtag block with this (consent defaults must come BEFORE gtag('config')).
+        If you enable Google's Privacy & messaging (Funding Choices) in AdSense, it updates these automatically. -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4QM7BFWC5G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    ad_storage: 'denied', analytics_storage: 'denied',
+    ad_user_data: 'denied', ad_personalization: 'denied',
+    region: ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH'],
+    wait_for_update: 500
+  });
+  gtag('js', new Date());
+  gtag('config', 'G-4QM7BFWC5G');
+</script>
+
+<!-- 2) In <head>, DELETE this line (obsolete, ignored by Google): -->
+<!-- <meta name="keywords" content="..." /> -->
