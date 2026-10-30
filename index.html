@@ -5,15 +5,22 @@
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
+  // Consent defaults for EEA/UK/CH visitors. Must run before gtag('config').
+  // If you enable Google's Privacy & messaging in AdSense, it updates these automatically.
+  gtag('consent', 'default', {
+    ad_storage: 'denied', analytics_storage: 'denied',
+    ad_user_data: 'denied', ad_personalization: 'denied',
+    region: ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH'],
+    wait_for_update: 500
+  });
   gtag('js', new Date());
   gtag('config', 'G-4QM7BFWC5G');
 </script>
 
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>StopwatchPro – Free Online Stopwatch, Countdown Timer & More</title>
+<title>StopwatchPro – Free Online Stopwatch, Countdown Timer &amp; More</title>
 <meta name="description" content="Free online stopwatch, countdown timer, interval timer, alarm clock, metronome, chess clock and tally counter. No download, no sign-up, works on any device." />
-<meta name="keywords" content="online stopwatch, countdown timer, interval timer, alarm clock, metronome, chess clock, tally counter, digital clock, timer online" />
 <link rel="canonical" href="https://stopwatchpro.xyz/" />
 <meta name="robots" content="index, follow" />
 <meta name="author" content="StopwatchPro" />
@@ -44,31 +51,11 @@
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Is StopwatchPro really free to use?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Yes. StopwatchPro is completely free with no sign-up, no download, and no hidden fees. It runs directly in your browser." }
-    },
-    {
-      "@type": "Question",
-      "name": "How accurate is the online stopwatch?",
-      "acceptedAnswer": { "@type": "Answer", "text": "StopwatchPro measures time to the millisecond using your browser's high-resolution timing functions, making it accurate enough for workouts, cooking, races, and lab timing." }
-    },
-    {
-      "@type": "Question",
-      "name": "Does StopwatchPro work on mobile devices?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Every tool is fully responsive and works on phones, tablets, and desktop browsers without needing an app." }
-    },
-    {
-      "@type": "Question",
-      "name": "Can I use StopwatchPro without an internet connection?",
-      "acceptedAnswer": { "@type": "Answer", "text": "After the page has loaded once, the timing tools continue to function offline since all logic runs locally in your browser." }
-    },
-    {
-      "@type": "Question",
-      "name": "Does StopwatchPro store my lap times or saved timers?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Saved countdowns, routines and alarms are stored locally in your browser only. Lap times exist only in your current session and clear on reset." }
-    }
+    {"@type":"Question","name":"Is StopwatchPro really free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes. StopwatchPro is completely free with no sign-up, no download and no hidden fees. It runs directly in your browser."}},
+    {"@type":"Question","name":"How accurate is the online stopwatch?","acceptedAnswer":{"@type":"Answer","text":"StopwatchPro measures time to the millisecond using your browser's high-resolution timing functions, which is accurate enough for workouts, cooking, races and lab timing. Exact precision depends on your device."}},
+    {"@type":"Question","name":"Does StopwatchPro work on mobile devices?","acceptedAnswer":{"@type":"Answer","text":"Yes. Every tool is fully responsive and works on phones, tablets and desktop browsers without needing an app."}},
+    {"@type":"Question","name":"Can I use StopwatchPro without an internet connection?","acceptedAnswer":{"@type":"Answer","text":"After the page has loaded once, the timing tools continue to function offline since all logic runs locally in your browser."}},
+    {"@type":"Question","name":"Does StopwatchPro store my lap times or saved timers?","acceptedAnswer":{"@type":"Answer","text":"Saved countdowns, routines and alarms are stored locally in your browser only. Lap times exist only in your current session and clear on reset."}}
   ]
 }
 </script>
@@ -181,6 +168,17 @@ select#langSelect{
   border-radius:999px; padding:8px 10px; font-size:0.78rem; font-weight:600; cursor:pointer;
 }
 
+/* ── Ad slots (hidden during review so Google doesn't flag empty slots) ── */
+.ad-slot{
+  max-width:1100px; width:100%; margin:18px auto 0; padding:14px;
+  border-radius:var(--radius-sm);
+  text-align:center; font-size:0.72rem; letter-spacing:.06em; text-transform:uppercase;
+  color:var(--muted);
+  display: none;
+}
+.ad-slot.leaderboard{min-height:90px;}
+.ad-slot.rectangle{min-height:250px; max-width:300px;}
+
 main{flex:1; width:100%;}
 .wrap{max-width:1100px; margin:0 auto; padding:0 24px;}
 
@@ -235,7 +233,7 @@ main{flex:1; width:100%;}
   padding:16px 14px; text-decoration:none; color:var(--text);
   display:flex; flex-direction:column; gap:8px; transition:.15s;
   border-left:3px solid var(--tile-color, var(--accent-stopwatch));
-  overflow: hidden; /* Fixes corner visual clipping on Tally Counter / Chess tiles */
+  overflow: hidden;
 }
 .quick-tile:hover{background:var(--surface-alt); transform:translateY(-2px);}
 .quick-tile .qi{font-size:1.3rem;}
@@ -407,8 +405,13 @@ main{flex:1; width:100%;}
 
 /* ── SEO/how-to/faq sections shared on tool pages ─────────── */
 .info-block{background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:22px; margin-top:22px; text-align:left;}
-.info-block h2{font-family:var(--display); font-size:1.05rem; margin-bottom:10px;}
+.info-block h2{font-family:var(--display); font-size:1.05rem; margin:18px 0 10px;}
+.info-block h2:first-child{margin-top:0;}
+.info-block h3{font-family:var(--display); font-size:.95rem; margin:14px 0 6px;}
 .info-block p{color:var(--muted); font-size:.86rem; line-height:1.7; margin-bottom:8px;}
+.info-block ul, .info-block ol{color:var(--muted); font-size:.86rem; line-height:1.7; margin:0 0 8px 22px;}
+.info-block li{margin-bottom:4px;}
+.info-block a{color:var(--accent); text-decoration:underline;}
 
 /* ── Footer ─────────────────────────────────────────────── */
 footer{border-top:1px solid var(--border); text-align:center; padding:28px 20px 22px; font-size:.78rem; color:var(--muted); margin-top:24px;}
@@ -432,12 +435,12 @@ footer a:hover{color:var(--text);}
 [data-largetext="1"] body{font-size:112%;}
 [data-contrast="1"]{--border:#000; --muted:#333;}
 [data-contrast="1"][data-theme="dark"]{--border:#fff; --muted:#ddd;}
+
 </style>
 </head>
 <body>
-
 <header class="site-header">
-  <a href="index.html" class="logo"><span class="dot">⏱</span> StopwatchPro</a>
+  <a href="index.html" class="logo"><span class="dot">&#9201;</span> StopwatchPro</a>
   <nav class="primary-nav" id="primaryNav"></nav>
   <div class="header-actions">
     <select id="langSelect" aria-label="Language">
@@ -447,32 +450,48 @@ footer a:hover{color:var(--text);}
       <option value="de">DE</option>
       <option value="nl">NL</option>
     </select>
-    <button class="icon-btn" id="themeToggleBtn" title="Dark mode" aria-label="Toggle dark mode">🌙</button>
-    <button class="icon-btn" id="settingsBtn" title="Colors & accessibility" aria-label="Settings">🎨</button>
+    <button class="icon-btn" id="themeToggleBtn" title="Dark mode" aria-label="Toggle dark mode">&#127769;</button>
+    <button class="icon-btn" id="settingsBtn" title="Colors &amp; accessibility" aria-label="Settings">&#127912;</button>
   </div>
 </header>
+
 <main id="app"></main>
 
 <section class="wrap info-block" style="margin-top: 40px; line-height: 1.7;">
-  <h1>Free Online Stopwatch & Precision Timer Tools</h1>
-  <p>StopwatchPro is a free, high-precision online timing suite built for athletes, students, teachers, professionals, and cooks. Whether you need a millisecond-accurate lap timer, a countdown timer for time blocking, or an interval timer for workouts, StopwatchPro works instantly in any web browser without required downloads or sign-ups.</p>
+  <h2>Free Online Stopwatch &amp; Precision Timer Tools</h2>
+  <p>StopwatchPro is a free online timing suite for athletes, students, teachers, professionals and home cooks. It runs in any modern browser on a phone, tablet or computer, with no download and no account. Pick the tool that fits the job, start it, and keep the tab open while you work.</p>
 
-  <h2>Key Features of StopwatchPro</h2>
+  <h2>What You Can Do With StopwatchPro</h2>
+  <p><strong>Stopwatch with laps and splits.</strong> Time a run, a speech, a lab step or a speedrun to the millisecond. Record a lap each time you cross a mark and compare the fastest and slowest laps in the list. Lap times stay in your current session and clear when you reset.</p>
+  <p><strong>Countdown timer.</strong> Set hours, minutes and seconds for time blocking, study sessions, presentations or cooking, and save timers you use often. Try the <a href="countdown-timer.html">countdown timer</a>.</p>
+  <p><strong>Interval timer.</strong> Build a routine of named steps, such as 40 seconds of work followed by 20 seconds of rest, and repeat it for workouts, HIIT sessions or study sprints.</p>
+  <p><strong>Alarm clock and digital clock.</strong> Set one or more alarms with a sound you can preview first, or keep a large clock on screen. See the <a href="alarm.html">alarm clock</a> and the <a href="clock.html">digital clock</a>.</p>
+  <p><strong>Chess clock.</strong> Two-sided timing for chess, Go, board games and debates. Tap your side to pass the turn. See the <a href="chess-clock.html">chess clock</a>.</p>
+  <p><strong>Metronome and tally counter.</strong> Set a steady tempo for music practice, or count people, reps and items with large tap-friendly buttons.</p>
+
+  <h2>Key Features</h2>
   <ul>
-    <li><strong>High-Precision Millisecond Timing:</strong> Powered by native browser high-resolution performance timers for exact accuracy.</li>
-    <li><strong>Lap & Split Time Recording:</strong> Easily record multiple split laps for track workouts, speedrun timing, or lab experiments.</li>
-    <li><strong>100% Web-Based & Private:</strong> Runs locally in your browser so your timer data and settings remain private on your device.</li>
+    <li><strong>High-precision timing:</strong> Uses your browser's high-resolution timer for accurate readings.</li>
+    <li><strong>Works on any device:</strong> Every tool is responsive and usable on small screens.</li>
+    <li><strong>Private by design:</strong> Timer data and saved items stay in your browser. See our <a href="privacy.html">Privacy Policy</a> for details on cookies and advertising.</li>
+    <li><strong>Customizable:</strong> Light and dark themes, custom colors, large text and high-contrast modes, fullscreen display, and five languages.</li>
   </ul>
 
   <h2>Frequently Asked Questions</h2>
-  <h3>How accurate is this online stopwatch?</h3>
-  <p>StopwatchPro utilizes JavaScript's high-resolution timing APIs, providing accuracy down to fractions of a millisecond depending on your system hardware clock.</p>
-
-  <h3>Can I use this timer offline?</h3>
-  <p>Yes! Once the webpage is loaded in your browser, all calculation logic runs locally on your machine, allowing you to run timers even if your internet connection drops.</p>
+  <h3>Is StopwatchPro really free to use?</h3>
+  <p>Yes. StopwatchPro is completely free with no sign-up, no download and no hidden fees. It runs directly in your browser.</p>
+  <h3>How accurate is the online stopwatch?</h3>
+  <p>StopwatchPro measures time to the millisecond using your browser's high-resolution timing functions, which is accurate enough for workouts, cooking, races and lab timing. Exact precision depends on your device.</p>
+  <h3>Does StopwatchPro work on mobile devices?</h3>
+  <p>Yes. Every tool is fully responsive and works on phones, tablets and desktop browsers without needing an app.</p>
+  <h3>Can I use StopwatchPro without an internet connection?</h3>
+  <p>After the page has loaded once, the timing tools continue to function offline since all logic runs locally in your browser.</p>
+  <h3>Does StopwatchPro store my lap times or saved timers?</h3>
+  <p>Saved countdowns, routines and alarms are stored locally in your browser only. Lap times exist only in your current session and clear on reset.</p>
 </section>
+
 <footer>
-  <p>© <span id="year">2026</span> StopwatchPro &nbsp;|&nbsp;
+  <p>&copy; <span id="year">2026</span> StopwatchPro &nbsp;|&nbsp;
     <a href="faq.html" data-i18n="nav_faq">FAQ</a>
     <a href="how-to-use.html">How to Use</a>
     <a href="about.html" data-i18n="nav_about">About</a>
@@ -481,11 +500,10 @@ footer a:hover{color:var(--text);}
   </p>
 </footer>
 
-<!-- Settings modal -->
 <div class="modal-overlay hidden" id="settingsOverlay">
   <div class="modal">
-    <button class="modal-close" id="settingsClose">✕</button>
-    <h2 data-i18n="settings_title">Appearance & Accessibility</h2>
+    <button class="modal-close" id="settingsClose" aria-label="Close">&#10005;</button>
+    <h2 data-i18n="settings_title">Appearance &amp; Accessibility</h2>
     <div class="theme-presets" id="themePresets"></div>
     <div class="swatch-row">
       <label data-i18n="lbl_bg">Background

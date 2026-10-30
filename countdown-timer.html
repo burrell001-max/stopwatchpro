@@ -5,6 +5,14 @@
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
+  // Consent defaults for EEA/UK/CH visitors. Must run before gtag('config').
+  // If you enable Google's Privacy & messaging in AdSense, it updates these automatically.
+  gtag('consent', 'default', {
+    ad_storage: 'denied', analytics_storage: 'denied',
+    ad_user_data: 'denied', ad_personalization: 'denied',
+    region: ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH'],
+    wait_for_update: 500
+  });
   gtag('js', new Date());
   gtag('config', 'G-4QM7BFWC5G');
 </script>
@@ -12,49 +20,30 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Countdown Timer – Free Online Timer with Alerts | StopwatchPro</title>
-<meta name="description" content="Free online countdown timer. Set any duration, save your favorite timers, and get an audible alert when time's up — no sign-up required." />
-<meta name="keywords" content="countdown timer, online timer, timer with alarm, set a timer" />
+<meta name="description" content="Free online countdown timer. Set any duration, save your favorite timers, and get an audible alert when time&#x27;s up — no sign-up required." />
 <link rel="canonical" href="https://stopwatchpro.xyz/countdown-timer.html" />
 <meta name="robots" content="index, follow" />
 <meta name="author" content="StopwatchPro" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://stopwatchpro.xyz/countdown-timer.html" />
 <meta property="og:title" content="Countdown Timer – Free Online Timer with Alerts | StopwatchPro" />
-<meta property="og:description" content="Free online countdown timer. Set any duration, save your favorite timers, and get an audible alert when time's up — no sign-up required." />
+<meta property="og:description" content="Free online countdown timer. Set any duration, save your favorite timers, and get an audible alert when time&#x27;s up — no sign-up required." />
 <meta property="og:site_name" content="StopwatchPro" />
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="Countdown Timer – Free Online Timer with Alerts | StopwatchPro" />
-<meta name="twitter:description" content="Free online countdown timer. Set any duration, save your favorite timers, and get an audible alert when time's up — no sign-up required." />
+<meta name="twitter:description" content="Free online countdown timer. Set any duration, save your favorite timers, and get an audible alert when time&#x27;s up — no sign-up required." />
 
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Can I save a countdown to reuse later?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes &mdash; StopwatchPro lets you save named countdowns (e.g. \"Pomodoro 25 min\" or \"Tea steep 3 min\") locally in your browser so you don't have to re-enter the same duration every time."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What happens when the countdown reaches zero?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "You'll get an audible alert and on-screen indication when time expires. You can also choose to have it continue counting up past zero if you want to see how far over you've gone."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Will the countdown still alert me if I switch to another browser tab?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "The timer keeps running in the background, and most browsers will still play the audio alert even if the tab isn't in focus, though this can vary by browser and device settings."
-      }
-    }
+    {"@type":"Question","name":"Can I save a countdown to reuse later?","acceptedAnswer":{"@type":"Answer","text":"Yes — StopwatchPro lets you save named countdowns (e.g. \"Pomodoro 25 min\" or \"Tea steep 3 min\") locally in your browser so you don't have to re-enter the same duration every time."}},
+    {"@type":"Question","name":"What happens when the countdown reaches zero?","acceptedAnswer":{"@type":"Answer","text":"You'll get an audible alert and on-screen indication when time expires. You can also choose to have it continue counting up past zero if you want to see how far over you've gone."}},
+    {"@type":"Question","name":"Will the countdown still alert me if I switch to another browser tab?","acceptedAnswer":{"@type":"Answer","text":"The timer keeps running in the background, and most browsers will still play the audio alert even if the tab isn't in focus, though this can vary by browser and device settings."}},
+    {"@type":"Question","name":"Is the countdown timer free?","acceptedAnswer":{"@type":"Answer","text":"Yes. It is free, needs no account or download, and works in any modern browser on phones, tablets and computers."}},
+    {"@type":"Question","name":"Are my saved timers sent to a server?","acceptedAnswer":{"@type":"Answer","text":"No. Saved timers stay in your browser's local storage on your own device. Clearing your browser data removes them."}},
+    {"@type":"Question","name":"How long can I set the timer for?","acceptedAnswer":{"@type":"Answer","text":"You can enter hours, minutes and seconds, so it works for anything from a few seconds to many hours."}}
   ]
 }
 </script>
@@ -167,13 +156,13 @@ select#langSelect{
   border-radius:999px; padding:8px 10px; font-size:0.78rem; font-weight:600; cursor:pointer;
 }
 
-/* ── Ad slots (Cleaned up style to prevent UX flags prior to approval) ── */
+/* ── Ad slots (hidden during review so Google doesn't flag empty slots) ── */
 .ad-slot{
   max-width:1100px; width:100%; margin:18px auto 0; padding:14px;
   border-radius:var(--radius-sm);
   text-align:center; font-size:0.72rem; letter-spacing:.06em; text-transform:uppercase;
   color:var(--muted);
-  display: none; /* Hide during review so Google doesn't flag "empty ad slots" */
+  display: none;
 }
 .ad-slot.leaderboard{min-height:90px;}
 .ad-slot.rectangle{min-height:250px; max-width:300px;}
@@ -232,7 +221,7 @@ main{flex:1; width:100%;}
   padding:16px 14px; text-decoration:none; color:var(--text);
   display:flex; flex-direction:column; gap:8px; transition:.15s;
   border-left:3px solid var(--tile-color, var(--accent-stopwatch));
-  overflow: hidden; /* Fixes corner visual clipping on Tally Counter / Chess tiles */
+  overflow: hidden;
 }
 .quick-tile:hover{background:var(--surface-alt); transform:translateY(-2px);}
 .quick-tile .qi{font-size:1.3rem;}
@@ -404,8 +393,13 @@ main{flex:1; width:100%;}
 
 /* ── SEO/how-to/faq sections shared on tool pages ─────────── */
 .info-block{background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:22px; margin-top:22px; text-align:left;}
-.info-block h2{font-family:var(--display); font-size:1.05rem; margin-bottom:10px;}
+.info-block h2{font-family:var(--display); font-size:1.05rem; margin:18px 0 10px;}
+.info-block h2:first-child{margin-top:0;}
+.info-block h3{font-family:var(--display); font-size:.95rem; margin:14px 0 6px;}
 .info-block p{color:var(--muted); font-size:.86rem; line-height:1.7; margin-bottom:8px;}
+.info-block ul, .info-block ol{color:var(--muted); font-size:.86rem; line-height:1.7; margin:0 0 8px 22px;}
+.info-block li{margin-bottom:4px;}
+.info-block a{color:var(--accent); text-decoration:underline;}
 
 /* ── Footer ─────────────────────────────────────────────── */
 footer{border-top:1px solid var(--border); text-align:center; padding:28px 20px 22px; font-size:.78rem; color:var(--muted); margin-top:24px;}
@@ -429,6 +423,7 @@ footer a:hover{color:var(--text);}
 [data-largetext="1"] body{font-size:112%;}
 [data-contrast="1"]{--border:#000; --muted:#333;}
 [data-contrast="1"][data-theme="dark"]{--border:#fff; --muted:#ddd;}
+
 </style>
 </head>
 <body data-tool="countdown-timer">
@@ -444,35 +439,65 @@ footer a:hover{color:var(--text);}
       <option value="nl">NL</option>
     </select>
     <button class="icon-btn" id="themeToggleBtn" title="Dark mode" aria-label="Toggle dark mode">&#127769;</button>
-    <button class="icon-btn" id="settingsBtn" title="Colors & accessibility" aria-label="Settings">&#127912;</button>
+    <button class="icon-btn" id="settingsBtn" title="Colors &amp; accessibility" aria-label="Settings">&#127912;</button>
   </div>
 </header>
 
 <main id="app"></main>
 
-<section class="info-block">
-      <h1>Free Online Countdown Timer</h1>
-    <p>A countdown timer starts from a duration you set and counts down to zero, alerting you when time's up &mdash; the opposite of a stopwatch. It's the right tool any time you know exactly how long something should take and want a clear signal when that time runs out, whether that's a 20-minute study block, a 5-minute presentation limit, or a 90-second egg timer.</p>
+<section class="wrap info-block" style="margin-top:40px; line-height:1.7;">
+  <h2>What Is a Countdown Timer?</h2>
+  <p>A countdown timer starts from a duration you choose and counts down to zero, then alerts you that time is up. It is the opposite of a stopwatch: a stopwatch measures how long something took, while a countdown timer limits how long something is allowed to take. It is the right tool whenever you already know the time you want to give a task, such as a 25-minute study block, a 5-minute presentation slot or a 3-minute tea steep.</p>
 
-      <h2>Common Uses for a Countdown Timer</h2>
-      <ul>
-      <li><strong>Time-blocking and productivity</strong> &mdash; allocating a fixed block to a task so you don't overrun it</li>
-      <li><strong>Cooking</strong> &mdash; setting precise countdowns for boiling, baking, or steeping</li>
-      <li><strong>Meetings and classrooms</strong> &mdash; enforcing a hard time limit for a discussion, quiz, or presentation</li>
-      <li><strong>Exercise and recovery</strong> &mdash; timing a plank hold or rest period with an audible end alert</li>
-      <li><strong>Games and quizzes</strong> &mdash; giving each player or round a fixed time limit</li>
-      </ul>
+  <h2>How to Use the Countdown Timer</h2>
+  <ol>
+    <li><strong>Set the duration.</strong> Enter hours, minutes and seconds in the fields above the timer.</li>
+    <li><strong>Start the countdown.</strong> Press the start button. The display counts down and keeps running while you work in other tabs.</li>
+    <li><strong>Pause or reset.</strong> Pause to stop the clock and resume later, or reset to return to the time you set.</li>
+    <li><strong>Save timers you use often.</strong> Give a countdown a name, such as "Pomodoro 25 min", and it appears in your saved list for one-click reuse. Saved timers are stored in your browser only.</li>
+    <li><strong>Go fullscreen.</strong> Use the fullscreen button to show large digits that are readable across a classroom, gym or kitchen.</li>
+  </ol>
 
-      <h2>Frequently Asked Questions</h2>
-    <h3>Can I save a countdown to reuse later?</h3>
-    <p>Yes &mdash; StopwatchPro lets you save named countdowns (e.g. "Pomodoro 25 min" or "Tea steep 3 min") locally in your browser so you don't have to re-enter the same duration every time.</p>
+  <h2>Common Uses for a Countdown Timer</h2>
+  <ul>
+    <li><strong>Time-blocking and productivity:</strong> give a task a fixed block so it does not expand to fill your day. The Pomodoro method, for example, alternates 25-minute focus sessions with 5-minute breaks.</li>
+    <li><strong>Cooking:</strong> time boiling, baking, resting dough or steeping tea and coffee, where a minute either way changes the result.</li>
+    <li><strong>Meetings and classrooms:</strong> enforce a hard limit on a discussion, quiz, presentation or group activity.</li>
+    <li><strong>Exercise and recovery:</strong> time a plank hold, a stretch or the rest between sets.</li>
+    <li><strong>Games and quizzes:</strong> give each player or round the same time limit so the game stays fair.</li>
+    <li><strong>Screen-time and chores:</strong> set a visible limit for children's screen time or a ten-minute tidy-up.</li>
+  </ul>
 
-    <h3>What happens when the countdown reaches zero?</h3>
-    <p>You'll get an audible alert and on-screen indication when time expires. You can also choose to have it continue counting up past zero if you want to see how far over you've gone.</p>
+  <h2>Quick Reference: Typical Durations</h2>
+  <ul>
+    <li><strong>Soft-boiled egg:</strong> about 6 minutes. <strong>Hard-boiled egg:</strong> about 10 to 12 minutes.</li>
+    <li><strong>Green tea:</strong> about 2 to 3 minutes. <strong>Black tea:</strong> about 3 to 5 minutes.</li>
+    <li><strong>Pomodoro focus block:</strong> 25 minutes, followed by a 5-minute break.</li>
+    <li><strong>Conference lightning talk:</strong> 5 minutes.</li>
+    <li><strong>Plank hold:</strong> 30 to 60 seconds per set.</li>
+  </ul>
+  <p>These are starting points. Adjust them for your equipment, ingredients and fitness level.</p>
 
-    <h3>Will the countdown still alert me if I switch to another browser tab?</h3>
-    <p>The timer keeps running in the background, and most browsers will still play the audio alert even if the tab isn't in focus, though this can vary by browser and device settings.</p>
-    </section>
+  <h2>Tips for Getting the Most From Your Timer</h2>
+  <p>Set the timer for slightly less time than you think you need, then extend it if necessary. Keep your device's volume up and check it is not on silent before relying on the alert. Browsers and phones can limit background tabs to save battery, so for anything important, such as a medication reminder or a safety-critical cooking time, keep the tab visible or use a second timer as a backup. Combine tools when it helps: use the <a href="alarm.html">alarm clock</a> for a fixed time of day, and the countdown for a fixed length of time.</p>
+
+  <h2>Related Tools</h2>
+  <p>Need to time how long something takes instead? Use the <a href="index.html">stopwatch with laps</a>. Playing a timed game? Try the <a href="chess-clock.html">chess clock</a>. Want a large on-screen time of day? See the <a href="clock.html">digital clock</a>.</p>
+
+  <h2>Frequently Asked Questions</h2>
+  <h3>Can I save a countdown to reuse later?</h3>
+  <p>Yes &mdash; StopwatchPro lets you save named countdowns (e.g. "Pomodoro 25 min" or "Tea steep 3 min") locally in your browser so you don't have to re-enter the same duration every time.</p>
+  <h3>What happens when the countdown reaches zero?</h3>
+  <p>You'll get an audible alert and on-screen indication when time expires. You can also choose to have it continue counting up past zero if you want to see how far over you've gone.</p>
+  <h3>Will the countdown still alert me if I switch to another browser tab?</h3>
+  <p>The timer keeps running in the background, and most browsers will still play the audio alert even if the tab isn't in focus, though this can vary by browser and device settings.</p>
+  <h3>Is the countdown timer free?</h3>
+  <p>Yes. It is free, needs no account or download, and works in any modern browser on phones, tablets and computers.</p>
+  <h3>Are my saved timers sent to a server?</h3>
+  <p>No. Saved timers stay in your browser's local storage on your own device. Clearing your browser data removes them.</p>
+  <h3>How long can I set the timer for?</h3>
+  <p>You can enter hours, minutes and seconds, so it works for anything from a few seconds to many hours.</p>
+</section>
 
 <footer>
   <p>&copy; <span id="year">2026</span> StopwatchPro &nbsp;|&nbsp;
@@ -503,6 +528,7 @@ footer a:hover{color:var(--text);}
     <button class="btn" id="settingsSave" data-i18n="btn_save">Save</button>
   </div>
 </div>
+
 <script src="app.js"></script>
 </body>
 </html>
