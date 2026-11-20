@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chess Time Controls Explained: Bullet, Blitz, Rapid and Classical | StopwatchPro</title>
+  <meta name="description" content="Understand chess time controls like 5+0, 15+10 and 90+30, the difference between Fischer and Bronstein increments, and how to choose one for your game." />
+  <link rel="canonical" href="https://stopwatchpro.xyz/guide-chess-time-controls.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Chess Time Controls Explained: Bullet, Blitz, Rapid and Classical",
+  "description": "Understand chess time controls like 5+0, 15+10 and 90+30, the difference between Fischer and Bronstein increments, and how to choose one for your game.",
+  "dateModified": "2026-11-19",
+  "datePublished": "2026-11-19",
+  "author": {
+    "@type": "Organization",
+    "name": "StopwatchPro"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "StopwatchPro"
+  },
+  "mainEntityOfPage": "https://stopwatchpro.xyz/guide-chess-time-controls.html"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What does 5+3 mean in chess?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Five minutes per player at the start, with three seconds added to your clock after each move you make."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between blitz and rapid?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Blitz usually means about 3 to 5 minutes per player, and rapid roughly 10 to 25 minutes. Different organisations draw the lines slightly differently."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does StopwatchPro's chess clock have increments?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. It gives both players the same fixed number of minutes with no added time per move."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between Fischer and Bronstein?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A Fischer increment adds the full time after every move, so your clock can grow. A Bronstein delay returns only the time you actually used, up to the delay, so your clock never grows."
+      }
+    }
+  ]
+}
+</script>
+
+  <style>
+    :root {
+      --sans: 'Inter', system-ui, sans-serif;
+      --mono: 'Share Tech Mono', monospace;
+      --radius: 12px;
+  --bg: #ffffff;
+  --surface: #f4f8fc;
+  --border: #d6e4f0;
+  --accent: #1e6fa8;
+  --accent2: #0d4d78;
+  --text: #1a1a1a;
+  --muted: #5a6b7a;
+  --danger: #e0304a;
+  --lap-alt: #eaf2fa;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: var(--sans); min-height: 100vh; display: grid; grid-template-rows: auto 1fr auto; line-height: 1.7; }
+    header { display: flex; align-items: center; justify-content: space-between; padding: 18px 32px; border-bottom: 1px solid var(--border); }
+    .logo { font-family: var(--mono); font-size: 1.25rem; color: var(--accent); letter-spacing: 0.06em; text-decoration: none; }
+    nav a { color: var(--muted); text-decoration: none; font-size: 0.85rem; margin-left: 24px; }
+    nav a:hover { color: var(--text); }
+    main { max-width: 760px; margin: 0 auto; padding: 48px 24px; }
+    .page-tag { font-family: var(--mono); font-size: 0.75rem; color: var(--accent); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 12px; }
+    h1 { font-size: 2rem; font-weight: 600; margin-bottom: 18px; line-height: 1.25; }
+    .lede { color: var(--muted); font-size: 1.02rem; margin-bottom: 28px; }
+    article h2 { font-size: 1.25rem; font-weight: 600; margin: 32px 0 10px; }
+    article p { margin-bottom: 14px; }
+    article ul, article ol { margin: 0 0 16px 24px; }
+    article li { margin-bottom: 6px; }
+    article a, .card a { color: var(--accent); }
+    table { width: 100%; border-collapse: collapse; margin: 8px 0 18px; font-size: 0.9rem; }
+    th, td { border: 1px solid var(--border); padding: 8px 10px; text-align: left; }
+    th { background: var(--surface); }
+    .cta { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px 24px; margin: 32px 0; }
+    .cta a.btn { display: inline-block; margin-top: 8px; background: var(--accent); color: #fff; text-decoration: none; padding: 9px 18px; border-radius: 8px; font-weight: 600; font-size: 0.9rem; }
+    .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 22px 26px; margin-bottom: 16px; }
+    .card h2 { font-size: 1.1rem; margin-bottom: 6px; }
+    .card h2 a { text-decoration: none; }
+    .card p { color: var(--muted); font-size: 0.92rem; margin: 0; }
+    footer { border-top: 1px solid var(--border); text-align: center; padding: 20px; font-size: 0.78rem; color: var(--muted); }
+    footer a { color: var(--muted); margin: 0 6px; }
+    @media (max-width: 600px) { header { padding: 14px 16px; } main { padding: 28px 16px; } h1 { font-size: 1.5rem; } th, td { padding: 6px; } }
+  </style>
+</head>
+<body>
+<header>
+  <a href="index.html" class="logo">⏱ StopwatchPro</a>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="guides.html">Guides</a>
+    <a href="faq.html">FAQ</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+<main>
+  <div class="page-tag">Guide</div>
+  <article>
+  <h1>Chess Time Controls Explained: Bullet, Blitz, Rapid and Classical</h1>
+  <p class="lede">What the numbers in a time control mean, how the formats differ and which one suits your game.</p>
+<p>If you have ever seen "5+3" or "15|10" next to a chess game and wondered what it meant, you are looking at a time control. It is the rule that decides how much thinking time each player has. Understanding the common formats helps you pick one that matches the kind of game you want, and helps you read tournament information at a glance.</p>
+
+<h2>How to read a time control</h2>
+<p>Most time controls are written as two numbers separated by a plus sign or a vertical bar. The first is the starting time, in minutes, for each player. The second is the increment, in seconds, added to a player's clock after each move.</p>
+<ul>
+<li><strong>5+0</strong> means five minutes each and no increment. When your time runs out, you lose.</li>
+<li><strong>10+5</strong> means ten minutes each, plus five seconds added after every move you make.</li>
+<li><strong>90+30</strong> means ninety minutes each, plus thirty seconds per move. This is a typical classical tournament control.</li>
+</ul>
+
+<h2>The main categories</h2>
+<table>
+<thead><tr><th>Category</th><th>Typical time per player</th><th>Typical example</th><th>Feel</th></tr></thead>
+<tbody>
+<tr><td>Bullet</td><td>1 to 2 minutes</td><td>1+0, 2+1</td><td>Extremely fast, mouse and reflex heavy</td></tr>
+<tr><td>Blitz</td><td>3 to 5 minutes</td><td>3+2, 5+0</td><td>Fast, instinctive, lots of tactics</td></tr>
+<tr><td>Rapid</td><td>10 to 25 minutes</td><td>10+5, 15+10</td><td>Time to think, still finishes in under an hour</td></tr>
+<tr><td>Classical</td><td>60 minutes or more</td><td>90+30</td><td>Deep calculation, games can last several hours</td></tr>
+</tbody>
+</table>
+<p>Exact boundaries differ between organisations and websites, so treat the ranges as a guide rather than a rule.</p>
+
+<h2>Increment and delay: Fischer and Bronstein</h2>
+<p>Without any extra time, a game can come down to frantic scrambles in which a player with a winning position loses because the clock ran out. Increments and delays were invented to reduce that.</p>
+<ul>
+<li><strong>Fischer increment:</strong> a fixed number of seconds is added to your clock after you complete each move. It is named after Bobby Fischer, who championed the idea. Your clock can actually grow if you move faster than the increment. This is the most widely used system in online chess and modern events.</li>
+<li><strong>Bronstein delay:</strong> after you move, you get back the time you used, up to the delay amount, so your clock never goes up. If you spend 3 seconds on a move with a 5-second Bronstein delay, you get 3 seconds back.</li>
+<li><strong>Simple delay:</strong> your clock does not start counting down until the delay has passed. Like Bronstein, it never adds time.</li>
+</ul>
+<p>StopwatchPro's chess clock gives each player a fixed number of minutes with no increment, so it is best suited to sudden-death games such as 3+0, 5+0 or 10+0. For events with increments, use a dedicated clock.</p>
+
+<h2>How to use the online chess clock</h2>
+<ol>
+<li>Open the <a href="chess-clock.html">chess clock</a> and enter the minutes per side. Both players get the same amount.</li>
+<li>Press Start game. Player 1's clock begins.</li>
+<li>After each move, tap your own side. That stops your clock and starts your opponent's.</li>
+<li>A side's clock is highlighted when it has 30 seconds or less. If either clock reaches zero, the game stops.</li>
+</ol>
+
+<h2>Choosing a time control</h2>
+<ul>
+<li><strong>Learning the game:</strong> choose rapid or slower, such as 15 minutes per side. Faster games punish beginners for slow calculation and do not teach good habits.</li>
+<li><strong>A quick game over lunch:</strong> blitz, such as 5 minutes per side.</li>
+<li><strong>Serious study of your own play:</strong> a longer control, such as 30 minutes per side or more, gives you the time to think and to analyse the game afterwards.</li>
+<li><strong>A fair game between players of different strength:</strong> use different time odds. This requires an agreement between the players, since the StopwatchPro clock uses the same time for both sides.</li>
+</ul>
+
+<h2>Beyond chess</h2>
+<p>Game clocks are useful for many two-player games. Go, shogi, Scrabble and debate rounds all benefit from a shared, visible limit on thinking or speaking time. Agree the time before the game, and agree what happens when time runs out so nobody is surprised.</p>
+  <div class="cta"><strong>Try it now.</strong><br>Open the free online chess clock. No download or sign-up needed.<br><a class="btn" href="chess-clock.html">Open the chess clock</a></div>
+  <h2>Frequently Asked Questions</h2>
+<h3>What does 5+3 mean in chess?</h3>
+<p>Five minutes per player at the start, with three seconds added to your clock after each move you make.</p>
+<h3>What is the difference between blitz and rapid?</h3>
+<p>Blitz usually means about 3 to 5 minutes per player, and rapid roughly 10 to 25 minutes. Different organisations draw the lines slightly differently.</p>
+<h3>Does StopwatchPro's chess clock have increments?</h3>
+<p>No. It gives both players the same fixed number of minutes with no added time per move.</p>
+<h3>What is the difference between Fischer and Bronstein?</h3>
+<p>A Fischer increment adds the full time after every move, so your clock can grow. A Bronstein delay returns only the time you actually used, up to the delay, so your clock never grows.</p>
+
+  <h2>More guides</h2>
+  <ul><li><a href="guide-tabata-hiit-timer.html">Tabata and HIIT timer setup</a></li><li><a href="guide-pacing-a-5k.html">Pacing a 5K with lap splits</a></li><li><a href="guide-pomodoro-technique.html">Pomodoro technique with a timer</a></li><li><a href="guide-metronome-practice.html">Metronome practice guide</a></li><li><a href="guides.html">All guides</a></li></ul>
+  </article>
+</main>
+<footer>
+  <p>&copy; 2026 StopwatchPro &nbsp;|&nbsp;
+    <a href="guides.html">Guides</a>
+    <a href="faq.html">FAQ</a>
+    <a href="how-to-use.html">How to Use</a>
+    <a href="about.html">About</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="terms.html">Terms</a>
+    <a href="contact.html">Contact</a>
+  </p>
+</footer>
+</body>
+</html>

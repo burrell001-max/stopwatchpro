@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How to Use the Pomodoro Technique With an Online Timer | StopwatchPro</title>
+  <meta name="description" content="A practical guide to the Pomodoro technique: 25-minute focus sessions, 5-minute breaks, how to set them up in an online timer, and how to adapt them." />
+  <link rel="canonical" href="https://stopwatchpro.xyz/guide-pomodoro-technique.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "How to Use the Pomodoro Technique With an Online Timer",
+  "description": "A practical guide to the Pomodoro technique: 25-minute focus sessions, 5-minute breaks, how to set them up in an online timer, and how to adapt them.",
+  "dateModified": "2026-11-19",
+  "datePublished": "2026-11-19",
+  "author": {
+    "@type": "Organization",
+    "name": "StopwatchPro"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "StopwatchPro"
+  },
+  "mainEntityOfPage": "https://stopwatchpro.xyz/guide-pomodoro-technique.html"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How long is a Pomodoro?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The classic Pomodoro is 25 minutes of focused work followed by a 5-minute break. After four pomodoros, take a longer break of 15 to 30 minutes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I change the Pomodoro times?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. 25 and 5 is a starting point. Many people use 50 and 10 for deep work or 15 and 3 for tasks they are avoiding."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can StopwatchPro run the whole cycle automatically?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The interval timer can chain focus and break steps into one routine that runs from the first step to the last. Add steps for as many blocks as you want, then save the routine."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does the timer still work if the tab is in the background?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Browsers can slow background tabs to save battery, which can make timing drift. For important sessions, keep the tab visible and your device awake."
+      }
+    }
+  ]
+}
+</script>
+
+  <style>
+    :root {
+      --sans: 'Inter', system-ui, sans-serif;
+      --mono: 'Share Tech Mono', monospace;
+      --radius: 12px;
+  --bg: #ffffff;
+  --surface: #f4f8fc;
+  --border: #d6e4f0;
+  --accent: #1e6fa8;
+  --accent2: #0d4d78;
+  --text: #1a1a1a;
+  --muted: #5a6b7a;
+  --danger: #e0304a;
+  --lap-alt: #eaf2fa;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: var(--sans); min-height: 100vh; display: grid; grid-template-rows: auto 1fr auto; line-height: 1.7; }
+    header { display: flex; align-items: center; justify-content: space-between; padding: 18px 32px; border-bottom: 1px solid var(--border); }
+    .logo { font-family: var(--mono); font-size: 1.25rem; color: var(--accent); letter-spacing: 0.06em; text-decoration: none; }
+    nav a { color: var(--muted); text-decoration: none; font-size: 0.85rem; margin-left: 24px; }
+    nav a:hover { color: var(--text); }
+    main { max-width: 760px; margin: 0 auto; padding: 48px 24px; }
+    .page-tag { font-family: var(--mono); font-size: 0.75rem; color: var(--accent); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 12px; }
+    h1 { font-size: 2rem; font-weight: 600; margin-bottom: 18px; line-height: 1.25; }
+    .lede { color: var(--muted); font-size: 1.02rem; margin-bottom: 28px; }
+    article h2 { font-size: 1.25rem; font-weight: 600; margin: 32px 0 10px; }
+    article p { margin-bottom: 14px; }
+    article ul, article ol { margin: 0 0 16px 24px; }
+    article li { margin-bottom: 6px; }
+    article a, .card a { color: var(--accent); }
+    table { width: 100%; border-collapse: collapse; margin: 8px 0 18px; font-size: 0.9rem; }
+    th, td { border: 1px solid var(--border); padding: 8px 10px; text-align: left; }
+    th { background: var(--surface); }
+    .cta { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px 24px; margin: 32px 0; }
+    .cta a.btn { display: inline-block; margin-top: 8px; background: var(--accent); color: #fff; text-decoration: none; padding: 9px 18px; border-radius: 8px; font-weight: 600; font-size: 0.9rem; }
+    .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 22px 26px; margin-bottom: 16px; }
+    .card h2 { font-size: 1.1rem; margin-bottom: 6px; }
+    .card h2 a { text-decoration: none; }
+    .card p { color: var(--muted); font-size: 0.92rem; margin: 0; }
+    footer { border-top: 1px solid var(--border); text-align: center; padding: 20px; font-size: 0.78rem; color: var(--muted); }
+    footer a { color: var(--muted); margin: 0 6px; }
+    @media (max-width: 600px) { header { padding: 14px 16px; } main { padding: 28px 16px; } h1 { font-size: 1.5rem; } th, td { padding: 6px; } }
+  </style>
+</head>
+<body>
+<header>
+  <a href="index.html" class="logo">⏱ StopwatchPro</a>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="guides.html">Guides</a>
+    <a href="faq.html">FAQ</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+<main>
+  <div class="page-tag">Guide</div>
+  <article>
+  <h1>How to Use the Pomodoro Technique With an Online Timer</h1>
+  <p class="lede">How the technique works, how to run it with a countdown timer or interval timer, and ways to adapt it.</p>
+<p>The Pomodoro technique is a simple way to organise work into short, focused blocks separated by breaks. It was developed by Francesco Cirillo in the late 1980s, and it is named after the tomato-shaped kitchen timer he used as a student. The idea is that a time limit makes starting easier, and regular breaks protect your attention. All you need is a timer.</p>
+
+<h2>The basic method</h2>
+<ol>
+<li><strong>Pick one task.</strong> Write it down so you know exactly what you are working on.</li>
+<li><strong>Set a timer for 25 minutes.</strong> This block is one "pomodoro".</li>
+<li><strong>Work on the task only.</strong> If something else comes to mind, jot it on a list and return to the task.</li>
+<li><strong>When the timer ends, take a 5-minute break.</strong> Stand up, stretch, drink some water. Avoid anything that pulls you into another task.</li>
+<li><strong>After four pomodoros, take a longer break</strong> of 15 to 30 minutes.</li>
+</ol>
+
+<h2>Set it up with the countdown timer</h2>
+<p>The simplest way to run Pomodoro is with the <a href="countdown-timer.html">countdown timer</a>:</p>
+<ol>
+<li>Open the countdown timer and set 25 minutes. Save the timer under the name "Focus" so you can load it with one tap in future.</li>
+<li>Create a second saved timer for 5 minutes named "Break", and a third for 15 minutes named "Long break".</li>
+<li>Press Start on "Focus", work until the alert sounds, then switch to "Break".</li>
+</ol>
+<p>Saved timers are stored in your browser, so they will be there the next time you visit.</p>
+
+<h2>Or build the whole cycle in the interval timer</h2>
+<p>If you would rather not switch timers by hand, the <a href="interval-timer.html">interval timer</a> can chain the cycle into one routine. Add steps named "Focus 1" at 1500 seconds, "Break" at 300 seconds, and repeat to make four focus blocks, with a "Long break" at 900 seconds at the end. Save it as "Pomodoro" and a sound plays at each change. The interval timer runs the list once, so add the steps for the number of blocks you want to do.</p>
+
+<h2>Adapting the method</h2>
+<p>25 and 5 is a starting point, not a rule. Some people find it too short for deep work and too long for tasks they dislike. Common variations include:</p>
+<ul>
+<li><strong>50 / 10:</strong> longer blocks for writing, coding or study that needs sustained concentration.</li>
+<li><strong>15 / 3:</strong> shorter blocks to get started on a task you have been avoiding.</li>
+<li><strong>90 / 20:</strong> a long block for creative or technical work, with a proper break.</li>
+</ul>
+<p>Try a pattern for a week and adjust. If you are constantly interrupted before the timer ends, the block is probably too long for your environment.</p>
+
+<h2>Making the breaks count</h2>
+<ul>
+<li>Move away from the screen. A short walk, stretching or looking out of a window is better than switching to your phone.</li>
+<li>Drink water and, if you can, get some daylight.</li>
+<li>Do not start another task in the break. The point is to rest your attention.</li>
+</ul>
+
+<h2>Handling interruptions</h2>
+<p>If someone interrupts you, ask whether it can wait until your break. If it cannot, pause or reset the timer, deal with it, and start a fresh block. A pomodoro that was interrupted is not a failure, but it should not be counted as a completed block either. Keeping a simple tally of completed blocks per day, for example with the <a href="tally-counter.html">tally counter</a>, helps you see how much focused time you really do.</p>
+
+<h2>Common questions</h2>
+<p>Pomodoro suits tasks that can be done in short bursts, such as study, writing, email, tidying, and coding. It is less suited to work that cannot be paused, like some creative flows. If you are deep in something, you can let the timer go off and continue, then take your break when you reach a natural stopping point.</p>
+  <div class="cta"><strong>Try it now.</strong><br>Open the free online countdown timer. No download or sign-up needed.<br><a class="btn" href="countdown-timer.html">Open the countdown timer</a></div>
+  <h2>Frequently Asked Questions</h2>
+<h3>How long is a Pomodoro?</h3>
+<p>The classic Pomodoro is 25 minutes of focused work followed by a 5-minute break. After four pomodoros, take a longer break of 15 to 30 minutes.</p>
+<h3>Can I change the Pomodoro times?</h3>
+<p>Yes. 25 and 5 is a starting point. Many people use 50 and 10 for deep work or 15 and 3 for tasks they are avoiding.</p>
+<h3>Can StopwatchPro run the whole cycle automatically?</h3>
+<p>The interval timer can chain focus and break steps into one routine that runs from the first step to the last. Add steps for as many blocks as you want, then save the routine.</p>
+<h3>Does the timer still work if the tab is in the background?</h3>
+<p>Browsers can slow background tabs to save battery, which can make timing drift. For important sessions, keep the tab visible and your device awake.</p>
+
+  <h2>More guides</h2>
+  <ul><li><a href="guide-tabata-hiit-timer.html">Tabata and HIIT timer setup</a></li><li><a href="guide-pacing-a-5k.html">Pacing a 5K with lap splits</a></li><li><a href="guide-chess-time-controls.html">Chess time controls explained</a></li><li><a href="guide-metronome-practice.html">Metronome practice guide</a></li><li><a href="guides.html">All guides</a></li></ul>
+  </article>
+</main>
+<footer>
+  <p>&copy; 2026 StopwatchPro &nbsp;|&nbsp;
+    <a href="guides.html">Guides</a>
+    <a href="faq.html">FAQ</a>
+    <a href="how-to-use.html">How to Use</a>
+    <a href="about.html">About</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="terms.html">Terms</a>
+    <a href="contact.html">Contact</a>
+  </p>
+</footer>
+</body>
+</html>

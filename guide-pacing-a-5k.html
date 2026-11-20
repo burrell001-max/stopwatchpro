@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How to Pace a 5K Using Lap Splits | StopwatchPro</title>
+  <meta name="description" content="A practical guide to pacing a 5K: pace tables, how to record splits with an online lap timer, and how to read them to run a smarter race." />
+  <link rel="canonical" href="https://stopwatchpro.xyz/guide-pacing-a-5k.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "How to Pace a 5K Using Lap Splits",
+  "description": "A practical guide to pacing a 5K: pace tables, how to record splits with an online lap timer, and how to read them to run a smarter race.",
+  "dateModified": "2026-11-19",
+  "datePublished": "2026-11-19",
+  "author": {
+    "@type": "Organization",
+    "name": "StopwatchPro"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "StopwatchPro"
+  },
+  "mainEntityOfPage": "https://stopwatchpro.xyz/guide-pacing-a-5k.html"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How many miles is a 5K?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A 5K is 5 kilometres, which is about 3.107 miles, or 12.5 laps of a standard 400 m track."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between a lap time and a split?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A lap time is how long a single kilometre, mile or lap took. A split is the total time elapsed from the start to that point. The lap timer shows both."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I run even splits or negative splits?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Even or slightly negative splits are usually the most efficient for a 5K. Starting too fast and slowing down is the most common pacing mistake."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do my laps save after I close the page?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Laps exist only for your current session and clear on reset, so write down your times after each run."
+      }
+    }
+  ]
+}
+</script>
+
+  <style>
+    :root {
+      --sans: 'Inter', system-ui, sans-serif;
+      --mono: 'Share Tech Mono', monospace;
+      --radius: 12px;
+  --bg: #ffffff;
+  --surface: #f4f8fc;
+  --border: #d6e4f0;
+  --accent: #1e6fa8;
+  --accent2: #0d4d78;
+  --text: #1a1a1a;
+  --muted: #5a6b7a;
+  --danger: #e0304a;
+  --lap-alt: #eaf2fa;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: var(--sans); min-height: 100vh; display: grid; grid-template-rows: auto 1fr auto; line-height: 1.7; }
+    header { display: flex; align-items: center; justify-content: space-between; padding: 18px 32px; border-bottom: 1px solid var(--border); }
+    .logo { font-family: var(--mono); font-size: 1.25rem; color: var(--accent); letter-spacing: 0.06em; text-decoration: none; }
+    nav a { color: var(--muted); text-decoration: none; font-size: 0.85rem; margin-left: 24px; }
+    nav a:hover { color: var(--text); }
+    main { max-width: 760px; margin: 0 auto; padding: 48px 24px; }
+    .page-tag { font-family: var(--mono); font-size: 0.75rem; color: var(--accent); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 12px; }
+    h1 { font-size: 2rem; font-weight: 600; margin-bottom: 18px; line-height: 1.25; }
+    .lede { color: var(--muted); font-size: 1.02rem; margin-bottom: 28px; }
+    article h2 { font-size: 1.25rem; font-weight: 600; margin: 32px 0 10px; }
+    article p { margin-bottom: 14px; }
+    article ul, article ol { margin: 0 0 16px 24px; }
+    article li { margin-bottom: 6px; }
+    article a, .card a { color: var(--accent); }
+    table { width: 100%; border-collapse: collapse; margin: 8px 0 18px; font-size: 0.9rem; }
+    th, td { border: 1px solid var(--border); padding: 8px 10px; text-align: left; }
+    th { background: var(--surface); }
+    .cta { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px 24px; margin: 32px 0; }
+    .cta a.btn { display: inline-block; margin-top: 8px; background: var(--accent); color: #fff; text-decoration: none; padding: 9px 18px; border-radius: 8px; font-weight: 600; font-size: 0.9rem; }
+    .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 22px 26px; margin-bottom: 16px; }
+    .card h2 { font-size: 1.1rem; margin-bottom: 6px; }
+    .card h2 a { text-decoration: none; }
+    .card p { color: var(--muted); font-size: 0.92rem; margin: 0; }
+    footer { border-top: 1px solid var(--border); text-align: center; padding: 20px; font-size: 0.78rem; color: var(--muted); }
+    footer a { color: var(--muted); margin: 0 6px; }
+    @media (max-width: 600px) { header { padding: 14px 16px; } main { padding: 28px 16px; } h1 { font-size: 1.5rem; } th, td { padding: 6px; } }
+  </style>
+</head>
+<body>
+<header>
+  <a href="index.html" class="logo">⏱ StopwatchPro</a>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="guides.html">Guides</a>
+    <a href="faq.html">FAQ</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+<main>
+  <div class="page-tag">Guide</div>
+  <article>
+  <h1>How to Pace a 5K Using Lap Splits</h1>
+  <p class="lede">Work out your target pace, record a split every kilometre or mile, and learn to read the numbers.</p>
+<p>The most common mistake in a 5K is going out too fast. The first kilometre feels easy, the crowd is loud and the adrenaline is high, so many runners are well ahead of their sustainable pace before they realise it. The cost comes in the final kilometre. The cure is simple: know your target pace and check it at regular points. A lap timer that records a split at every kilometre or mile marker does exactly that.</p>
+
+<h2>Step 1: Work out your target pace</h2>
+<p>A 5K is 5 kilometres, or about 3.107 miles. To find your target pace, divide your goal time by the distance. The table below gives some common goals.</p>
+<table>
+<thead><tr><th>Goal time</th><th>Pace per km</th><th>Pace per mile</th><th>Per 400 m lap</th></tr></thead>
+<tbody>
+<tr><td>35:00</td><td>7:00</td><td>11:16</td><td>2:48</td></tr>
+<tr><td>30:00</td><td>6:00</td><td>9:39</td><td>2:24</td></tr>
+<tr><td>27:30</td><td>5:30</td><td>8:51</td><td>2:12</td></tr>
+<tr><td>25:00</td><td>5:00</td><td>8:03</td><td>2:00</td></tr>
+<tr><td>22:30</td><td>4:30</td><td>7:15</td><td>1:48</td></tr>
+<tr><td>20:00</td><td>4:00</td><td>6:26</td><td>1:36</td></tr>
+</tbody>
+</table>
+<p>Not sure of your goal? A recent hard training run or a recent race time is a good guide. A goal that is a little ambitious is fine. One that is wildly beyond your current fitness will just make the first half too fast.</p>
+
+<h2>Step 2: Record splits with the lap timer</h2>
+<ol>
+<li>Open the <a href="splits.html">lap and split timer</a>.</li>
+<li>Press Start as you cross the start line, or as your watch or the race clock begins.</li>
+<li>Press Lap each time you pass a kilometre or mile marker. On a 400 m track, press at the end of every lap.</li>
+<li>Press Stop at the finish and read the list.</li>
+</ol>
+<p>The timer records both numbers that matter. The <strong>lap time</strong> is how long that kilometre or lap took. The <strong>split</strong> is your total elapsed time so far. The fastest and slowest laps are highlighted so you can see the pattern immediately.</p>
+
+<h2>Step 3: Choose a pacing strategy</h2>
+<ul>
+<li><strong>Even pacing:</strong> run each kilometre at roughly the same speed. This is the safest and usually the most efficient approach for most runners.</li>
+<li><strong>Negative split:</strong> run the second half slightly faster than the first. This takes discipline in the early stage but often finishes strongly.</li>
+<li><strong>Positive split:</strong> the first half faster than the second. This is usually unintentional. It is the "went out too fast" pattern.</li>
+</ul>
+
+<h2>How to read your splits</h2>
+<p>Here is an example of an evenly paced 25:00 race on a 400 m track, which is 12.5 laps. Each lap is about 2:00 and the splits grow in steady steps: 2:00, 4:00, 6:00, and so on. Compare that to a runner who went out too fast: laps of 1:50, 1:52, 1:55, 2:02, 2:08, 2:14. The splits show a 24-second slowdown between the first and last lap, and the highlighted fastest and slowest laps make the problem obvious.</p>
+<p>When you review a session, look at:</p>
+<ol>
+<li>The gap between your fastest and slowest lap. A small gap suggests consistent pacing.</li>
+<li>The first lap compared with the average. If it is more than a few seconds faster, you probably started too hard.</li>
+<li>Whether laps drift steadily slower, which points to fatigue or too ambitious a target.</li>
+</ol>
+
+<h2>Practical tips</h2>
+<ul>
+<li>Do a few sessions of timing every kilometre in training so the target pace feels familiar before race day.</li>
+<li>Press the lap button at the same cue each time, such as the moment you pass the marker, so the numbers are comparable.</li>
+<li>If you are racing, a wristwatch with GPS is more convenient, but a phone and a lap timer work well for training on a track or measured route.</li>
+<li>Keep the screen awake and the tab visible. Phones may slow background tabs to save battery.</li>
+<li>Write your results down after each run. Laps clear when you reset, so note the total and your fastest and slowest laps.</li>
+</ul>
+
+<h2>A simple pacing plan</h2>
+<p>For a race, try this: run the first kilometre about 5 seconds per kilometre slower than your target pace, settle into target pace for kilometres two and three, and if you feel strong at kilometre four, begin to pick up the pace. Save everything you have left for the final kilometre. It is easier to speed up late than to recover from a start that was too fast.</p>
+  <div class="cta"><strong>Try it now.</strong><br>Open the free online lap and split timer. No download or sign-up needed.<br><a class="btn" href="splits.html">Open the lap and split timer</a></div>
+  <h2>Frequently Asked Questions</h2>
+<h3>How many miles is a 5K?</h3>
+<p>A 5K is 5 kilometres, which is about 3.107 miles, or 12.5 laps of a standard 400 m track.</p>
+<h3>What is the difference between a lap time and a split?</h3>
+<p>A lap time is how long a single kilometre, mile or lap took. A split is the total time elapsed from the start to that point. The lap timer shows both.</p>
+<h3>Should I run even splits or negative splits?</h3>
+<p>Even or slightly negative splits are usually the most efficient for a 5K. Starting too fast and slowing down is the most common pacing mistake.</p>
+<h3>Do my laps save after I close the page?</h3>
+<p>No. Laps exist only for your current session and clear on reset, so write down your times after each run.</p>
+
+  <h2>More guides</h2>
+  <ul><li><a href="guide-tabata-hiit-timer.html">Tabata and HIIT timer setup</a></li><li><a href="guide-chess-time-controls.html">Chess time controls explained</a></li><li><a href="guide-pomodoro-technique.html">Pomodoro technique with a timer</a></li><li><a href="guide-metronome-practice.html">Metronome practice guide</a></li><li><a href="guides.html">All guides</a></li></ul>
+  </article>
+</main>
+<footer>
+  <p>&copy; 2026 StopwatchPro &nbsp;|&nbsp;
+    <a href="guides.html">Guides</a>
+    <a href="faq.html">FAQ</a>
+    <a href="how-to-use.html">How to Use</a>
+    <a href="about.html">About</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="terms.html">Terms</a>
+    <a href="contact.html">Contact</a>
+  </p>
+</footer>
+</body>
+</html>

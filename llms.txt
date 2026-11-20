@@ -34,3 +34,11 @@ StopwatchPro runs entirely in the browser and works on desktop, tablet, and mobi
 - [About](https://stopwatchpro.xyz/about.html): About StopwatchPro
 - [Privacy](https://stopwatchpro.xyz/privacy.html): Privacy policy
 - [Contact](https://stopwatchpro.xyz/contact.html): Contact information
+
+## Guides
+- [All guides](https://stopwatchpro.xyz/guides.html): Index of how-to guides
+- [Tabata and HIIT timer setup](https://stopwatchpro.xyz/guide-tabata-hiit-timer.html): What Tabata and HIIT are, the work-to-rest patterns people use, and a step-by-step guide to building each in the interval timer.
+- [Pacing a 5K with lap splits](https://stopwatchpro.xyz/guide-pacing-a-5k.html): Work out your target pace, record a split every kilometre or mile, and learn to read the numbers.
+- [Chess time controls explained](https://stopwatchpro.xyz/guide-chess-time-controls.html): What the numbers in a time control mean, how the formats differ and which one suits your game.
+- [Pomodoro technique with a timer](https://stopwatchpro.xyz/guide-pomodoro-technique.html): How the technique works, how to run it with a countdown timer or interval timer, and ways to adapt it.
+- [Metronome practice guide](https://stopwatchpro.xyz/guide-metronome-practice.html): What BPM means, how to choose a tempo, and a routine for building speed without losing accuracy.
