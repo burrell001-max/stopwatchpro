@@ -352,7 +352,14 @@ function setToolAccent(id){
 }
 
 /* Per-page overrides declared on <body>: data-h1, data-hide-engine-info */
+let TOOL_INTRO = null; // static <p id="toolIntro">; kept so it survives re-renders
+function placeIntro(){
+  if(!TOOL_INTRO) TOOL_INTRO = document.getElementById('toolIntro');
+  const hdr = document.querySelector('.tool-shell > .tool-header');
+  if(TOOL_INTRO && hdr) hdr.after(TOOL_INTRO);
+}
 function applyVariant(){
+  placeIntro();
   const h1 = document.body.getAttribute('data-h1');
   if(h1 && LANG==='en'){
     const el = document.querySelector('.tool-title h1');

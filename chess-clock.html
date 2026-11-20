@@ -12,7 +12,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Free Online Chess Clock – Two-Player Game Timer | StopwatchPro</title>
-<meta name="description" content="Free online chess clock with time increments. Set independent starting times for each player — works for chess and other turn-based games." />
+<meta name="description" content="Free online chess clock for two players. Set the minutes per side, tap to pass the turn and get a low-time warning — works for chess and other turn-based games." />
 <meta name="keywords" content="chess clock, chess timer online, game clock, two player timer" />
 <link rel="canonical" href="https://stopwatchpro.xyz/chess-clock.html" />
 <meta name="robots" content="index, follow" />
@@ -20,11 +20,11 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://stopwatchpro.xyz/chess-clock.html" />
 <meta property="og:title" content="Free Online Chess Clock – Two-Player Game Timer | StopwatchPro" />
-<meta property="og:description" content="Free online chess clock with time increments. Set independent starting times for each player — works for chess and other turn-based games." />
+<meta property="og:description" content="Free online chess clock for two players. Set the minutes per side, tap to pass the turn and get a low-time warning — works for chess and other turn-based games." />
 <meta property="og:site_name" content="StopwatchPro" />
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="Free Online Chess Clock – Two-Player Game Timer | StopwatchPro" />
-<meta name="twitter:description" content="Free online chess clock with time increments. Set independent starting times for each player — works for chess and other turn-based games." />
+<meta name="twitter:description" content="Free online chess clock for two players. Set the minutes per side, tap to pass the turn and get a low-time warning — works for chess and other turn-based games." />
 
 <script type="application/ld+json">
 {
@@ -442,6 +442,8 @@ footer a:hover{color:var(--text);}
 [data-largetext="1"] body{font-size:112%;}
 [data-contrast="1"]{--border:#000; --muted:#333;}
 [data-contrast="1"][data-theme="dark"]{--border:#fff; --muted:#ddd;}
+
+.tool-intro{max-width:640px; margin:0 auto 20px; text-align:center; color:var(--muted); font-size:.92rem; line-height:1.65;}
 </style>
 </head>
 <body data-tool="chess-clock">
@@ -462,6 +464,8 @@ footer a:hover{color:var(--text);}
 </header>
 
 <main id="app"></main>
+<p id="toolIntro" class="tool-intro">Set the minutes per side, press Start game, and tap your half of the screen after each move to pass the turn. Both players get equal time with no increment, which suits sudden-death chess and other two-player games.</p>
+
 
 <section class="info-block">
   <h2>What Is a Chess Clock?</h2>
