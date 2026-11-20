@@ -418,7 +418,7 @@ function insertToolAdSlot(){
 /* nav bar build */
 function buildNav(){
   const nav = document.getElementById('primaryNav');
-  nav.innerHTML = `<a href="index.html" data-route=""><span>⌂</span> <span data-i18n="nav_home">Home</span></a>` +
+  nav.innerHTML = `<a href="/" data-route=""><span>⌂</span> <span data-i18n="nav_home">Home</span></a>` +
     TOOLS.map(tl=>`<a href="${toolHref(tl.id)}" data-route="${tl.id}"><span data-i18n="nav_${tl.id}">${toolLabel(tl.id)}</span></a>`).join('');
 }
 
