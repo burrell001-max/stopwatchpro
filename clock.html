@@ -33,18 +33,18 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Can I switch between 12-hour and 24-hour format?",
+      "name": "Does the clock use 12-hour or 24-hour time?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes, the display format can be toggled depending on your preference or regional convention."
+        "text": "It shows time in 24-hour format (for example 15:30), with seconds, and the full date underneath."
       }
     },
     {
       "@type": "Question",
-      "name": "Does the clock show seconds?",
+      "name": "Can I make the clock fill the screen?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes, seconds are displayed by default for a precise, second-by-second view, and can be hidden if you prefer a cleaner hour:minute display."
+        "text": "Yes. Use the full-screen button for large digits, and the appearance settings for colors, high contrast or large text."
       }
     },
     {
@@ -52,7 +52,15 @@
       "name": "Is the time based on my device or my location?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The clock reads the time directly from your device's system clock, so it will always match whatever time zone and time your device is currently set to."
+        "text": "The clock reads the time directly from your device's system clock, so it always matches whatever time zone and time your device is currently set to."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is the clock a few seconds different from another clock?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Device clocks drift slightly unless they sync regularly with a time server. If you need exact time, make sure your device's automatic date and time setting is turned on."
       }
     }
   ]
@@ -404,8 +412,13 @@ main{flex:1; width:100%;}
 
 /* ── SEO/how-to/faq sections shared on tool pages ─────────── */
 .info-block{background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:22px; margin-top:22px; text-align:left;}
-.info-block h2{font-family:var(--display); font-size:1.05rem; margin-bottom:10px;}
+.info-block h2{font-family:var(--display); font-size:1.05rem; margin:18px 0 10px;}
+.info-block h2:first-child{margin-top:0;}
+.info-block h3{font-family:var(--display); font-size:.95rem; margin:14px 0 6px;}
 .info-block p{color:var(--muted); font-size:.86rem; line-height:1.7; margin-bottom:8px;}
+.info-block ul, .info-block ol{color:var(--muted); font-size:.86rem; line-height:1.7; margin:0 0 8px 22px;}
+.info-block li{margin-bottom:4px;}
+.info-block a{color:var(--accent); text-decoration:underline;}
 
 /* ── Footer ─────────────────────────────────────────────── */
 footer{border-top:1px solid var(--border); text-align:center; padding:28px 20px 22px; font-size:.78rem; color:var(--muted); margin-top:24px;}
@@ -451,27 +464,43 @@ footer a:hover{color:var(--text);}
 <main id="app"></main>
 
 <section class="info-block">
-      <h1>Free Online Digital Clock</h1>
-    <p>StopwatchPro's digital clock displays the current time in large, easy-to-read digits, functioning as a distraction-free wall clock or desk clock directly in your browser &mdash; useful for classrooms, workspaces, livestreams, or any screen you want visible from a distance without opening a full operating system clock app.</p>
-
-      <h2>Common Uses for a Digital Clock</h2>
-      <ul>
-      <li><strong>Classrooms and presentations</strong> &mdash; displaying a large, clearly visible clock on a projector or shared screen</li>
-      <li><strong>Livestreaming and recording</strong> &mdash; showing viewers the current time as an on-screen overlay</li>
-      <li><strong>Offices and shared spaces</strong> &mdash; a simple always-on time display on a spare monitor or tablet</li>
-      <li><strong>Time zone reference</strong> &mdash; quickly checking the current local time without switching apps</li>
-      </ul>
-
-      <h2>Frequently Asked Questions</h2>
-    <h3>Can I switch between 12-hour and 24-hour format?</h3>
-    <p>Yes, the display format can be toggled depending on your preference or regional convention.</p>
-
-    <h3>Does the clock show seconds?</h3>
-    <p>Yes, seconds are displayed by default for a precise, second-by-second view, and can be hidden if you prefer a cleaner hour:minute display.</p>
-
-    <h3>Is the time based on my device or my location?</h3>
-    <p>The clock reads the time directly from your device's system clock, so it will always match whatever time zone and time your device is currently set to.</p>
-    </section>
+  <h2>A Simple Online Digital Clock</h2>
+  <p>StopwatchPro's digital clock displays the current time in large, easy-to-read digits. It works as a distraction-free wall clock or desk clock in your browser, which is useful for classrooms, workspaces, livestreams, or any screen you want to read from a distance without opening a full operating system clock app.</p>
+  <p>The time comes straight from your device's system clock, so it always matches the time zone and time your device is set to.</p>
+  <h2>How to Use the Digital Clock</h2>
+<ol>
+<li><strong>Open the page.</strong> The clock starts at once and shows the current local time in hours, minutes and seconds, with the full date below it.</li>
+<li><strong>Make it big.</strong> Use the full-screen button for large digits that can be read from across a room.</li>
+<li><strong>Tune the look.</strong> Use the appearance settings to change colors, switch between light and dark themes, or turn on high-contrast and large-text modes.</li>
+<li><strong>Leave it running.</strong> The display updates every second for as long as the tab is open.</li>
+</ol>
+  <h2>Common Uses for an Online Digital Clock</h2>
+<ul>
+<li><strong>Classrooms and presentations:</strong> display a large, clearly visible clock on a projector or shared screen.</li>
+<li><strong>Livestreaming and recording:</strong> show viewers the current time as an on-screen overlay.</li>
+<li><strong>Offices and shared spaces:</strong> an always-on time display on a spare monitor or tablet.</li>
+<li><strong>Exams and tests:</strong> a clear clock that everyone in the room can see.</li>
+<li><strong>Quick time check:</strong> see the exact local time and date without switching apps.</li>
+</ul>
+  <h2>About the 24-Hour Display</h2>
+<p>StopwatchPro's clock shows time in 24-hour format, counting from 00:00 to 23:59 with no AM or PM. It is the standard in most of Europe and Asia, and in aviation, medicine, the military and computing, because it removes any doubt about whether "7:00" means morning or evening. If you are used to a 12-hour clock, subtract 12 from any hour after 12:59: 15:30 is 3:30 pm and 20:45 is 8:45 pm. The date line under the time is written out in full, in the language you have selected for the site.</p>
+  <h2>Tips for Using a Clock on a Spare Screen</h2>
+<ul>
+<li>Use a dark theme or high-contrast colors in dim rooms so the clock is readable without glare.</li>
+<li>Use full-screen mode or large text mode when the screen will be viewed from across a room.</li>
+<li>Check your device's automatic time and time zone settings if the clock looks wrong, since the page reads them directly.</li>
+<li>Need an alert at a particular time? Use the <a href="alarm.html">alarm clock</a>. Need to measure elapsed time? Use the <a href="stopwatch.html">stopwatch</a>.</li>
+</ul>
+  <h2>Frequently Asked Questions</h2>
+  <h3>Does the clock use 12-hour or 24-hour time?</h3>
+  <p>It shows time in 24-hour format (for example 15:30), with seconds, and the full date underneath.</p>
+  <h3>Can I make the clock fill the screen?</h3>
+  <p>Yes. Use the full-screen button for large digits, and the appearance settings for colors, high contrast or large text.</p>
+  <h3>Is the time based on my device or my location?</h3>
+  <p>The clock reads the time directly from your device's system clock, so it always matches whatever time zone and time your device is currently set to.</p>
+  <h3>Why is the clock a few seconds different from another clock?</h3>
+  <p>Device clocks drift slightly unless they sync regularly with a time server. If you need exact time, make sure your device's automatic date and time setting is turned on.</p>
+</section>
 
 <footer>
   <p>&copy; <span id="year">2026</span> StopwatchPro &nbsp;|&nbsp;

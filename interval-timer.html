@@ -36,7 +36,7 @@
       "name": "How do I set up a custom interval sequence?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Use the step builder to add each phase (name and duration) in order &mdash; e.g. \"Work &ndash; 40s\", \"Rest &ndash; 20s\" &mdash; then set how many rounds to repeat the whole sequence."
+        "text": "Use the step builder to add each phase (a name and a duration in seconds) in order, for example \"Work – 40\" and \"Rest – 20\". To repeat the pattern, add the steps again for each round. You can then save the routine under a name."
       }
     },
     {
@@ -44,7 +44,7 @@
       "name": "Can I give each step a different name or duration?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes, every step in the sequence can have its own label and duration, so a single timer can handle uneven patterns like warm-up, multiple work phases, and a longer final rest."
+        "text": "Yes. Every step in the sequence can have its own label and duration, so a single routine can handle uneven patterns like a warm-up, several work phases and a longer final rest."
       }
     },
     {
@@ -52,7 +52,15 @@
       "name": "Does it alert me when moving between steps, not just at the very end?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes &mdash; StopwatchPro signals each transition between steps, not only the end of the full sequence, so you know when work turns to rest without watching the screen."
+        "text": "Yes. A sound plays at each transition between steps, not only at the end of the full sequence, so you know when work turns to rest without watching the screen."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does the timer keep accurate time if the tab is in the background?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Browsers and phones can slow down background tabs to save battery, which can make a timer drift. For important sessions, keep the tab visible and your screen awake."
       }
     }
   ]
@@ -404,8 +412,13 @@ main{flex:1; width:100%;}
 
 /* ── SEO/how-to/faq sections shared on tool pages ─────────── */
 .info-block{background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:22px; margin-top:22px; text-align:left;}
-.info-block h2{font-family:var(--display); font-size:1.05rem; margin-bottom:10px;}
+.info-block h2{font-family:var(--display); font-size:1.05rem; margin:18px 0 10px;}
+.info-block h2:first-child{margin-top:0;}
+.info-block h3{font-family:var(--display); font-size:.95rem; margin:14px 0 6px;}
 .info-block p{color:var(--muted); font-size:.86rem; line-height:1.7; margin-bottom:8px;}
+.info-block ul, .info-block ol{color:var(--muted); font-size:.86rem; line-height:1.7; margin:0 0 8px 22px;}
+.info-block li{margin-bottom:4px;}
+.info-block a{color:var(--accent); text-decoration:underline;}
 
 /* ── Footer ─────────────────────────────────────────────── */
 footer{border-top:1px solid var(--border); text-align:center; padding:28px 20px 22px; font-size:.78rem; color:var(--muted); margin-top:24px;}
@@ -451,28 +464,47 @@ footer a:hover{color:var(--text);}
 <main id="app"></main>
 
 <section class="info-block">
-      <h1>Free Online Interval Timer</h1>
-    <p>An interval timer cycles automatically through a sequence of work and rest periods you define in advance &mdash; for example, 40 seconds of work followed by 20 seconds of rest, repeated 8 times &mdash; without requiring you to start and stop each phase manually. It's the tool behind most structured workout formats like HIIT, Tabata, and circuit training, where the timing pattern itself is part of the exercise.</p>
-
-      <h2>Common Uses for an Interval Timer</h2>
-      <ul>
-      <li><strong>HIIT and Tabata workouts</strong> &mdash; alternating fixed work and rest intervals across multiple rounds</li>
-      <li><strong>Circuit training</strong> &mdash; timing each station in a rotation with a consistent transition period</li>
-      <li><strong>Cooking with multiple steps</strong> &mdash; sequencing steps like "saut&eacute; 5 min, simmer 10 min, rest 3 min" as one chained timer</li>
-      <li><strong>Study/break cycles</strong> &mdash; automating repeated focus-and-break sessions back to back</li>
-      <li><strong>Yoga and stretching routines</strong> &mdash; holding each pose for a set duration before moving to the next</li>
-      </ul>
-
-      <h2>Frequently Asked Questions</h2>
-    <h3>How do I set up a custom interval sequence?</h3>
-    <p>Use the step builder to add each phase (name and duration) in order &mdash; e.g. "Work &ndash; 40s", "Rest &ndash; 20s" &mdash; then set how many rounds to repeat the whole sequence.</p>
-
-    <h3>Can I give each step a different name or duration?</h3>
-    <p>Yes, every step in the sequence can have its own label and duration, so a single timer can handle uneven patterns like warm-up, multiple work phases, and a longer final rest.</p>
-
-    <h3>Does it alert me when moving between steps, not just at the very end?</h3>
-    <p>Yes &mdash; StopwatchPro signals each transition between steps, not only the end of the full sequence, so you know when work turns to rest without watching the screen.</p>
-    </section>
+  <h2>What Is an Interval Timer?</h2>
+  <p>An interval timer cycles automatically through a sequence of work and rest periods that you define in advance. For example, 40 seconds of work followed by 20 seconds of rest runs without you having to start and stop each phase by hand. It is the tool behind most structured workout formats, like HIIT, Tabata and circuit training, where the timing pattern is part of the exercise.</p>
+  <p>StopwatchPro's interval timer lets you build a routine of named steps with a duration in seconds for each, save it, and then keep your eyes on the exercise instead of the clock.</p>
+  <h2>How to Build an Interval Routine</h2>
+<ol>
+<li><strong>Add your steps in order.</strong> Give each step a name, such as "Work" or "Rest", and a duration in seconds.</li>
+<li><strong>Repeat by adding steps.</strong> For eight rounds of work and rest, add sixteen steps. The routine runs from the first step to the last.</li>
+<li><strong>Start the timer</strong> and keep the tab open. A sound plays at each change between steps, so you know when work turns to rest without watching the screen. You can pause and resume at any time.</li>
+<li><strong>Save the routine.</strong> Give it a name and it is stored in your browser, ready to load next time.</li>
+</ol>
+  <h2>Popular Interval Formats</h2>
+<p>These patterns are common starting points. Each can be built as a sequence of named steps.</p>
+<ul>
+<li><strong>Tabata:</strong> 20 seconds of all-out work, 10 seconds of rest, 8 rounds (16 steps). Four minutes in total, and very demanding.</li>
+<li><strong>Classic HIIT:</strong> 30 to 40 seconds of hard work with 20 to 30 seconds of rest, for 6 to 10 rounds, often with several different exercises.</li>
+<li><strong>EMOM (every minute on the minute):</strong> start a set at the top of each minute and rest for whatever remains of it. Use a 60-second step for each round.</li>
+<li><strong>Beginner intervals:</strong> 30 seconds of work with 60 seconds of rest, which gives time to recover and keeps form good.</li>
+<li><strong>Circuit training:</strong> one step per station, with a short transition step between stations.</li>
+</ul>
+  <h2>Common Uses for an Interval Timer</h2>
+<ul>
+<li><strong>HIIT and Tabata workouts:</strong> alternate fixed work and rest across multiple rounds.</li>
+<li><strong>Circuit training:</strong> time each station in a rotation with a consistent transition period.</li>
+<li><strong>Cooking with multiple steps:</strong> chain steps like "sauté 5 min, simmer 10 min, rest 3 min" as one timer.</li>
+<li><strong>Study and break cycles:</strong> automate repeated focus-and-break sessions back to back, such as 25 minutes of work and 5 minutes of rest.</li>
+<li><strong>Yoga and stretching:</strong> hold each pose for a set duration before moving to the next.</li>
+<li><strong>Presentations and practice:</strong> rehearse a talk in timed sections.</li>
+</ul>
+  <h2>Why Work-to-Rest Ratio Matters</h2>
+<p>The ratio of work to rest sets what the session trains. Short rests, such as 2:1 work-to-rest or tighter, keep your heart rate high and are hard to sustain. Longer rests, such as 1:2, let you put more effort into each round and suit beginners or heavy movements. If your form falls apart in the final rounds, lengthen the rest or shorten the work rather than pushing through. A timer makes this easy to test, because you can change one number, save the routine and repeat the same session next week.</p>
+<p>This is general information, not medical advice. If you are new to high-intensity exercise or have a health condition, check with a professional first.</p>
+  <h2>Frequently Asked Questions</h2>
+  <h3>How do I set up a custom interval sequence?</h3>
+  <p>Use the step builder to add each phase (a name and a duration in seconds) in order, for example "Work – 40" and "Rest – 20". To repeat the pattern, add the steps again for each round. You can then save the routine under a name.</p>
+  <h3>Can I give each step a different name or duration?</h3>
+  <p>Yes. Every step in the sequence can have its own label and duration, so a single routine can handle uneven patterns like a warm-up, several work phases and a longer final rest.</p>
+  <h3>Does it alert me when moving between steps, not just at the very end?</h3>
+  <p>Yes. A sound plays at each transition between steps, not only at the end of the full sequence, so you know when work turns to rest without watching the screen.</p>
+  <h3>Does the timer keep accurate time if the tab is in the background?</h3>
+  <p>Browsers and phones can slow down background tabs to save battery, which can make a timer drift. For important sessions, keep the tab visible and your screen awake.</p>
+</section>
 
 <footer>
   <p>&copy; <span id="year">2026</span> StopwatchPro &nbsp;|&nbsp;

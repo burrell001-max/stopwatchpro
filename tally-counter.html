@@ -36,7 +36,7 @@
       "name": "Can I decrease the count if I click by mistake?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes, there's a separate decrement button so you can correct an accidental extra click without resetting the whole count."
+        "text": "Yes, there is a separate decrement button so you can correct an accidental extra click without resetting the whole count."
       }
     },
     {
@@ -44,7 +44,7 @@
       "name": "Does the tally counter save my count if I leave the page?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The current count is held for your active session; refreshing or closing the tab will reset it to zero unless you note the total elsewhere."
+        "text": "The current count is held for your active session. Refreshing or closing the tab will reset it to zero unless you note the total elsewhere."
       }
     },
     {
@@ -52,7 +52,15 @@
       "name": "Can I use the tally counter for more than one thing at once?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Currently each tally counter tracks a single running total. For counting multiple separate things at once, open the tool in separate browser tabs."
+        "text": "Each tally counter tracks a single running total. For counting multiple separate things at once, open the tool in separate browser tabs."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does the count go below zero?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. The decrement button stops at zero, so a stray tap cannot give you a negative total."
       }
     }
   ]
@@ -404,8 +412,13 @@ main{flex:1; width:100%;}
 
 /* ── SEO/how-to/faq sections shared on tool pages ─────────── */
 .info-block{background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:22px; margin-top:22px; text-align:left;}
-.info-block h2{font-family:var(--display); font-size:1.05rem; margin-bottom:10px;}
+.info-block h2{font-family:var(--display); font-size:1.05rem; margin:18px 0 10px;}
+.info-block h2:first-child{margin-top:0;}
+.info-block h3{font-family:var(--display); font-size:.95rem; margin:14px 0 6px;}
 .info-block p{color:var(--muted); font-size:.86rem; line-height:1.7; margin-bottom:8px;}
+.info-block ul, .info-block ol{color:var(--muted); font-size:.86rem; line-height:1.7; margin:0 0 8px 22px;}
+.info-block li{margin-bottom:4px;}
+.info-block a{color:var(--accent); text-decoration:underline;}
 
 /* ── Footer ─────────────────────────────────────────────── */
 footer{border-top:1px solid var(--border); text-align:center; padding:28px 20px 22px; font-size:.78rem; color:var(--muted); margin-top:24px;}
@@ -451,27 +464,44 @@ footer a:hover{color:var(--text);}
 <main id="app"></main>
 
 <section class="info-block">
-      <h1>Free Online Tally Counter</h1>
-    <p>A tally counter is a simple digital click-counter that increments (or decrements) a running total each time you press a button &mdash; a digital version of the handheld clicker counters used for manual counting tasks. It's built for any situation where you need to count occurrences of something without writing tally marks on paper.</p>
-
-      <h2>Common Uses for a Tally Counter</h2>
-      <ul>
-      <li><strong>Counting attendees or visitors</strong> &mdash; tracking people entering a venue or event</li>
-      <li><strong>Manufacturing and inventory checks</strong> &mdash; counting units, parts, or repetitions during quality checks</li>
-      <li><strong>Sports and games</strong> &mdash; tracking scores, reps, or occurrences during play (e.g. bird counts, laps completed)</li>
-      <li><strong>Habit tracking</strong> &mdash; counting repetitions of a daily habit or exercise set</li>
-      </ul>
-
-      <h2>Frequently Asked Questions</h2>
-    <h3>Can I decrease the count if I click by mistake?</h3>
-    <p>Yes, there's a separate decrement button so you can correct an accidental extra click without resetting the whole count.</p>
-
-    <h3>Does the tally counter save my count if I leave the page?</h3>
-    <p>The current count is held for your active session; refreshing or closing the tab will reset it to zero unless you note the total elsewhere.</p>
-
-    <h3>Can I use the tally counter for more than one thing at once?</h3>
-    <p>Currently each tally counter tracks a single running total. For counting multiple separate things at once, open the tool in separate browser tabs.</p>
-    </section>
+  <h2>What Is a Tally Counter?</h2>
+  <p>A tally counter is a simple digital click-counter that increases or decreases a running total each time you press a button. It is the digital version of the handheld clicker counters used for manual counting. It is built for any situation where you need to count occurrences of something without writing tally marks on paper.</p>
+  <p>StopwatchPro's tally counter has large, tap-friendly buttons that work on a phone, tablet or computer, with no download and no account.</p>
+  <h2>How to Use the Tally Counter</h2>
+<ol>
+<li><strong>Tap the add button</strong> each time the thing you are counting happens.</li>
+<li><strong>Use the decrement button</strong> to correct an accidental extra click without resetting the whole count.</li>
+<li><strong>Reset</strong> to return to zero for a new count. The count cannot go below zero.</li>
+<li><strong>Use the keyboard or full screen.</strong> On a computer, press + and - to count, R to reset and F for full screen with a very large number.</li>
+<li><strong>Write down the final total</strong> before you leave. The count is held only for your current session.</li>
+</ol>
+  <h2>Common Uses for a Tally Counter</h2>
+<ul>
+<li><strong>Counting attendees or visitors:</strong> track people entering a venue, class or event.</li>
+<li><strong>Manufacturing and inventory checks:</strong> count units, parts or repetitions during quality checks.</li>
+<li><strong>Sports and games:</strong> track scores, reps or occurrences during play.</li>
+<li><strong>Habit tracking:</strong> count repetitions of a daily habit or exercise set.</li>
+<li><strong>Nature and research counts:</strong> bird counts, traffic counts, or observations for a school project.</li>
+<li><strong>Everyday tasks:</strong> pages read, laps swum, stitches knitted, or items packed.</li>
+</ul>
+  <h2>Tips for Accurate Counting</h2>
+<p>Decide in advance exactly what counts, so you do not hesitate or double-count. When counting people entering a room, count only at the door and in one direction. For long counts, check the total at regular points against another source, such as a second counter or a quick manual tally every hundred. If you are counting something fast, use two counters in separate tabs, one for each category, and add them at the end. If you accidentally tap twice, correct it straight away with decrement while you still remember.</p>
+  <h2>Counting With Other Tools</h2>
+<ul>
+<li>Counting repetitions at a pace? Pair it with the <a href="metronome.html">metronome</a> to keep a steady rhythm.</li>
+<li>Counting within a time limit, such as reps in 60 seconds? Use the <a href="countdown-timer.html">countdown timer</a> alongside it.</li>
+<li>Counting rounds of a workout? The <a href="interval-timer.html">interval timer</a> repeats a routine for a set number of rounds.</li>
+</ul>
+  <h2>Frequently Asked Questions</h2>
+  <h3>Can I decrease the count if I click by mistake?</h3>
+  <p>Yes, there is a separate decrement button so you can correct an accidental extra click without resetting the whole count.</p>
+  <h3>Does the tally counter save my count if I leave the page?</h3>
+  <p>The current count is held for your active session. Refreshing or closing the tab will reset it to zero unless you note the total elsewhere.</p>
+  <h3>Can I use the tally counter for more than one thing at once?</h3>
+  <p>Each tally counter tracks a single running total. For counting multiple separate things at once, open the tool in separate browser tabs.</p>
+  <h3>Does the count go below zero?</h3>
+  <p>No. The decrement button stops at zero, so a stray tap cannot give you a negative total.</p>
+</section>
 
 <footer>
   <p>&copy; <span id="year">2026</span> StopwatchPro &nbsp;|&nbsp;

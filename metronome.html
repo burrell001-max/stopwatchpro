@@ -36,7 +36,7 @@
       "name": "What BPM range does the metronome support?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "It covers the standard practical range used in music practice, from very slow practice tempos up through fast tempos, adjustable via the slider or direct BPM entry."
+        "text": "The slider covers 30 to 240 BPM, which spans very slow practice tempos through very fast ones."
       }
     },
     {
@@ -49,10 +49,18 @@
     },
     {
       "@type": "Question",
-      "name": "Can I mute the sound and use only the visual pulse?",
+      "name": "Can I find the BPM of a song?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes, the audio can be muted while the visual beat indicator continues, letting you practice silently."
+        "text": "Yes. Use tap tempo: tap the button in time with the music for several beats and the metronome sets the BPM from your taps."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How accurate is the tempo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The metronome runs in your browser, so timing can vary slightly with your device's performance. It is well suited to practice. For recording or critical timing, check it against a trusted reference."
       }
     }
   ]
@@ -404,8 +412,13 @@ main{flex:1; width:100%;}
 
 /* ── SEO/how-to/faq sections shared on tool pages ─────────── */
 .info-block{background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:22px; margin-top:22px; text-align:left;}
-.info-block h2{font-family:var(--display); font-size:1.05rem; margin-bottom:10px;}
+.info-block h2{font-family:var(--display); font-size:1.05rem; margin:18px 0 10px;}
+.info-block h2:first-child{margin-top:0;}
+.info-block h3{font-family:var(--display); font-size:.95rem; margin:14px 0 6px;}
 .info-block p{color:var(--muted); font-size:.86rem; line-height:1.7; margin-bottom:8px;}
+.info-block ul, .info-block ol{color:var(--muted); font-size:.86rem; line-height:1.7; margin:0 0 8px 22px;}
+.info-block li{margin-bottom:4px;}
+.info-block a{color:var(--accent); text-decoration:underline;}
 
 /* ── Footer ─────────────────────────────────────────────── */
 footer{border-top:1px solid var(--border); text-align:center; padding:28px 20px 22px; font-size:.78rem; color:var(--muted); margin-top:24px;}
@@ -451,27 +464,47 @@ footer a:hover{color:var(--text);}
 <main id="app"></main>
 
 <section class="info-block">
-      <h1>Free Online Metronome</h1>
-    <p>A metronome produces a steady, evenly spaced audible click at a set tempo (measured in beats per minute, or BPM), used by musicians to practice keeping accurate time. StopwatchPro's metronome lets you set any BPM and provides a visual pulse alongside the audio click, which is useful in quiet environments like shared practice rooms or late-night sessions.</p>
-
-      <h2>Common Uses for a Metronome</h2>
-      <ul>
-      <li><strong>Instrument practice</strong> &mdash; maintaining a consistent tempo while practicing scales, pieces, or exercises</li>
-      <li><strong>Learning new pieces slowly</strong> &mdash; starting at a lower BPM and gradually increasing it as accuracy improves</li>
-      <li><strong>Band and ensemble rehearsal</strong> &mdash; keeping a shared, consistent tempo reference during group practice</li>
-      <li><strong>Rhythm training</strong> &mdash; building a stronger internal sense of timing through repetition</li>
-      </ul>
-
-      <h2>Frequently Asked Questions</h2>
-    <h3>What BPM range does the metronome support?</h3>
-    <p>It covers the standard practical range used in music practice, from very slow practice tempos up through fast tempos, adjustable via the slider or direct BPM entry.</p>
-
-    <h3>Is there a visual beat indicator in addition to the sound?</h3>
-    <p>Yes, a pulsing visual indicator marks each beat, which is helpful for practicing without audio or for musicians who prefer a visual timing reference.</p>
-
-    <h3>Can I mute the sound and use only the visual pulse?</h3>
-    <p>Yes, the audio can be muted while the visual beat indicator continues, letting you practice silently.</p>
-    </section>
+  <h2>What Is a Metronome?</h2>
+  <p>A metronome produces a steady, evenly spaced click at a set tempo, measured in beats per minute (BPM). Musicians use it to practice keeping accurate time. StopwatchPro's metronome lets you set any BPM and provides a visual pulse alongside the audio click, which is a helpful second cue when the room is noisy.</p>
+  <h2>How to Use the Metronome</h2>
+<ol>
+<li><strong>Set the tempo.</strong> Drag the slider anywhere from 30 to 240 BPM.</li>
+<li><strong>Or tap it in.</strong> If you know the speed of a song but not its BPM, tap the tap-tempo button in time with the music and the metronome works the tempo out for you.</li>
+<li><strong>Press start</strong> and play along with the click and the pulsing circle that marks each beat.</li>
+<li><strong>Adjust as you practice.</strong> Move the tempo up or down a few BPM at a time.</li>
+</ol>
+  <h2>Common Uses for an Online Metronome</h2>
+<ul>
+<li><strong>Instrument practice:</strong> keep a consistent tempo while practicing scales, pieces or exercises.</li>
+<li><strong>Learning new pieces slowly:</strong> start at a lower BPM and raise it as accuracy improves.</li>
+<li><strong>Band and ensemble rehearsal:</strong> a shared, consistent tempo reference during group practice.</li>
+<li><strong>Rhythm training:</strong> build a stronger internal sense of timing through repetition.</li>
+<li><strong>Running cadence and exercise:</strong> match steps or strokes to a steady beat.</li>
+</ul>
+  <h2>Common Tempo Ranges</h2>
+<p>Classical tempo markings map roughly to BPM ranges. They are guides, not exact rules, and individual pieces and performers vary.</p>
+<ul>
+<li><strong>Largo (very slow):</strong> about 40 to 60 BPM</li>
+<li><strong>Adagio (slow):</strong> about 66 to 76 BPM</li>
+<li><strong>Andante (walking pace):</strong> about 76 to 108 BPM</li>
+<li><strong>Moderato (moderate):</strong> about 108 to 120 BPM</li>
+<li><strong>Allegro (fast, lively):</strong> about 120 to 156 BPM</li>
+<li><strong>Presto (very fast):</strong> about 168 BPM and above</li>
+</ul>
+<p>Many pop and dance tracks sit between about 100 and 130 BPM, and the metronome's range of 30 to 240 BPM covers nearly all written music.</p>
+  <h2>How to Practice With a Metronome</h2>
+<p>Start slower than you think you need. A common method is to find the tempo at which you can play a passage perfectly three times in a row, then raise it by 4 to 5 BPM. If mistakes return, drop back a step. This builds speed on top of accuracy rather than the other way around. Practicing with the click on only some beats, such as 2 and 4, or stopping and starting the click while you keep playing, helps your internal sense of time.</p>
+<p>Keep your device volume at a level where you can hear both the click and your instrument. The pulsing visual beat marker is there as a second cue, so you can watch it when the room is noisy.</p>
+  <h2>Frequently Asked Questions</h2>
+  <h3>What BPM range does the metronome support?</h3>
+  <p>The slider covers 30 to 240 BPM, which spans very slow practice tempos through very fast ones.</p>
+  <h3>Is there a visual beat indicator in addition to the sound?</h3>
+  <p>Yes, a pulsing visual indicator marks each beat, which is helpful for practicing without audio or for musicians who prefer a visual timing reference.</p>
+  <h3>Can I find the BPM of a song?</h3>
+  <p>Yes. Use tap tempo: tap the button in time with the music for several beats and the metronome sets the BPM from your taps.</p>
+  <h3>How accurate is the tempo?</h3>
+  <p>The metronome runs in your browser, so timing can vary slightly with your device's performance. It is well suited to practice. For recording or critical timing, check it against a trusted reference.</p>
+</section>
 
 <footer>
   <p>&copy; <span id="year">2026</span> StopwatchPro &nbsp;|&nbsp;

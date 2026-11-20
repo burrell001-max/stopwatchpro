@@ -36,7 +36,7 @@
       "name": "Will the alarm still go off if I close the browser?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No &mdash; because the alarm runs within the browser tab, the tab needs to remain open (it can be in the background) for the alert to trigger at the scheduled time."
+        "text": "No. Because the alarm runs within the browser tab, the tab needs to remain open (it can be in the background) for the alert to trigger at the scheduled time."
       }
     },
     {
@@ -52,7 +52,15 @@
       "name": "Can I choose a different alert sound?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes, StopwatchPro offers a selection of alert sounds you can preview and assign per alarm."
+        "text": "Yes. You can choose from beep, chime, digital and bell, preview each before saving, and assign a different one to each alarm."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are my saved alarms stored on your servers?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Saved alarms are stored locally in your browser only. Clearing your browser data will remove them."
       }
     }
   ]
@@ -404,8 +412,13 @@ main{flex:1; width:100%;}
 
 /* ── SEO/how-to/faq sections shared on tool pages ─────────── */
 .info-block{background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:22px; margin-top:22px; text-align:left;}
-.info-block h2{font-family:var(--display); font-size:1.05rem; margin-bottom:10px;}
+.info-block h2{font-family:var(--display); font-size:1.05rem; margin:18px 0 10px;}
+.info-block h2:first-child{margin-top:0;}
+.info-block h3{font-family:var(--display); font-size:.95rem; margin:14px 0 6px;}
 .info-block p{color:var(--muted); font-size:.86rem; line-height:1.7; margin-bottom:8px;}
+.info-block ul, .info-block ol{color:var(--muted); font-size:.86rem; line-height:1.7; margin:0 0 8px 22px;}
+.info-block li{margin-bottom:4px;}
+.info-block a{color:var(--accent); text-decoration:underline;}
 
 /* ── Footer ─────────────────────────────────────────────── */
 footer{border-top:1px solid var(--border); text-align:center; padding:28px 20px 22px; font-size:.78rem; color:var(--muted); margin-top:24px;}
@@ -451,27 +464,43 @@ footer a:hover{color:var(--text);}
 <main id="app"></main>
 
 <section class="info-block">
-      <h1>Free Online Alarm Clock</h1>
-    <p>StopwatchPro's alarm clock lets you set one or more specific times of day at which your browser will sound an alert &mdash; functioning like a traditional alarm clock but accessible from any device with a browser, and without needing to install an app. You can save multiple named alarms and choose from different alert sounds.</p>
-
-      <h2>Common Uses for an Online Alarm</h2>
-      <ul>
-      <li><strong>Wake-up alarms</strong> &mdash; setting a specific time to be alerted, especially useful on shared or work devices</li>
-      <li><strong>Medication or hydration reminders</strong> &mdash; recurring alerts at set times throughout the day</li>
-      <li><strong>Meeting or call reminders</strong> &mdash; a one-off alert a few minutes before something starts</li>
-      <li><strong>Break reminders</strong> &mdash; alerting yourself to step away from a screen at a set time each day</li>
-      </ul>
-
-      <h2>Frequently Asked Questions</h2>
-    <h3>Will the alarm still go off if I close the browser?</h3>
-    <p>No &mdash; because the alarm runs within the browser tab, the tab needs to remain open (it can be in the background) for the alert to trigger at the scheduled time.</p>
-
-    <h3>Can I set more than one alarm at a time?</h3>
-    <p>Yes, you can save multiple named alarms, each with its own time and sound, and manage them from the saved alarms list.</p>
-
-    <h3>Can I choose a different alert sound?</h3>
-    <p>Yes, StopwatchPro offers a selection of alert sounds you can preview and assign per alarm.</p>
-    </section>
+  <h2>A Free Online Alarm Clock</h2>
+  <p>StopwatchPro's alarm clock lets you set one or more specific times of day at which your browser will sound an alert. It works like a traditional alarm clock, but from any device with a browser and without installing an app. You can save multiple named alarms and choose from different alert sounds.</p>
+  <p>Because it runs in the browser tab, it is best for work, study and daytime reminders, and as a backup alarm. For anything critical, such as catching a flight, also use your phone's built-in alarm.</p>
+  <h2>How to Set an Alarm</h2>
+<ol>
+<li><strong>Pick a time.</strong> Set the hour and minute you want to be alerted.</li>
+<li><strong>Name it.</strong> A label such as "Stand-up call" or "Take medication" tells you at a glance what each alarm is for.</li>
+<li><strong>Choose and preview a sound.</strong> Beep, chime, digital and bell are available. Preview each one first, so you know it is loud enough without being jarring.</li>
+<li><strong>Add the alarm and leave the tab open.</strong> A "next alarm in" countdown shows how long until the soonest one. The tab can be in the background, but it must stay open and your device must not be asleep when the alarm is due.</li>
+</ol>
+  <h2>Common Uses for an Online Alarm</h2>
+<ul>
+<li><strong>Wake-up alarms:</strong> set a specific time to be alerted, especially useful on shared or work devices.</li>
+<li><strong>Medication or hydration reminders:</strong> alerts at set times throughout the day.</li>
+<li><strong>Meeting or call reminders:</strong> a one-off alert a few minutes before something starts.</li>
+<li><strong>Break reminders:</strong> step away from the screen at a set time each day.</li>
+<li><strong>Cooking and laundry:</strong> an alert at a clock time, such as 6:30 pm, instead of a countdown.</li>
+</ul>
+  <h2>Alarm or Countdown Timer?</h2>
+<p>Use an <strong>alarm</strong> when you know the clock time: "alert me at 3:15 pm." Use a <a href="countdown-timer.html">countdown timer</a> when you know the duration: "alert me in 20 minutes." An alarm is the better fit for fixed events like meetings, because the alert stays correct even if you start work late. A timer is better for tasks with a set length, like boiling eggs or a study sprint.</p>
+  <h2>Getting Reliable Alerts</h2>
+<ul>
+<li>Keep the tab open and your device awake and plugged in for overnight or long-running alarms.</li>
+<li>Turn the device volume up and make sure the tab is not muted. Some browsers block sound until you have interacted with the page, so preview a sound once after opening it.</li>
+<li>Turn off battery-saver modes that put background tabs to sleep.</li>
+<li>Use the test button next to a saved alarm to check its sound, and delete alarms you no longer need so they do not go off by surprise.</li>
+</ul>
+  <h2>Frequently Asked Questions</h2>
+  <h3>Will the alarm still go off if I close the browser?</h3>
+  <p>No. Because the alarm runs within the browser tab, the tab needs to remain open (it can be in the background) for the alert to trigger at the scheduled time.</p>
+  <h3>Can I set more than one alarm at a time?</h3>
+  <p>Yes, you can save multiple named alarms, each with its own time and sound, and manage them from the saved alarms list.</p>
+  <h3>Can I choose a different alert sound?</h3>
+  <p>Yes. You can choose from beep, chime, digital and bell, preview each before saving, and assign a different one to each alarm.</p>
+  <h3>Are my saved alarms stored on your servers?</h3>
+  <p>No. Saved alarms are stored locally in your browser only. Clearing your browser data will remove them.</p>
+</section>
 
 <footer>
   <p>&copy; <span id="year">2026</span> StopwatchPro &nbsp;|&nbsp;

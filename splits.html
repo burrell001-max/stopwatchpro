@@ -36,7 +36,7 @@
       "name": "What's the difference between a \"lap\" and a \"split\"?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A lap time is the duration of that individual segment alone (e.g. 1:32 for lap 3). A split time is the cumulative time from the start up to that point (e.g. 4:36 total after lap 3). StopwatchPro's lap panel shows both so you can see per-segment pace and running total side by side."
+        "text": "A lap time is the duration of that individual segment alone (for example 1:32 for lap 3). A split time is the cumulative time from the start up to that point (for example 4:36 total after lap 3). StopwatchPro's lap panel shows both so you can see per-segment pace and running total side by side."
       }
     },
     {
@@ -44,7 +44,7 @@
       "name": "How does it highlight my fastest and slowest laps?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The lap list automatically marks your best (fastest) lap and worst (slowest) lap so you can spot pacing patterns &mdash; useful for interval training where consistency matters as much as raw speed."
+        "text": "The lap list automatically marks your best (fastest) lap and worst (slowest) lap so you can spot pacing patterns. This is useful for interval training, where consistency matters as much as raw speed."
       }
     },
     {
@@ -52,7 +52,15 @@
       "name": "Is there a limit to how many laps I can record?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No hard limit &mdash; the lap list scrolls, so you can record as many splits as your session requires."
+        "text": "No hard limit. The lap list scrolls, so you can record as many splits as your session requires."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are my laps saved after I close the page?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Lap times exist only in your current session and clear when you reset or close the tab, so note your totals if you want to keep them."
       }
     }
   ]
@@ -404,8 +412,13 @@ main{flex:1; width:100%;}
 
 /* ── SEO/how-to/faq sections shared on tool pages ─────────── */
 .info-block{background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:22px; margin-top:22px; text-align:left;}
-.info-block h2{font-family:var(--display); font-size:1.05rem; margin-bottom:10px;}
+.info-block h2{font-family:var(--display); font-size:1.05rem; margin:18px 0 10px;}
+.info-block h2:first-child{margin-top:0;}
+.info-block h3{font-family:var(--display); font-size:.95rem; margin:14px 0 6px;}
 .info-block p{color:var(--muted); font-size:.86rem; line-height:1.7; margin-bottom:8px;}
+.info-block ul, .info-block ol{color:var(--muted); font-size:.86rem; line-height:1.7; margin:0 0 8px 22px;}
+.info-block li{margin-bottom:4px;}
+.info-block a{color:var(--accent); text-decoration:underline;}
 
 /* ── Footer ─────────────────────────────────────────────── */
 footer{border-top:1px solid var(--border); text-align:center; padding:28px 20px 22px; font-size:.78rem; color:var(--muted); margin-top:24px;}
@@ -451,28 +464,47 @@ footer a:hover{color:var(--text);}
 <main id="app"></main>
 
 <section class="info-block">
-      <h1>Free Online Lap & Split Timer</h1>
-    <p>A lap (or split) timer is a stopwatch enhanced with the ability to record multiple intermediate times without stopping the main clock &mdash; each "lap" captures the time at that moment while the overall stopwatch keeps running. This is the standard tool for anything with repeated segments, like laps around a track or splits in a race, where you want both the total time and the time for each individual segment.</p>
-
-      <h2>Common Uses for a Lap Timer</h2>
-      <ul>
-      <li><strong>Running and track workouts</strong> &mdash; recording each lap of an interval session to compare pace consistency</li>
-      <li><strong>Swimming</strong> &mdash; timing individual lengths within a longer set</li>
-      <li><strong>Speedrunning</strong> &mdash; capturing segment times within a full run to spot where time was gained or lost</li>
-      <li><strong>Manufacturing and process timing</strong> &mdash; measuring how long each repeated step in a workflow takes</li>
-      <li><strong>Driving or cycling routes</strong> &mdash; recording checkpoint times on a longer route</li>
-      </ul>
-
-      <h2>Frequently Asked Questions</h2>
-    <h3>What's the difference between a "lap" and a "split"?</h3>
-    <p>A lap time is the duration of that individual segment alone (e.g. 1:32 for lap 3). A split time is the cumulative time from the start up to that point (e.g. 4:36 total after lap 3). StopwatchPro's lap panel shows both so you can see per-segment pace and running total side by side.</p>
-
-    <h3>How does it highlight my fastest and slowest laps?</h3>
-    <p>The lap list automatically marks your best (fastest) lap and worst (slowest) lap so you can spot pacing patterns &mdash; useful for interval training where consistency matters as much as raw speed.</p>
-
-    <h3>Is there a limit to how many laps I can record?</h3>
-    <p>No hard limit &mdash; the lap list scrolls, so you can record as many splits as your session requires.</p>
-    </section>
+  <h2>What Is a Lap &amp; Split Timer?</h2>
+  <p>A lap (or split) timer is a stopwatch that can record intermediate times without stopping the main clock. Each time you press the lap button, the time at that moment is captured while the overall stopwatch keeps running. It is the standard tool for anything with repeated segments, like laps around a track or legs of a race, where you want the total time and the time for each segment.</p>
+  <p>StopwatchPro's lap timer uses your browser's high-resolution timer and runs on a phone, tablet or computer with no download and no account.</p>
+  <h2>Lap Time vs. Split Time</h2>
+<p>The two numbers describe the same run in different ways. A <strong>lap time</strong> is how long one segment took, measured from the previous press. A <strong>split time</strong> is the total elapsed time at the moment you press, measured from the start.</p>
+<p>Say you run four 400 m laps and press lap at 1:32, 3:05, 4:36 and 6:02 on the clock. Those are your split times. Your lap times are 1:32, 1:33, 1:31 and 1:26. The laps show you sped up at the end, and the final split gives your total time. StopwatchPro's lap panel shows both so you can read per-segment pace and running total side by side.</p>
+  <h2>How to Time a Session</h2>
+<ol>
+<li><strong>Start the clock</strong> as you cross your starting line, or as the first segment begins.</li>
+<li><strong>Press lap</strong> at the end of every segment. The main clock keeps running.</li>
+<li><strong>Press stop</strong> at the finish, then review the list. The fastest and slowest laps are marked for you.</li>
+<li><strong>Reset</strong> to clear the laps and start a new session. Laps are kept only for the current session.</li>
+</ol>
+  <h2>Common Uses for a Lap Timer</h2>
+<ul>
+<li><strong>Running and track workouts:</strong> record each lap of an interval session to compare pace consistency.</li>
+<li><strong>Swimming:</strong> time individual lengths within a longer set and see how your pace fades.</li>
+<li><strong>Speedrunning:</strong> capture segment times within a full run to spot where time was gained or lost.</li>
+<li><strong>Manufacturing and process timing:</strong> measure how long each repeated step in a workflow takes.</li>
+<li><strong>Driving or cycling routes:</strong> record checkpoint times on a longer route.</li>
+</ul>
+  <h2>Reading Your Results</h2>
+<p>A single fast lap matters less than the pattern across all of them. In a steady-pace session, laps within a couple of seconds of each other are a good sign. A first lap much faster than the rest usually means you started too hard. Laps that get steadily slower point to fatigue or poor pacing. In interval training the aim is often the reverse: repeat the same lap time across every rep, so look at the gap between your best and worst lap, not just the best one.</p>
+<p>Because the last digit of any hand-timed number depends on your reaction time, compare sessions only when you press at the same point each time, such as the moment your chest crosses the line.</p>
+  <h2>Tips for Better Lap Timing</h2>
+<ul>
+<li>Press on a consistent cue, like a foot crossing a cone, rather than guessing.</li>
+<li>Keep the tab visible and the screen awake during longer sessions, since browsers can slow background tabs to save battery.</li>
+<li>For a fixed rest between efforts, pair this with the <a href="interval-timer.html">interval timer</a>. For a plain start-to-finish measurement, use the <a href="stopwatch.html">stopwatch</a>.</li>
+<li>Write down your totals after each session if you want to track progress over weeks, since laps clear on reset.</li>
+</ul>
+  <h2>Frequently Asked Questions</h2>
+  <h3>What's the difference between a "lap" and a "split"?</h3>
+  <p>A lap time is the duration of that individual segment alone (for example 1:32 for lap 3). A split time is the cumulative time from the start up to that point (for example 4:36 total after lap 3). StopwatchPro's lap panel shows both so you can see per-segment pace and running total side by side.</p>
+  <h3>How does it highlight my fastest and slowest laps?</h3>
+  <p>The lap list automatically marks your best (fastest) lap and worst (slowest) lap so you can spot pacing patterns. This is useful for interval training, where consistency matters as much as raw speed.</p>
+  <h3>Is there a limit to how many laps I can record?</h3>
+  <p>No hard limit. The lap list scrolls, so you can record as many splits as your session requires.</p>
+  <h3>Are my laps saved after I close the page?</h3>
+  <p>No. Lap times exist only in your current session and clear when you reset or close the tab, so note your totals if you want to keep them.</p>
+</section>
 
 <footer>
   <p>&copy; <span id="year">2026</span> StopwatchPro &nbsp;|&nbsp;

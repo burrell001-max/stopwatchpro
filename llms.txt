@@ -19,7 +19,17 @@ StopwatchPro runs entirely in the browser and works on desktop, tablet, and mobi
 - Sports coaching and interval training
 
 ## Pages
-- [Home](https://stopwatchpro.xyz/): The stopwatch and lap timer tool itself
+- [Home](https://stopwatchpro.xyz/): Overview of all timer tools
+- [Stopwatch](https://stopwatchpro.xyz/stopwatch.html): Stopwatch with laps and splits
+- [Lap & Split Timer](https://stopwatchpro.xyz/splits.html): Record laps and splits, with fastest and slowest highlighted
+- [Countdown Timer](https://stopwatchpro.xyz/countdown-timer.html): Countdown from a set duration, with saved timers
+- [Interval Timer](https://stopwatchpro.xyz/interval-timer.html): Named work/rest steps for HIIT, circuits and study cycles
+- [Alarm Clock](https://stopwatchpro.xyz/alarm.html): Multiple named alarms with selectable sounds
+- [Digital Clock](https://stopwatchpro.xyz/clock.html): Large full-screen clock with date
+- [Chess Clock](https://stopwatchpro.xyz/chess-clock.html): Two-sided game clock
+- [Metronome](https://stopwatchpro.xyz/metronome.html): 30-240 BPM with tap tempo and visual pulse
+- [Tally Counter](https://stopwatchpro.xyz/tally-counter.html): Tap counter with keyboard shortcuts
+- [How to Use](https://stopwatchpro.xyz/how-to-use.html): Guide to the tools
 - [FAQ](https://stopwatchpro.xyz/faq.html): Frequently asked questions about the tool
 - [About](https://stopwatchpro.xyz/about.html): About StopwatchPro
 - [Privacy](https://stopwatchpro.xyz/privacy.html): Privacy policy

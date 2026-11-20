@@ -36,7 +36,7 @@
       "name": "Does the chess clock support time increments?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes, you can add an increment (extra seconds added to a player's clock after each move), matching common formats like Fischer or Bronstein increments used in standard timed chess."
+        "text": "No. It gives each player a fixed number of minutes with no added time per move, which suits sudden-death games such as 3-minute or 5-minute blitz."
       }
     },
     {
@@ -44,7 +44,7 @@
       "name": "What happens when a player's time runs out?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "That side's clock stops at zero and is visually marked (e.g. highlighted in red) to indicate they've run out of time, per standard chess clock convention."
+        "text": "The clocks stop when either side reaches zero. A side that is down to 30 seconds or less is highlighted as a low-time warning."
       }
     },
     {
@@ -52,7 +52,15 @@
       "name": "Can I set different starting times for each player?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes, each side's starting time can be configured independently, which is useful for handicap games where one player is given less time than the other."
+        "text": "No. The \"minutes per side\" setting applies to both players equally."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use it for games other than chess?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Any two-player game with turns, such as Go, Scrabble or a debate, can use it to cap and share thinking time, as long as a fixed time per side suits the game."
       }
     }
   ]
@@ -404,8 +412,13 @@ main{flex:1; width:100%;}
 
 /* ── SEO/how-to/faq sections shared on tool pages ─────────── */
 .info-block{background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:22px; margin-top:22px; text-align:left;}
-.info-block h2{font-family:var(--display); font-size:1.05rem; margin-bottom:10px;}
+.info-block h2{font-family:var(--display); font-size:1.05rem; margin:18px 0 10px;}
+.info-block h2:first-child{margin-top:0;}
+.info-block h3{font-family:var(--display); font-size:.95rem; margin:14px 0 6px;}
 .info-block p{color:var(--muted); font-size:.86rem; line-height:1.7; margin-bottom:8px;}
+.info-block ul, .info-block ol{color:var(--muted); font-size:.86rem; line-height:1.7; margin:0 0 8px 22px;}
+.info-block li{margin-bottom:4px;}
+.info-block a{color:var(--accent); text-decoration:underline;}
 
 /* ── Footer ─────────────────────────────────────────────── */
 footer{border-top:1px solid var(--border); text-align:center; padding:28px 20px 22px; font-size:.78rem; color:var(--muted); margin-top:24px;}
@@ -451,27 +464,45 @@ footer a:hover{color:var(--text);}
 <main id="app"></main>
 
 <section class="info-block">
-      <h1>Free Online Chess Clock</h1>
-    <p>A chess clock (or game clock) gives each of two players their own countdown timer, where only one side's clock runs at a time &mdash; pressing a button stops your own clock and starts your opponent's. It's used to enforce time limits in chess and other turn-based games so that thinking time is fairly and clearly divided between both players.</p>
-
-      <h2>Common Uses for a Chess Clock</h2>
-      <ul>
-      <li><strong>Casual and competitive chess</strong> &mdash; enforcing a time limit per player for a fair, timed game</li>
-      <li><strong>Other turn-based board games</strong> &mdash; any two-player game where you want to cap thinking time per turn</li>
-      <li><strong>Debate practice</strong> &mdash; allocating and tracking speaking time between two sides</li>
-      <li><strong>Turn-based classroom activities</strong> &mdash; giving each participant an equal, tracked amount of time to respond</li>
-      </ul>
-
-      <h2>Frequently Asked Questions</h2>
-    <h3>Does the chess clock support time increments?</h3>
-    <p>Yes, you can add an increment (extra seconds added to a player's clock after each move), matching common formats like Fischer or Bronstein increments used in standard timed chess.</p>
-
-    <h3>What happens when a player's time runs out?</h3>
-    <p>That side's clock stops at zero and is visually marked (e.g. highlighted in red) to indicate they've run out of time, per standard chess clock convention.</p>
-
-    <h3>Can I set different starting times for each player?</h3>
-    <p>Yes, each side's starting time can be configured independently, which is useful for handicap games where one player is given less time than the other.</p>
-    </section>
+  <h2>What Is a Chess Clock?</h2>
+  <p>A chess clock (or game clock) gives each of two players a separate countdown timer, and only one side's clock runs at a time. Pressing your button stops your own clock and starts your opponent's. It enforces time limits in chess and other turn-based games so that thinking time is divided fairly and clearly between both players.</p>
+  <h2>How to Use the Chess Clock</h2>
+<ol>
+<li><strong>Set the minutes per side.</strong> Both players start with the same amount of time.</li>
+<li><strong>Press start game.</strong> Player 1's clock begins to run.</li>
+<li><strong>Tap your side after each move</strong> to stop your clock and start your opponent's.</li>
+<li><strong>Watch the low-time warning.</strong> A side's clock is highlighted when it has 30 seconds or less. When any clock reaches zero, the game stops.</li>
+<li><strong>Pause or reset</strong> at any time, for example to settle a dispute over a move.</li>
+</ol>
+  <h2>Common Time Controls</h2>
+<p>Chess time controls are usually grouped by the total time each player has:</p>
+<ul>
+<li><strong>Bullet:</strong> one minute per side, or a little more. Extremely fast.</li>
+<li><strong>Blitz:</strong> roughly 3 to 5 minutes per side, such as 5 minutes with no increment.</li>
+<li><strong>Rapid:</strong> roughly 10 to 25 minutes per side, such as 15 minutes plus 10 seconds per move.</li>
+<li><strong>Classical:</strong> 60 minutes or more per side, often with an increment.</li>
+</ul>
+<p>Tournaments publish their control in a short form such as "90+30", meaning 90 minutes plus a 30-second increment per move.</p>
+  <h2>About Increments: Fischer and Bronstein</h2>
+<p>An <strong>increment</strong> adds time to a player's clock after each move, which avoids frantic last-second scrambles. With a <strong>Fischer</strong> increment, the full increment is added after every move, so you can end a move with more time than you started it with. With a <strong>Bronstein</strong> delay, you get back only the time you actually used on that move, up to the delay amount, so your clock never grows. Fischer is the more common format in online and modern over-the-board play. StopwatchPro's chess clock uses a simple fixed time per side without an increment, so for increment events use a dedicated clock or agree to add time by hand.</p>
+  <h2>Common Uses for an Online Game Clock</h2>
+<ul>
+<li><strong>Casual chess:</strong> enforce a time limit per player for a fair, timed game.</li>
+<li><strong>Other turn-based board games:</strong> Go, Scrabble, shogi, or any two-player game where you want to cap thinking time.</li>
+<li><strong>Debate practice:</strong> allocate and track speaking time between two sides.</li>
+<li><strong>Classroom activities:</strong> give each participant an equal, tracked amount of time to respond.</li>
+<li><strong>Quick club games and lessons:</strong> an instant clock when no physical one is handy.</li>
+</ul>
+  <h2>Frequently Asked Questions</h2>
+  <h3>Does the chess clock support time increments?</h3>
+  <p>No. It gives each player a fixed number of minutes with no added time per move, which suits sudden-death games such as 3-minute or 5-minute blitz.</p>
+  <h3>What happens when a player's time runs out?</h3>
+  <p>The clocks stop when either side reaches zero. A side that is down to 30 seconds or less is highlighted as a low-time warning.</p>
+  <h3>Can I set different starting times for each player?</h3>
+  <p>No. The "minutes per side" setting applies to both players equally.</p>
+  <h3>Can I use it for games other than chess?</h3>
+  <p>Yes. Any two-player game with turns, such as Go, Scrabble or a debate, can use it to cap and share thinking time, as long as a fixed time per side suits the game.</p>
+</section>
 
 <footer>
   <p>&copy; <span id="year">2026</span> StopwatchPro &nbsp;|&nbsp;
