@@ -42,3 +42,8 @@ StopwatchPro runs entirely in the browser and works on desktop, tablet, and mobi
 - [Chess time controls explained](https://stopwatchpro.xyz/guide-chess-time-controls.html): What the numbers in a time control mean, how the formats differ and which one suits your game.
 - [Pomodoro technique with a timer](https://stopwatchpro.xyz/guide-pomodoro-technique.html): How the technique works, how to run it with a countdown timer or interval timer, and ways to adapt it.
 - [Metronome practice guide](https://stopwatchpro.xyz/guide-metronome-practice.html): What BPM means, how to choose a tempo, and a routine for building speed without losing accuracy.
+- [Timing practice exams](https://stopwatchpro.xyz/guide-time-practice-exams.html): Budget your time per question, record section splits as you go, and use the results to fix pacing before the real exam.
+- [How long to steep tea](https://stopwatchpro.xyz/guide-how-long-to-steep-tea.html): Recommended steep times and water temperatures by tea type, and how to time them accurately.
+- [Timing a speech or presentation](https://stopwatchpro.xyz/guide-time-a-speech-or-presentation.html): Estimate length from your word count, rehearse with a stopwatch and use a visible countdown on the day.
+- [Rest between sets](https://stopwatchpro.xyz/guide-rest-between-sets.html): Typical rest periods for strength, muscle growth and endurance work, and a simple way to time them.
+- [Timers in the classroom](https://stopwatchpro.xyz/guide-timers-in-the-classroom.html): Ways to use a visible timer for transitions, group work, quizzes and turn-taking, with tips for projector use.

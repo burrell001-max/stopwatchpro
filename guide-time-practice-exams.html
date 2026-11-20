@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How to Time Yourself on Practice Exams | StopwatchPro</title>
+  <meta name="description" content="A practical method for timing practice exams: set a per-question budget, track sections with lap splits, and review where your time actually goes." />
+  <link rel="canonical" href="https://stopwatchpro.xyz/guide-time-practice-exams.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "How to Time Yourself on Practice Exams",
+  "description": "A practical method for timing practice exams: set a per-question budget, track sections with lap splits, and review where your time actually goes.",
+  "dateModified": "2026-11-19",
+  "datePublished": "2026-11-19",
+  "author": {
+    "@type": "Organization",
+    "name": "StopwatchPro"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "StopwatchPro"
+  },
+  "mainEntityOfPage": "https://stopwatchpro.xyz/guide-time-practice-exams.html"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I decide how long to spend per question?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Subtract a few minutes for reading and review from the total time, then divide what remains by the number of questions. If questions carry different marks, divide by marks instead."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I use a countdown timer or a stopwatch for practice exams?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use a stopwatch with laps to see where your time goes, and a countdown timer when you want to practise stopping at a hard time limit."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are my section times saved?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Lap times exist only for your current session and clear on reset, so write down your times after each practice paper."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What should I do if I run out of time in practice?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Mark the section that took too long, practise that question type separately under a timer, and set a firm rule for when to move on."
+      }
+    }
+  ]
+}
+</script>
+
+  <style>
+    :root {
+      --sans: 'Inter', system-ui, sans-serif;
+      --mono: 'Share Tech Mono', monospace;
+      --radius: 12px;
+  --bg: #ffffff;
+  --surface: #f4f8fc;
+  --border: #d6e4f0;
+  --accent: #1e6fa8;
+  --accent2: #0d4d78;
+  --text: #1a1a1a;
+  --muted: #5a6b7a;
+  --danger: #e0304a;
+  --lap-alt: #eaf2fa;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: var(--sans); min-height: 100vh; display: grid; grid-template-rows: auto 1fr auto; line-height: 1.7; }
+    header { display: flex; align-items: center; justify-content: space-between; padding: 18px 32px; border-bottom: 1px solid var(--border); }
+    .logo { font-family: var(--mono); font-size: 1.25rem; color: var(--accent); letter-spacing: 0.06em; text-decoration: none; }
+    nav a { color: var(--muted); text-decoration: none; font-size: 0.85rem; margin-left: 24px; }
+    nav a:hover { color: var(--text); }
+    main { max-width: 760px; margin: 0 auto; padding: 48px 24px; }
+    .page-tag { font-family: var(--mono); font-size: 0.75rem; color: var(--accent); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 12px; }
+    h1 { font-size: 2rem; font-weight: 600; margin-bottom: 18px; line-height: 1.25; }
+    .lede { color: var(--muted); font-size: 1.02rem; margin-bottom: 28px; }
+    article h2 { font-size: 1.25rem; font-weight: 600; margin: 32px 0 10px; }
+    article p { margin-bottom: 14px; }
+    article ul, article ol { margin: 0 0 16px 24px; }
+    article li { margin-bottom: 6px; }
+    article a, .card a { color: var(--accent); }
+    table { width: 100%; border-collapse: collapse; margin: 8px 0 18px; font-size: 0.9rem; }
+    th, td { border: 1px solid var(--border); padding: 8px 10px; text-align: left; }
+    th { background: var(--surface); }
+    .cta { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px 24px; margin: 32px 0; }
+    .cta a.btn { display: inline-block; margin-top: 8px; background: var(--accent); color: #fff; text-decoration: none; padding: 9px 18px; border-radius: 8px; font-weight: 600; font-size: 0.9rem; }
+    .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 22px 26px; margin-bottom: 16px; }
+    .card h2 { font-size: 1.1rem; margin-bottom: 6px; }
+    .card h2 a { text-decoration: none; }
+    .card p { color: var(--muted); font-size: 0.92rem; margin: 0; }
+    footer { border-top: 1px solid var(--border); text-align: center; padding: 20px; font-size: 0.78rem; color: var(--muted); }
+    footer a { color: var(--muted); margin: 0 6px; }
+    @media (max-width: 600px) { header { padding: 14px 16px; } main { padding: 28px 16px; } h1 { font-size: 1.5rem; } th, td { padding: 6px; } }
+  </style>
+</head>
+<body>
+<header>
+  <a href="index.html" class="logo">⏱ StopwatchPro</a>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="guides.html">Guides</a>
+    <a href="faq.html">FAQ</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+<main>
+  <div class="page-tag">Guide</div>
+  <article>
+  <h1>How to Time Yourself on Practice Exams</h1>
+  <p class="lede">Budget your time per question, record section splits as you go, and use the results to fix pacing before the real exam.</p>
+<p>Many students know the material and still lose marks because they run out of time. Pacing is a skill, and like any skill it improves with practice under realistic conditions. Timing your practice exams shows you where the minutes go, so you can change your approach before the real thing.</p>
+
+<h2>Step 1: Build a time budget</h2>
+<p>Start with the total time and the number of marks or questions. Set aside a few minutes for reading instructions at the start and for checking your answers at the end, then divide the rest.</p>
+<p>For example, a 90-minute exam with 60 questions and a 10-minute reserve for review leaves 80 minutes, or 80 seconds per question on average. If the questions are not equal in value, weight the budget by marks instead. A 2-mark question might get 2 minutes and a 10-mark question 10 minutes.</p>
+<table>
+<thead><tr><th>Exam length</th><th>Questions</th><th>Review reserve</th><th>Average per question</th></tr></thead>
+<tbody>
+<tr><td>60 min</td><td>40</td><td>5 min</td><td>1 min 22 s</td></tr>
+<tr><td>90 min</td><td>60</td><td>10 min</td><td>1 min 20 s</td></tr>
+<tr><td>120 min</td><td>4 essays</td><td>10 min</td><td>27 min 30 s</td></tr>
+<tr><td>180 min</td><td>100</td><td>15 min</td><td>1 min 39 s</td></tr>
+</tbody>
+</table>
+
+<h2>Step 2: Time the whole paper with section splits</h2>
+<ol>
+<li>Open the <a href="splits.html">lap and split timer</a> and press Start when you begin the paper.</li>
+<li>Press Lap at the end of each section, or after every 10 questions on a long multiple-choice paper.</li>
+<li>When you finish, press Stop and read the list. The lap shows how long each section took, and the split shows the total time at that point.</li>
+<li>Note which laps are the fastest and slowest, since the timer highlights them.</li>
+</ol>
+<p>If a section took twice as long as its budget, you have found your pacing problem.</p>
+
+<h2>Step 3: Use a countdown for strict sections</h2>
+<p>For a hard time limit, such as a 40-minute essay in a 2-hour paper, use the <a href="countdown-timer.html">countdown timer</a> and stop writing when it sounds. Practising the discipline of stopping and moving on is useful in itself, because on exam day an unfinished essay and an unattempted one both lose marks, and a later question may be quicker marks.</p>
+
+<h2>Reading your results</h2>
+<ul>
+<li><strong>Early sections slow, later sections rushed:</strong> you are spending too long on early questions. Set a rule, such as "if I am stuck for more than a minute and a half, mark it and move on".</li>
+<li><strong>Everything finishes with plenty of time to spare:</strong> you may be able to slow down and read more carefully, or tackle the hardest questions first.</li>
+<li><strong>One section far over budget:</strong> practise that question type separately, with a timer, until its pace matches.</li>
+</ul>
+
+<h2>Tips for realistic practice</h2>
+<ul>
+<li>Do practice papers in one sitting, at the same time of day as the real exam if you can.</li>
+<li>Use only the materials allowed in the exam. Do not pause the timer to look something up.</li>
+<li>Write down your section times after each paper. Laps clear when you reset the timer, so keep your own record.</li>
+<li>Go back through mistakes after you finish. Time pressure causes careless errors, so note which type you made.</li>
+<li>Keep the tab visible and your device awake. Browsers can slow timers in background tabs.</li>
+</ul>
+
+<h2>A simple exam-day rule of thumb</h2>
+<p>Glance at the clock at fixed checkpoints, for instance after every quarter of the exam time, and compare it with where you should be. If you are behind, speed up on the next question rather than rushing everything that remains.</p>
+  <div class="cta"><strong>Try it now.</strong><br>Open the free online lap and split timer. No download or sign-up needed.<br><a class="btn" href="splits.html">Open the lap and split timer</a></div>
+  <h2>Frequently Asked Questions</h2>
+<h3>How do I decide how long to spend per question?</h3>
+<p>Subtract a few minutes for reading and review from the total time, then divide what remains by the number of questions. If questions carry different marks, divide by marks instead.</p>
+<h3>Should I use a countdown timer or a stopwatch for practice exams?</h3>
+<p>Use a stopwatch with laps to see where your time goes, and a countdown timer when you want to practise stopping at a hard time limit.</p>
+<h3>Are my section times saved?</h3>
+<p>No. Lap times exist only for your current session and clear on reset, so write down your times after each practice paper.</p>
+<h3>What should I do if I run out of time in practice?</h3>
+<p>Mark the section that took too long, practise that question type separately under a timer, and set a firm rule for when to move on.</p>
+
+  <h2>More guides</h2>
+  <ul><li><a href="guide-tabata-hiit-timer.html">Tabata and HIIT timer setup</a></li><li><a href="guide-pacing-a-5k.html">Pacing a 5K with lap splits</a></li><li><a href="guide-chess-time-controls.html">Chess time controls explained</a></li><li><a href="guide-pomodoro-technique.html">Pomodoro technique with a timer</a></li><li><a href="guide-metronome-practice.html">Metronome practice guide</a></li><li><a href="guide-how-long-to-steep-tea.html">How long to steep tea</a></li><li><a href="guide-time-a-speech-or-presentation.html">Timing a speech or presentation</a></li><li><a href="guide-rest-between-sets.html">Rest between sets</a></li><li><a href="guide-timers-in-the-classroom.html">Timers in the classroom</a></li><li><a href="guides.html">All guides</a></li></ul>
+  </article>
+</main>
+<footer>
+  <p>&copy; 2026 StopwatchPro &nbsp;|&nbsp;
+    <a href="guides.html">Guides</a>
+    <a href="faq.html">FAQ</a>
+    <a href="how-to-use.html">How to Use</a>
+    <a href="about.html">About</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="terms.html">Terms</a>
+    <a href="contact.html">Contact</a>
+  </p>
+</footer>
+</body>
+</html>
