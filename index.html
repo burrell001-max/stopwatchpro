@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script>
+  // Redirect /index.html (and /index) to the canonical root URL, preserving query string and hash.
+  (function(){var p=location.pathname;if(/\/index(\.html)?$/.test(p)){location.replace(p.replace(/index(\.html)?$/,'')+location.search+location.hash);}})();
+</script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-4QM7BFWC5G"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -443,7 +447,7 @@ footer a:hover{color:var(--text);}
 </head>
 <body>
 <header class="site-header">
-  <a href="index.html" class="logo"><span class="dot">&#9201;</span> StopwatchPro</a>
+  <a href="/" class="logo"><span class="dot">&#9201;</span> StopwatchPro</a>
   <nav class="primary-nav" id="primaryNav"></nav>
   <div class="header-actions">
     <select id="langSelect" aria-label="Language">
