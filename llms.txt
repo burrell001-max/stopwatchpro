@@ -23,6 +23,9 @@ StopwatchPro runs entirely in the browser and works on desktop, tablet, and mobi
 - [Stopwatch](https://stopwatchpro.xyz/stopwatch.html): Stopwatch with laps and splits
 - [Lap & Split Timer](https://stopwatchpro.xyz/splits.html): Record laps and splits, with fastest and slowest highlighted
 - [Countdown Timer](https://stopwatchpro.xyz/countdown-timer.html): Countdown from a set duration, with saved timers
+- [Lap Timer](https://stopwatchpro.xyz/lap-timer.html): Record every lap with the clock still running, fastest and slowest highlighted
+- [Pomodoro Timer](https://stopwatchpro.xyz/pomodoro-timer.html): Focus, short break and long break cycle with adjustable lengths
+- [Exam Timer](https://stopwatchpro.xyz/exam-timer.html): Countdown presets from 30 minutes to 3 hours with warnings at 10, 5 and 1 minute
 - [Interval Timer](https://stopwatchpro.xyz/interval-timer.html): Named work/rest steps for HIIT, circuits and study cycles
 - [Alarm Clock](https://stopwatchpro.xyz/alarm.html): Multiple named alarms with selectable sounds
 - [Digital Clock](https://stopwatchpro.xyz/clock.html): Large full-screen clock with date

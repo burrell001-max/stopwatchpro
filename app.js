@@ -178,6 +178,8 @@ const PAGE_SLUGS = {
   metronome:'metronome', chess:'chess-clock', tally:'tally-counter',
 };
 const SLUG_TO_ID = Object.fromEntries(Object.entries(PAGE_SLUGS).map(([id,slug])=>[slug,id]));
+/* Extra landing pages that reuse an engine under a search-specific page. Not in nav. */
+const VARIANT_SLUGS = { 'lap-timer':'stopwatch', 'exam-timer':'countdown', 'pomodoro-timer':'pomodoro' };
 function toolHref(id){ return (PAGE_SLUGS[id]||id) + '.html'; }
 
 function toolLabel(id){ return t('nav_'+id); }
@@ -344,6 +346,21 @@ function setToolAccent(id){
   const userAccent = getComputedStyle(root).getPropertyValue('--accent-user').trim();
   if(tool){
     root.style.setProperty('--accent', userAccent || `var(${tool.color})`);
+  } else if(id==='pomodoro'){
+    root.style.setProperty('--accent', userAccent || '#e0304a');
+  }
+}
+
+/* Per-page overrides declared on <body>: data-h1, data-hide-engine-info */
+function applyVariant(){
+  const h1 = document.body.getAttribute('data-h1');
+  if(h1 && LANG==='en'){
+    const el = document.querySelector('.tool-title h1');
+    if(el){ el.textContent = h1; el.removeAttribute('data-i18n'); }
+  }
+  if(document.body.hasAttribute('data-hide-engine-info')){
+    const ib = document.querySelector('.tool-shell > .info-block');
+    if(ib) ib.remove();
   }
 }
 
@@ -358,13 +375,13 @@ function render(){
   // instead of falling through to the homepage.
   if(!route){
     const pageSlug = document.body.getAttribute('data-tool');
-    if(pageSlug && SLUG_TO_ID[pageSlug]) route = SLUG_TO_ID[pageSlug];
+    if(pageSlug) route = SLUG_TO_ID[pageSlug] || VARIANT_SLUGS[pageSlug] || '';
   }
 
   currentToolApi = {};
 
   if(!route){ setToolAccent('stopwatch'); renderHome(); }
-  else if(TOOLS.find(x=>x.id===route)){ setToolAccent(route); VIEWS[route](); insertToolAdSlot(); }
+  else if(VIEWS[route]){ setToolAccent(route); VIEWS[route](); insertToolAdSlot(); applyVariant(); }
   else { renderHome(); }
 
   // runs after the view above (each view rebuilds the nav via buildNav()),
@@ -609,8 +626,12 @@ function countdownView(){
     return amount * (map[unit]||1);
   }
   function draw(){ timeEl.textContent = fmtCountdown(remaining); }
+  const WARN = (document.body.getAttribute('data-warnings')||'').split(',').map(Number).filter(Boolean);
+  let endAt = 0;
   function tickDown(){
-    remaining -= 1;
+    const prev = remaining;
+    remaining = Math.max(0, Math.ceil((endAt - Date.now())/1000));
+    if(remaining>0 && WARN.some(w=>prev>w && remaining<=w && w<totalSec)) SOUNDS.digital();
     if(remaining<=0){ remaining=0; draw(); doStop(); playAlertLoop(); statusEl.textContent='0:00'; return; }
     draw();
   }
@@ -618,7 +639,8 @@ function countdownView(){
   function doStart(){
     if(remaining<=0) return;
     running=true; btnStart.textContent=t('stop'); btnStart.classList.add('btn-danger'); statusEl.textContent=t('running');
-    iv = setInterval(tickDown, 1000);
+    endAt = Date.now() + remaining*1000;
+    iv = setInterval(tickDown, 250);
   }
   function doStop(){
     running=false; if(iv) clearInterval(iv); btnStart.textContent=t('resume'); btnStart.classList.remove('btn-danger'); statusEl.textContent=t('paused');
@@ -669,6 +691,21 @@ function countdownView(){
 
   document.getElementById('fsBtn').addEventListener('click', ()=>{ toggleFullscreen(container); fsExit.style.display='block'; });
   fsExit.addEventListener('click', ()=>document.exitFullscreen && document.exitFullscreen());
+
+  const presetAttr = document.body.getAttribute('data-presets');
+  if(presetAttr){
+    const row = document.createElement('div');
+    row.className = 'controls-row';
+    row.style.flexWrap = 'wrap';
+    presetAttr.split(',').map(Number).filter(Boolean).forEach(min=>{
+      const b = document.createElement('button');
+      b.className = 'btn btn-ghost';
+      b.textContent = min<60 ? min+' min' : (min%60===0 ? (min/60)+' h' : (min/60)+' h');
+      b.addEventListener('click', ()=>{ totalSec=min*60; remaining=totalSec; doReset(); });
+      row.appendChild(b);
+    });
+    container.querySelector('.dropdown-row').before(row);
+  }
 
   draw(); renderSaved();
   currentToolApi = { start:doToggle, reset:doReset, fullscreen:()=>document.getElementById('fsBtn').click() };
@@ -1132,6 +1169,98 @@ function tallyView(){
   currentTeardown = null;
 }
 
+
+/* ---------------------------------------------------------
+   POMODORO TIMER  (focus / short break / long break cycle)
+--------------------------------------------------------- */
+function pomodoroView(){
+  const cfg = Object.assign({focus:25, short:5, long:15, every:4}, store('sp_pomodoro')||{});
+  const baseTitle = document.title;
+  app.innerHTML = `
+  <div class="tool-shell" id="pmContainer">
+    <div class="tool-header">
+      <div class="tool-title"><span class="ti">🍅</span><h1>Pomodoro Timer</h1></div>
+      <div class="tool-actions"><button id="fsBtn">⛶ <span data-i18n="fullscreen">Full screen</span></button></div>
+    </div>
+    <div class="tool-card">
+      <button class="fs-exit" id="fsExit" style="display:none;">✕</button>
+      <div class="status-label" id="pmPhase">Focus</div>
+      <div class="big-display" id="pmTime" role="timer" aria-live="polite">25:00</div>
+      <div class="status-label" id="pmCycle"></div>
+      <div class="controls-row">
+        <button class="btn btn-primary" id="btnStart" data-i18n="start">Start</button>
+        <button class="btn btn-ghost" id="btnSkip">Skip</button>
+        <button class="btn btn-ghost" id="btnReset" data-i18n="reset">Reset</button>
+      </div>
+      <div class="field-row" style="flex-wrap:wrap;gap:14px;justify-content:center;">
+        <label class="si-sub">Focus (min)<br><input class="text-input" style="max-width:90px;text-align:center;" id="pmFocus" type="number" min="1" max="180" value="${cfg.focus}"></label>
+        <label class="si-sub">Short break<br><input class="text-input" style="max-width:90px;text-align:center;" id="pmShort" type="number" min="1" max="60" value="${cfg.short}"></label>
+        <label class="si-sub">Long break<br><input class="text-input" style="max-width:90px;text-align:center;" id="pmLong" type="number" min="1" max="90" value="${cfg.long}"></label>
+        <label class="si-sub">Sessions per round<br><input class="text-input" style="max-width:90px;text-align:center;" id="pmEvery" type="number" min="1" max="12" value="${cfg.every}"></label>
+      </div>
+    </div>
+  </div>`;
+  buildNav();
+
+  const NAMES = {focus:'Focus', short:'Short break', long:'Long break'};
+  const $ = id => document.getElementById(id);
+  let phase='focus', done=0, running=false, iv=null, endAt=0;
+  const secs = p => Math.max(1, cfg[p]||1) * 60;
+  let remaining = secs('focus');
+  const mmss = s => pad(Math.floor(s/60)) + ':' + pad(s%60);
+
+  function draw(){
+    $('pmTime').textContent = mmss(remaining);
+    $('pmPhase').textContent = NAMES[phase];
+    $('pmCycle').textContent = phase==='focus'
+      ? 'Session ' + (done % cfg.every + 1) + ' of ' + cfg.every
+      : done + ' focus session' + (done===1?'':'s') + ' done';
+    document.title = running ? mmss(remaining) + ' · ' + NAMES[phase] + ' | StopwatchPro' : baseTitle;
+  }
+  function next(){
+    if(phase==='focus'){ done++; phase = (done % cfg.every===0) ? 'long' : 'short'; SOUNDS.chime(); }
+    else { phase='focus'; SOUNDS.digital(); }
+    remaining = secs(phase);
+    if(running) endAt = Date.now() + remaining*1000;
+    draw();
+  }
+  function tick(){
+    remaining = Math.max(0, Math.ceil((endAt-Date.now())/1000));
+    if(remaining<=0) next(); else draw();
+  }
+  function start(){
+    running=true; endAt = Date.now()+remaining*1000; iv=setInterval(tick,250);
+    $('btnStart').textContent=t('stop'); $('btnStart').classList.add('btn-danger'); draw();
+  }
+  function stop(){
+    running=false; if(iv) clearInterval(iv);
+    $('btnStart').textContent=t('resume'); $('btnStart').classList.remove('btn-danger'); draw();
+  }
+  function toggle(){ running ? stop() : start(); }
+  function reset(){
+    stop(); phase='focus'; done=0; remaining=secs('focus');
+    $('btnStart').textContent=t('start'); draw();
+  }
+  $('btnStart').addEventListener('click', toggle);
+  $('btnSkip').addEventListener('click', next);
+  $('btnReset').addEventListener('click', reset);
+  [['pmFocus','focus',180],['pmShort','short',60],['pmLong','long',90],['pmEvery','every',12]].forEach(([id,key,max])=>{
+    $(id).addEventListener('change', e=>{
+      cfg[key] = Math.min(max, Math.max(1, Math.round(+e.target.value||1)));
+      e.target.value = cfg[key];
+      store('sp_pomodoro', cfg);
+      if(!running && key!=='every') remaining = secs(phase);
+      draw();
+    });
+  });
+  $('fsBtn').addEventListener('click', ()=>{ toggleFullscreen($('pmContainer')); $('fsExit').style.display='block'; });
+  $('fsExit').addEventListener('click', ()=>document.exitFullscreen && document.exitFullscreen());
+
+  draw();
+  currentToolApi = { start:toggle, reset, fullscreen:()=>$('fsBtn').click() };
+  currentTeardown = ()=>{ if(iv) clearInterval(iv); document.title = baseTitle; };
+}
+
 /* ---------------------------------------------------------
    16. VIEW MAP + GLOBAL KEYBOARD SHORTCUTS
 --------------------------------------------------------- */
@@ -1145,6 +1274,7 @@ const VIEWS = {
   metronome:metronomeView,
   chess:chessView,
   tally:tallyView,
+  pomodoro:pomodoroView,
 };
 
 document.addEventListener('keydown', (e)=>{
