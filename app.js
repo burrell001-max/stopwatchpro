@@ -16,8 +16,8 @@ const I18N = {
     nav_alarm:"Alarm", nav_metronome:"Metronome", nav_chess:"Chess Clock", nav_tally:"Tally Counter",
     nav_faq:"FAQ", nav_about:"About", nav_privacy:"Privacy", nav_contact:"Contact",
     hero_eyebrow:"Free · No sign-up · Works offline",
-    hero_title:"Every timer tool you need, in one clean place.",
-    hero_sub:"Stopwatch, countdown, intervals, alarms and more — fast, distraction-free, and built for presentations, workouts, classrooms and meetings.",
+    hero_title:"Free Online Stopwatch, Countdown Timer & Interval Timer",
+    hero_sub:"Every timer tool you need, in one clean place: stopwatch, countdown, intervals, alarms and more — fast, distraction-free, and built for presentations, workouts, classrooms and meetings.",
     quick_access:"Quick access",
     start:"Start", stop:"Stop", pause:"Pause", resume:"Resume", reset:"Reset", lap:"Lap", split:"Split",
     fullscreen:"Full screen", exit_fullscreen:"Exit full screen",
@@ -431,7 +431,7 @@ function renderHome(){
   app.innerHTML = `
   <section class="hero">
     <div class="hero-eyebrow" data-i18n="hero_eyebrow">Free · No sign-up · Works offline</div>
-    <h1 data-i18n="hero_title">Every timer tool you need, in one clean place.</h1>
+    <h1 data-i18n="hero_title">Free Online Stopwatch, Countdown Timer &amp; Interval Timer</h1>
     <p data-i18n="hero_sub">Stopwatch, countdown, intervals, alarms and more — fast, distraction-free, and built for presentations, workouts, classrooms and meetings.</p>
 
     <div class="primary-tools">
