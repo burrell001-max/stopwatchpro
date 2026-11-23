@@ -1,20 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-4QM7BFWC5G"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  // Consent defaults for EEA/UK/CH visitors. Must run before gtag('config').
-  // If you enable Google's Privacy & messaging in AdSense, it updates these automatically.
-  gtag('consent', 'default', {
-    ad_storage: 'denied', analytics_storage: 'denied',
-    ad_user_data: 'denied', ad_personalization: 'denied',
-    region: ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH'],
-    wait_for_update: 500
+(function(){
+  var loaded=false;
+  function load(){
+    if(loaded) return; loaded=true;
+    var s=document.createElement('script');
+    s.async=true; s.src='https://www.googletagmanager.com/gtag/js?id=G-4QM7BFWC5G';
+    document.head.appendChild(s);
+    window.dataLayer=window.dataLayer||[];
+    function gtag(){dataLayer.push(arguments);}
+    window.gtag=gtag;
+    gtag('js', new Date());
+    gtag('config','G-4QM7BFWC5G');
+  }
+  ['pointerdown','keydown','scroll','touchstart'].forEach(function(e){
+    window.addEventListener(e, load, {once:true, passive:true});
   });
-  gtag('js', new Date());
-  gtag('config', 'G-4QM7BFWC5G');
+  setTimeout(load, 5000);
+})();
 </script>
 
 <meta charset="UTF-8" />
@@ -51,7 +56,8 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600&display=swap"></noscript>
 
 <style>
 /* ══════════════════════════════════════════════════════════════
@@ -529,6 +535,6 @@ footer a:hover{color:var(--text);}
   </div>
 </div>
 
-<script src="app.js"></script>
+<script src="app.js" defer></script>
 </body>
 </html>
