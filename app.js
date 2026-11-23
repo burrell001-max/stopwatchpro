@@ -218,7 +218,7 @@ const PRESETS = [
   {bg:'#0c0f14', text:'#eef1f5', accent:'#00d4ff'},
   {bg:'#101913', text:'#e8f5e9', accent:'#37b24d'},
   {bg:'#1a0f1a', text:'#f9e8ff', accent:'#c026d3'},
-  {bg:'#fff8f0', text:'#3a2418', accent:'#ff6b4a'},
+  {bg:'#fff8f0', text:'#3a2418', accent:'#c25238'},
 ];
 function renderPresets(){
   const wrap = document.getElementById('themePresets');
@@ -347,7 +347,7 @@ function setToolAccent(id){
   if(tool){
     root.style.setProperty('--accent', userAccent || `var(${tool.color})`);
   } else if(id==='pomodoro'){
-    root.style.setProperty('--accent', userAccent || '#e0304a');
+    root.style.setProperty('--accent', userAccent || '#dc2f49');
   }
 }
 
@@ -596,7 +596,7 @@ function countdownView(){
       </div>
 
       <div class="dropdown-row">
-        <select id="unitSelect">
+        <select id="unitSelect" aria-label="Countdown unit">
           <option value="s">${t('countdown_units_s')}</option>
           <option value="m" selected>${t('countdown_units_m')}</option>
           <option value="h">${t('countdown_units_h')}</option>
@@ -605,7 +605,7 @@ function countdownView(){
           <option value="mo">${t('countdown_units_mo')}</option>
           <option value="y">${t('countdown_units_y')}</option>
         </select>
-        <input class="text-input" style="max-width:100px;font-family:var(--mono);text-align:center;" id="unitAmount" type="number" min="1" value="1">
+        <input class="text-input" style="max-width:100px;font-family:var(--mono);text-align:center;" id="unitAmount" type="number" min="1" value="1" aria-label="Countdown amount">
         <button class="btn btn-ghost" id="btnApply">Set</button>
       </div>
       <div class="field-row">
@@ -766,7 +766,7 @@ function intervalView(){
     builder.innerHTML = steps.map((s,i)=>`
       <div class="step-row" data-i="${i}">
         <input type="text" value="${s.name}" data-f="name" placeholder="${t('step_name')}">
-        <input type="number" class="step-dur" value="${s.seconds}" min="1" data-f="seconds">
+        <input type="number" class="step-dur" value="${s.seconds}" min="1" data-f="seconds" aria-label="Step duration in seconds">
         <button data-act="rm" title="${t('delete')}">✕</button>
       </div>`).join('');
     builder.querySelectorAll('.step-row').forEach(row=>{
@@ -891,11 +891,11 @@ function alarmView(){
       <div class="big-display" id="alNext">—</div>
 
       <div class="field-row" style="margin-top:26px;">
-        <div class="field"><label data-i18n="alarm_time">Time</label><input type="time" id="alTime"></div>
+        <div class="field"><label for="alTime" data-i18n="alarm_time">Time</label><input type="time" id="alTime"></div>
       </div>
       <div class="field-row">
         <input class="text-input" style="max-width:220px;" id="alLabel" placeholder="${t('alarm_label')}">
-        <select id="alSound">
+        <select id="alSound" aria-label="Alarm sound">
           <option value="beep">Beep</option>
           <option value="chime">Chime</option>
           <option value="digital">Digital</option>
@@ -998,7 +998,7 @@ function metronomeView(){
       <button class="fs-exit" id="fsExit" style="display:none;">✕</button>
       <div class="metro-visual" id="metroVisual"></div>
       <div class="metro-bpm" id="bpmDisplay">100 <small style="font-size:.4em;color:var(--muted);" data-i18n="bpm">BPM</small></div>
-      <input type="range" class="metro-slider" id="bpmSlider" min="30" max="240" value="100">
+      <input type="range" class="metro-slider" id="bpmSlider" min="30" max="240" value="100" aria-label="Tempo, beats per minute">
       <div class="controls-row">
         <button class="btn btn-primary" id="btnStart" data-i18n="start">Start</button>
         <button class="btn btn-ghost" id="btnTap" data-i18n="metronome_tap">Tap tempo</button>
@@ -1059,7 +1059,7 @@ function chessView(){
     <div class="tool-card">
       <button class="fs-exit" id="fsExit" style="display:none;">✕</button>
       <div class="field-row">
-        <div class="field"><label data-i18n="chess_minutes">Minutes per side</label><input type="number" id="chMinutes" value="5" min="1"></div>
+        <div class="field"><label for="chMinutes" data-i18n="chess_minutes">Minutes per side</label><input type="number" id="chMinutes" value="5" min="1"></div>
       </div>
       <div class="controls-row" style="margin-top:14px;">
         <button class="btn btn-primary" id="chStart" data-i18n="chess_start">Start game</button>
