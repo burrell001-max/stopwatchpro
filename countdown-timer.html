@@ -18,7 +18,7 @@
   ['pointerdown','keydown','scroll','touchstart'].forEach(function(e){
     window.addEventListener(e, load, {once:true, passive:true});
   });
-  setTimeout(load, 5000);
+  if(window.requestIdleCallback){requestIdleCallback(load,{timeout:10000});}else{setTimeout(load,5000);}
 })();
 </script>
 

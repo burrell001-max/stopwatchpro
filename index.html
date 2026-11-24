@@ -22,11 +22,11 @@
   ['pointerdown','keydown','scroll','touchstart'].forEach(function(e){
     window.addEventListener(e, load, {once:true, passive:true});
   });
-  setTimeout(load, 5000);
+  if(window.requestIdleCallback){requestIdleCallback(load,{timeout:10000});}else{setTimeout(load,5000);}
 })();
 </script>
 
-<!-- Google AdSense (lazy: loaded on first interaction, off the critical path) -->
+<!-- Google AdSense (lazy: loaded on first user interaction, never on the critical path) -->
 <script>
 (function(){
   var loaded=false;
@@ -38,12 +38,12 @@
     s.src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5783852883880667';
     document.head.appendChild(s);
   }
-  ['pointerdown','keydown','scroll','touchstart'].forEach(function(e){
+  ['pointerdown','pointermove','keydown','scroll','touchstart'].forEach(function(e){
     window.addEventListener(e, load, {once:true, passive:true});
   });
-  setTimeout(load, 10000);
 })();
 </script>
+
 
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
